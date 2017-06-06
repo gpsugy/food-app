@@ -2,7 +2,9 @@ import React from 'react';
 
 const LocationFinder = () => (
   <div>
-  	<h2>I am a location finder</h2>
+  	<h2>Hi! I am a Food Bot. I'm here to help you find what <em>you</em> want to eat!</h2>
+  	<h2>First, I'll need to know where you are!</h2>
+  	<button type="button">Find My Location</button>
   </div>
 )
 
