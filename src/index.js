@@ -9,3 +9,25 @@ import registerServiceWorker from './registerServiceWorker';
 
 ReactDOM.render(<App />, document.getElementById('root'));
 registerServiceWorker();
+
+
+// Store State Model {
+// 	places: [
+// 		{
+// 			name:,
+// 			price:,
+// 			rating:,
+// 			distance:
+// 		},
+// 		{
+// 			name:,
+// 			price:,
+// 			rating:,
+// 			distance:
+// 		}
+// 	],
+// 	user: [
+// 		location:,
+// 		tastes:
+// 	]
+// }
