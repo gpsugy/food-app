@@ -1,9 +1,14 @@
+import { Route, Switch } from 'react-router-dom';
 import React from 'react';
 
+import LocationFinder from './LocationFinder';
+
 const App = () => (
-  <div>
-    <h1>Init</h1>
-  </div>
+  <main>
+    <Switch>
+      <Route exact path='/' component={LocationFinder} />
+    </Switch>
+  </main>
 )
 
 export default App;
