@@ -36,7 +36,7 @@ registerServiceWorker();
 // 	],
 // 	user: {
 // 		location:,
-// 		tastes:
+// 		foodTypes: []
 // 	},
 	// fetching:
 // }
