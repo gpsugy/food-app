@@ -10,8 +10,8 @@ export function fetchLocationSuccess(location) {
 	return {
 		type: FETCH_LOCATION_SUCCESS,
 		location: {
-			lat: location.lat,
-			lng: location.lng
+			latitude: location.latitude,
+			longitude: location.longitude
 		}
 	}
 }
@@ -23,10 +23,27 @@ export function fetchLocationError(error) {
 	}
 }
 
-// Google Geolocation API Key: AIzaSyAAhPjB4nv3GV-alzYp6NlGN2dpnjSxHWI
+export function fetchUserLocation(repo) {
+	return (dispatch) => {
+		var options = {
+			enableHighAccuracy: false,
+			timeout: 15000,
+			maximumAge: 0
+		};
 
-// export function fetchUserLocation() {
-// 	return {
-// 		type: FETCH_USER_LOCATION
-// 	}
-// }
+		navigator.geolocation.getCurrentPosition((pos) => {
+				var crd = pos.coords;
+				console.log('Your current position is:');
+				console.log(`Latitude : ${crd.latitude}`);
+				console.log(`Longitude: ${crd.longitude}`);
+				console.log(`More or less ${crd.accuracy} meters.`);
+				dispatch(fetchLocationSuccess(crd));
+			}, (err) => {
+				// alert(`ERROR(${err.code}): ${err.message}`);
+				dispatch(fetchLocationError(err.message));
+			}, options
+		);
+	}
+}
+
+// Google Geolocation API Key: AIzaSyAAhPjB4nv3GV-alzYp6NlGN2dpnjSxHWI
