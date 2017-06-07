@@ -1,1 +1,2 @@
-export * from './Location.js'
+export * from './Location'
+export * from './FoodType'
