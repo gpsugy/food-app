@@ -1,9 +1,8 @@
-import fetch from 'isomorphic-fetch';
-
 // action types
 export const FETCH_USER_LOCATION = 'FETCH_USER_LOCATION';
 export const FETCH_LOCATION_SUCCESS = 'FETCH_LOCATION_SUCCESS';
 export const FETCH_LOCATION_ERROR = 'FETCH_LOCATION_ERROR';
+export const FETCH_LOCATION_REQUEST = 'FETCH_LOCATION_REQUEST';
 
 // action creators
 export function fetchLocationSuccess(location) {
@@ -23,6 +22,12 @@ export function fetchLocationError(error) {
 	}
 }
 
+export function fetchLocationRequest() {
+	return {
+		type: FETCH_LOCATION_REQUEST
+	}
+}
+
 export function fetchUserLocation(repo) {
 	return (dispatch) => {
 		var options = {
@@ -31,6 +36,9 @@ export function fetchUserLocation(repo) {
 			maximumAge: 0
 		};
 
+		// set fetching state to true
+		dispatch(fetchLocationRequest());
+		
 		navigator.geolocation.getCurrentPosition((pos) => {
 				var crd = pos.coords;
 				console.log('Your current position is:');

@@ -1,13 +1,10 @@
-import nock from 'nock'
+import configureMockStore from 'redux-mock-store'
 import thunk from 'redux-thunk'
 
-import configureMockStore from 'redux-mock-store'
-
 import {
-  FETCH_LOCATION_SUCCESS,
   fetchLocationError,
+  fetchLocationRequest,
   fetchLocationSuccess,
-  fetchUserLocation,
 } from '../actions';
 import { user } from './index';
 
@@ -26,7 +23,8 @@ describe('(Reducer) User', () => {
 			{
 				location: {
 					latitude: loc.latitude,
-					longitude: loc.longitude
+					longitude: loc.longitude,
+					fetching: false
 				}
 			}
 		);
@@ -43,7 +41,27 @@ describe('(Reducer) User', () => {
 			user({}, fetchLocationError(loc))
 		).toEqual(
 			{
-				location: null
+				location: {
+					latitude: null,
+					longitude: null,
+					fetching: false
+				}
+			}
+		);
+	})
+});
+
+describe('(Reducer) User', () => {
+	it('return user object with on fetching = true on FETCH_LOCATION_REQUEST', () => {
+		expect(
+			user({}, fetchLocationRequest())
+		).toEqual(
+			{
+				location: {
+					latitude: null,
+					longitude: null,
+					fetching: true
+				}
 			}
 		);
 	})

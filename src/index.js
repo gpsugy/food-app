@@ -30,8 +30,9 @@ registerServiceWorker();
 // 			distance:
 // 		}
 // 	],
-// 	user: [
+// 	user: {
 // 		location:,
 // 		tastes:
-// 	]
+// 	},
+	// fetching:
 // }
