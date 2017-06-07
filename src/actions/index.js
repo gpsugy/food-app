@@ -28,7 +28,7 @@ export function fetchLocationRequest() {
 	}
 }
 
-export function fetchUserLocation(repo) {
+export function fetchUserLocation() {
 	return (dispatch) => {
 		var options = {
 			enableHighAccuracy: false,
@@ -38,7 +38,7 @@ export function fetchUserLocation(repo) {
 
 		// set fetching state to true
 		dispatch(fetchLocationRequest());
-		
+
 		navigator.geolocation.getCurrentPosition((pos) => {
 				var crd = pos.coords;
 				console.log('Your current position is:');

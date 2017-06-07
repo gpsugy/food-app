@@ -30,7 +30,6 @@ export const user = (state = {}, action) => {
 export function appReducer(state = {}, action) {
 	return {
 		user: user(state.user, action)
-		// fetching: (action.type === FETCH_LOCATION_REQUEST) ? true : state.fetching;
 	}
 }
 
