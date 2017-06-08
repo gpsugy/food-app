@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { FOOD_TYPES } from '../FoodTypes';
+import { FOOD_TYPES } from '../utility/FoodTypes';
 import FoodTypeContainer from '../containers/FoodTypeContainer';
 
 export default class FoodTypeList extends Component {
