@@ -18,3 +18,7 @@ body {
 	border: 1px solid #ddd;
 	cursor: pointer;
 }
+
+.food-type.selected {
+	background-color: #a5a5a5;
+}

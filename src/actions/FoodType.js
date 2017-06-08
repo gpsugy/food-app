@@ -1,10 +1,10 @@
 // action types
-export const ADD_FOOD_TYPE = 'ADD_FOOD_TYPE';
+export const UPDATE_FOOD_TYPE = 'UPDATE_FOOD_TYPE';
 
 // action creators
-export function addFoodType(foodType) {
+export function updateFoodTypes(foodType) {
 	return {
-		type: ADD_FOOD_TYPE,
+		type: UPDATE_FOOD_TYPE,
 		foodType: foodType
 	}
 }

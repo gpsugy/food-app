@@ -1,11 +1,11 @@
 import { combineReducers } from 'redux';
 
 import {
-  ADD_FOOD_TYPE,
   FETCH_LOCATION_ERROR,
   FETCH_LOCATION_REQUEST,
   FETCH_LOCATION_SUCCESS,
 } from '../actions';
+import { UPDATE_FOOD_TYPE } from '../actions/FoodType';
 
 export const location = (state = {}, action) => {
 	switch (action.type) {
@@ -27,16 +27,38 @@ export const location = (state = {}, action) => {
 	}
 }
 
+const findIndexOf = (arr, elt) => {
+	let index = -1;
+	for (let i=0; i<arr.length; i++) {
+		if (arr[i] === elt) {
+			index = i;
+			break;
+		}
+	}
+
+	return index;
+}
+
+const removeFromArr = (arr, index) => {
+	let before = arr.slice(0, index);
+	let after = arr.slice(index + 1);
+	return before.concat(after);
+}
+
 export const foodTypes = (state = [], action) => {
 	switch (action.type) {
-		case ADD_FOOD_TYPE:
-			// the foodType should not already exist
+		case UPDATE_FOOD_TYPE:
+			// does not exist: add new foodType
 			if (state.indexOf(action.foodType) === -1) {
 				return [
 					...state, action.foodType
 				]
 			}
-			/* falls through */
+			// exists: remove foodType
+			else {
+				let index = findIndexOf(state, action.foodType);
+				return removeFromArr(state, index);
+			}
 		default:
 			return state;
 	}

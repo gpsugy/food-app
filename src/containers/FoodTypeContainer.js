@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import { addFoodType } from '../actions';
+import { updateFoodTypes } from '../actions';
 import FoodType from '../components/FoodType';
 
 const mapStateToProps = (state, ownProps) => {
@@ -20,7 +20,7 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch, ownProps) => {
 	return {
 		handleClick: () => {
-			dispatch(addFoodType(ownProps.foodType));
+			dispatch(updateFoodTypes(ownProps.foodType));
 		}
 	}
 }
