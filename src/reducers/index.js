@@ -30,9 +30,12 @@ export const location = (state = {}, action) => {
 export const foodTypes = (state = [], action) => {
 	switch (action.type) {
 		case ADD_FOOD_TYPE:
-			return [
-				...state, action.foodType
-			]
+			// the foodType should not already exist
+			if (state.indexOf(action.foodType) === -1) {
+				return [
+					...state, action.foodType
+				]
+			}
 		default:
 			return state;
 	}
