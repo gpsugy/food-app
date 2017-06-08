@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+
 import { FOOD_TYPES } from '../FoodTypes';
+import FoodTypeContainer from '../containers/FoodTypeContainer';
 
 export default class FoodTypeList extends Component {
 	constructor(props) {
@@ -10,8 +12,8 @@ export default class FoodTypeList extends Component {
 
 	renderFoodTypes() {
 		return (
-			FOOD_TYPES.map((type) => {
-				return <li key={type}>{type}</li>;
+			FOOD_TYPES.map((type, index) => {
+				return <FoodTypeContainer key={index} foodType={type} />;
 			})
 		)
 	}

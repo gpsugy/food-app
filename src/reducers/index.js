@@ -36,6 +36,7 @@ export const foodTypes = (state = [], action) => {
 					...state, action.foodType
 				]
 			}
+			/* falls through */
 		default:
 			return state;
 	}
