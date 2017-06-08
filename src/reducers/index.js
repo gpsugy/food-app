@@ -6,6 +6,7 @@ import {
   FETCH_LOCATION_SUCCESS,
 } from '../actions';
 import { UPDATE_FOOD_TYPE } from '../actions/FoodType';
+import { findIndexOf, removeFromArr } from '../utility/arrayMethods';
 
 export const location = (state = {}, action) => {
 	switch (action.type) {
@@ -25,24 +26,6 @@ export const location = (state = {}, action) => {
 		default:
 			return state;
 	}
-}
-
-const findIndexOf = (arr, elt) => {
-	let index = -1;
-	for (let i=0; i<arr.length; i++) {
-		if (arr[i] === elt) {
-			index = i;
-			break;
-		}
-	}
-
-	return index;
-}
-
-const removeFromArr = (arr, index) => {
-	let before = arr.slice(0, index);
-	let after = arr.slice(index + 1);
-	return before.concat(after);
 }
 
 export const foodTypes = (state = [], action) => {

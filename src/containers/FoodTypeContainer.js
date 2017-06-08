@@ -1,16 +1,11 @@
 import { connect } from 'react-redux';
 
+import { findIndexOf } from '../utility/arrayMethods';
 import { updateFoodTypes } from '../actions';
 import FoodType from '../components/FoodType';
 
 const mapStateToProps = (state, ownProps) => {
-	let index = -1;
-	for (let i=0; i<state.user.foodTypes.length; i++) {
-		if (state.user.foodTypes[i] === ownProps.foodType) {
-			index = i;
-			break;
-		}
-	}
+	let index = findIndexOf(state.user.foodTypes, ownProps.foodType);
 
 	return {
 		classSelected: index !== -1 ? 'selected' : ''
