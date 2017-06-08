@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import React, { Component } from 'react';
 
 import { FOOD_TYPES } from '../utility/FoodTypes';
@@ -30,6 +31,11 @@ export default class FoodTypeList extends Component {
 						{this.renderFoodTypes()}
 					</ul>
 				</main>
+				<footer>
+					<Link to='/results'>
+						<button type="button">Show Me Where I Can Eat!</button>
+					</Link>
+				</footer>
 			</div>
 		)
 	}
