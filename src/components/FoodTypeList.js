@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import React, { Component } from 'react';
 
 import { FOOD_TYPES } from '../utility/FoodTypes';
@@ -9,6 +8,7 @@ export default class FoodTypeList extends Component {
 		super(props);
 
 		this.renderFoodTypes = this.renderFoodTypes.bind(this);
+		// this.myCallback = this.myCallback.bind(this);
 	}
 
 	renderFoodTypes() {
@@ -19,7 +19,36 @@ export default class FoodTypeList extends Component {
 		)
 	}
 
+	// myCallback(data) {
+	// 	let text = '';
+	// 	console.log(data);
+	// }
+
+	componentWillMount() {
+		// $.ajax({
+		// 	url: 'https:api.yelp.com/businesses/search',
+		// 	dataType: 'jsonp',
+		// 	data: {
+		// 		term: 'Asian',
+		// 		latitude: '42.3322333232323',
+		// 		longitude: '-83.7312938'
+		// 	},
+		// 	success: function(data) {
+		// 		console.log('received jsonp');
+		// 	}
+		// });
+		// $.getJSON('https://api.yelp.com/v3/businesses/search?term=Mexican Asian&latitude=42.25830870000001&longitude=-83.7312938&callback=?', function(result) {
+						// alert(result)});
+  // 		const script = document.createElement('script');
+
+		// script.src = 'https://api.yelp.com/v3/businesses/search?term=Mexican Asian&latitude=42.25830870000001&longitude=-83.7312938&callback=myCallback';
+		// script.async = true;
+
+		// document.body.appendChild(script);
+	}
+
 	render() {
+		const { handleClick } = this.props;
 		return (
 			<div>
 				<header>
@@ -32,9 +61,7 @@ export default class FoodTypeList extends Component {
 					</ul>
 				</main>
 				<footer>
-					<Link to='/results'>
-						<button type="button">Show Me Where I Can Eat!</button>
-					</Link>
+					<button type="button" onClick={handleClick}>Show Me Where I Can Eat!</button>
 				</footer>
 			</div>
 		)

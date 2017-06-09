@@ -20,7 +20,7 @@ ReactDOM.render(
 registerServiceWorker();
 
 // Store State Model {
-// 	places: [
+// 	businesses: [
 // 		{
 // 			name:,
 // 			price:,
