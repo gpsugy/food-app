@@ -38,8 +38,7 @@ export function fetchYelp() {
 			method: 'GET',
 			headers: {
 				'Authorization': 'Bearer B71cf9eZq7_sj_X2p8axs-7rdYcqLR91pgWAb-xpfwQrpgEee9SRzIYaqkElP0xM1jhmQlw515nRnUGddYc7ilYPhKw0jpk_UVa7UDXV8XYW6kHtH3CUeNeg9VE4WXYx'
-			},
-			mode: 'no-cors'
+			}
 		};
 		
 		let url = 'https://api.yelp.com/v3/businesses/search?term=Mexican Asian&latitude=42.25830870000001&longitude=-83.7312938';
