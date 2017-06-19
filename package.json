@@ -1,5 +1,5 @@
 {
-  "name": "shopping-list",
+  "name": "food-app-server",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
@@ -17,7 +17,9 @@
     "babel-preset-stage-2": "^6.24.1",
     "body-parser": "^1.17.2",
     "express": "^4.15.3",
-    "nodemon": "^1.11.0"
+    "nodemon": "^1.11.0",
+    "request": "^2.81.0",
+    "request-json": "^0.6.2"
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",
