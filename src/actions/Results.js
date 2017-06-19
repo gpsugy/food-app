@@ -1,5 +1,3 @@
-import request from 'request';
-
 export const FETCH_BUSINESSES_REQUEST = 'FETCH_BUSINESSES_REQUEST';
 export const FETCH_BUSINESSES_SUCCESS = 'FETCH_BUSINESSES_SUCCESS';
 export const FETCH_BUSINESSES_ERROR = 'FETCH_BUSINESSES_ERROR';
@@ -25,16 +23,16 @@ export function fetchBusinessesRequest() {
 
 export function fetchYelp() {
 	return function(dispatch) {
-		var options = {
-		  url: 'https://api.yelp.com/v3/businesses/search?term=Mexican Asian&latitude=42.25830870000001&longitude=-83.7312938',
-		  headers: {
-		    'Authorization': 'Bearer B71cf9eZq7_sj_X2p8axs-7rdYcqLR91pgWAb-xpfwQrpgEee9SRzIYaqkElP0xM1jhmQlw515nRnUGddYc7ilYPhKw0jpk_UVa7UDXV8XYW6kHtH3CUeNeg9VE4WXYx'
-		  }
-		};
+		// var options = {
+		//   url: 'https://api.yelp.com/v3/businesses/search?term=Mexican Asian&latitude=42.25830870000001&longitude=-83.7312938',
+		//   headers: {
+		//     'Authorization': 'Bearer B71cf9eZq7_sj_X2p8axs-7rdYcqLR91pgWAb-xpfwQrpgEee9SRzIYaqkElP0xM1jhmQlw515nRnUGddYc7ilYPhKw0jpk_UVa7UDXV8XYW6kHtH3CUeNeg9VE4WXYx'
+		//   }
+		// };
 
-		request(options, (err, res, body) => {
-		  console.log(JSON.parse(body));
-		});
+		// request(options, (err, res, body) => {
+		//   console.log(JSON.parse(body));
+		// });
 		// let options = {
 		// 	method: 'GET',
 		// 	headers: {
