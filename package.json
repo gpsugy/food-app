@@ -4,7 +4,9 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "./node_modules/.bin/nodemon lib/server.js --exec ./node_modules/.bin/babel-node",
+    "start": "concurrently \"npm run server\" \"npm run client\"",
+    "server": "./node_modules/.bin/nodemon lib/server.js --exec ./node_modules/.bin/babel-node",
+    "client": "node start-client.js",
     "build": "babel lib -d build",
     "serve": "node build/server.js",
     "test": "mocha --compilers js:babel-register"
@@ -23,6 +25,7 @@
     "babel-register": "^6.24.1",
     "chai": "^4.0.2",
     "chai-http": "^3.0.0",
+    "concurrently": "^3.4.0",
     "nodemon": "^1.11.0"
   }
 }
