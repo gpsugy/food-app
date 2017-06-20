@@ -45,7 +45,7 @@ export function fetchYelp() {
 
 
 		// let url = 'https://api.yelp.com/v3/businesses/search?term=Mexican Asian&latitude=42.25830870000001&longitude=-83.7312938';
-		return fetch(`/business/search`)
+		return fetch(`/businesses/search`)
 			.then(response => {
 				if (response.status < 200 || response.status >= 300) {
 					let error = new Error(response.statusText);
