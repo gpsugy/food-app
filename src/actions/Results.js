@@ -42,20 +42,22 @@ export function fetchYelp() {
 
 		// }
 		
+
+
 		// let url = 'https://api.yelp.com/v3/businesses/search?term=Mexican Asian&latitude=42.25830870000001&longitude=-83.7312938';
-		// return fetch(url, options)
-		// 	.then(response => {
-		// 		if (response.status < 200 || response.status >= 300) {
-		// 			let error = new Error(response.statusText);
-		// 			error.response = response;
-		// 			throw error;
-		// 		}
-		// 		return response;
+		return fetch(`/business/search`)
+			.then(response => {
+				if (response.status < 200 || response.status >= 300) {
+					let error = new Error(response.statusText);
+					error.response = response;
+					throw error;
+				}
+				return response;
 		// 	}).then(response => response.json())
 		// 	.then(json => console.log(json))
 		// 	.catch(error => console.log(error))
-			// }).then(res => console.log(res))
-			// .catch(err => console.log(err)); this is a random comment 2
+			}).then(res => console.log(res))
+			.catch(err => console.log(err));
 			
 			// .then(json => dispatch(fetchDescriptionSuccess(repo, json.description)))
 			// .catch(error => dispatch(fetchDescriptionError(repo, error)))
