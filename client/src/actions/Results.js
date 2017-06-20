@@ -53,11 +53,11 @@ export function fetchYelp() {
 					throw error;
 				}
 				return response;
-		// 	}).then(response => response.json())
-		// 	.then(json => console.log(json))
-		// 	.catch(error => console.log(error))
-			}).then(res => console.log(res))
-			.catch(err => console.log(err));
+			}).then(response => response.json())
+			.then(json => console.log(json))
+			.catch(error => console.log(error))
+			// }).then(res => console.log(res))
+			// .catch(err => console.log(err));
 			
 			// .then(json => dispatch(fetchDescriptionSuccess(repo, json.description)))
 			// .catch(error => dispatch(fetchDescriptionError(repo, error)))
