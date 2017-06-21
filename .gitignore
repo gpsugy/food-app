@@ -9,9 +9,6 @@
 # production
 /build
 
-# Except for production client build
-!client/build/
-
 # misc
 .DS_Store
 .env.local
