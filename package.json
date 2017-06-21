@@ -1,12 +1,14 @@
 {
-  "name": "food-app-server",
+  "name": "food-app",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "concurrently \"npm run server\" \"npm run client\"",
+    "dev": "npm devclient && npm server",
+    "devclient": "node start-client.js",
+    "prod": "npm buildclient && npm server",
+    "buildclient": "node build-client.js",
     "server": "./node_modules/.bin/nodemon lib/server.js --exec ./node_modules/.bin/babel-node",
-    "client": "node start-client.js",
     "build": "babel lib -d build",
     "serve": "node build/server.js",
     "test": "mocha --compilers js:babel-register"
