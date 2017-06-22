@@ -8,7 +8,6 @@ export default class FoodTypeList extends Component {
 		super(props);
 
 		this.renderFoodTypes = this.renderFoodTypes.bind(this);
-		// this.myCallback = this.myCallback.bind(this);
 	}
 
 	renderFoodTypes() {
@@ -17,34 +16,6 @@ export default class FoodTypeList extends Component {
 				return <FoodTypeContainer key={index} foodType={type} />;
 			})
 		)
-	}
-
-	// myCallback(data) {
-	// 	let text = '';
-	// 	console.log(data);
-	// }
-
-	componentWillMount() {
-		// $.ajax({
-		// 	url: 'https:api.yelp.com/businesses/search',
-		// 	dataType: 'jsonp',
-		// 	data: {
-		// 		term: 'Asian',
-		// 		latitude: '42.3322333232323',
-		// 		longitude: '-83.7312938'
-		// 	},
-		// 	success: function(data) {
-		// 		console.log('received jsonp');
-		// 	}
-		// });
-		// $.getJSON('https://api.yelp.com/v3/businesses/search?term=Mexican Asian&latitude=42.25830870000001&longitude=-83.7312938&callback=?', function(result) {
-						// alert(result)});
-  // 		const script = document.createElement('script');
-
-		// script.src = 'https://api.yelp.com/v3/businesses/search?term=Mexican Asian&latitude=42.25830870000001&longitude=-83.7312938&callback=myCallback';
-		// script.async = true;
-
-		// document.body.appendChild(script);
 	}
 
 	render() {
