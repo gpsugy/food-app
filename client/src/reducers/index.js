@@ -1,6 +1,11 @@
 import { combineReducers } from 'redux';
 
 import {
+  FETCH_BUSINESSES_ERROR,
+  FETCH_BUSINESSES_REQUEST,
+  FETCH_BUSINESSES_SUCCESS,
+} from '../actions/Results';
+import {
   FETCH_LOCATION_ERROR,
   FETCH_LOCATION_REQUEST,
   FETCH_LOCATION_SUCCESS,
@@ -47,7 +52,22 @@ export const foodTypes = (state = [], action) => {
 	}
 }
 
+export const businesses = (state = [], action) => {
+	switch (action.type) {
+		case FETCH_BUSINESSES_SUCCESS:
+			return action.results;
+		case FETCH_BUSINESSES_ERROR:
+			console.log(action.error);
+			return state;
+		case FETCH_BUSINESSES_REQUEST:
+			return state;
+		default:
+			return state;
+	}
+}
+
 export const appReducer = combineReducers({
+	businesses: combineReducers({ businesses }),
 	user: combineReducers({
 		location,
 		foodTypes

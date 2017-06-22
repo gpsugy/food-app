@@ -1,15 +1,19 @@
 import { connect } from 'react-redux';
 
-import { fetchYelp } from '../actions/Results';
+import { fetchBusinesses } from '../actions/Results';
 import FoodTypeList from '../components/FoodTypeList';
 
 // const mapStateToProps = (state, ownProps) => {
+// 	console.log(state);
+// 	return {
+// 		businesses: state.businesses
+// 	};
 // }
 
 const mapDispatchToProps = (dispatch, ownProps) => {
 	return {
 		handleClick: () => {
-			dispatch(fetchYelp());
+			dispatch(fetchBusinesses());
 		}
 	}
 }
