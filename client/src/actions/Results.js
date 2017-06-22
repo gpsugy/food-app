@@ -2,14 +2,14 @@ export const FETCH_BUSINESSES_REQUEST = 'FETCH_BUSINESSES_REQUEST';
 export const FETCH_BUSINESSES_SUCCESS = 'FETCH_BUSINESSES_SUCCESS';
 export const FETCH_BUSINESSES_ERROR = 'FETCH_BUSINESSES_ERROR';
 
-export function fetchBusinessSuccess(businesses) {
+export function fetchBusinessesSuccess(businesses) {
 	return {
 		type: FETCH_BUSINESSES_SUCCESS,
 		results: businesses
 	}
 }
 
-export function fetchBusinessError(error) {
+export function fetchBusinessesError(error) {
 	return {
 		type: FETCH_BUSINESSES_ERROR
 	}
@@ -33,8 +33,8 @@ export function fetchBusinesses() {
 				}
 				return response;
 			}).then(response => response.json())
-			.then(json => dispatch(fetchBusinessSuccess(json)))
-			.catch(error => dispatch(fetchBusinessError(error)));
+			.then(json => dispatch(fetchBusinessesSuccess(json)))
+			.catch(error => dispatch(fetchBusinessesError(error)));
 
 			// .then(json => console.log(json))
 			// .catch(error => console.log(error))

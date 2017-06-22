@@ -3,12 +3,11 @@ import { connect } from 'react-redux';
 import { fetchBusinesses } from '../actions/Results';
 import FoodTypeList from '../components/FoodTypeList';
 
-// const mapStateToProps = (state, ownProps) => {
-// 	console.log(state);
-// 	return {
-// 		businesses: state.businesses
-// 	};
-// }
+const mapStateToProps = (state, ownProps) => {
+	return {
+		fetchedBusinesses: (state.businesses !== undefined && state.businesses.length !== 0) ? true : false
+	};
+}
 
 const mapDispatchToProps = (dispatch, ownProps) => {
 	return {
@@ -19,7 +18,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 }
 
 const FoodTypeListContainer = connect(
-	null,
+	mapStateToProps,
 	mapDispatchToProps
 )(FoodTypeList)
 

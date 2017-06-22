@@ -67,7 +67,7 @@ export const businesses = (state = [], action) => {
 }
 
 export const appReducer = combineReducers({
-	businesses: combineReducers({ businesses }),
+	businesses: businesses,
 	user: combineReducers({
 		location,
 		foodTypes

@@ -1,3 +1,4 @@
+import { Redirect } from 'react-router'
 import React, { Component } from 'react';
 
 import { FOOD_TYPES } from '../utility/FoodTypes';
@@ -19,21 +20,27 @@ export default class FoodTypeList extends Component {
 	}
 
 	render() {
-		const { handleClick } = this.props;
+		const { fetchedBusinesses, handleClick } = this.props;
 		return (
 			<div>
-				<header>
-					<h2>What types of food are you in the mood for?</h2>
-					<h3>Select at least one of the following:</h3>
-				</header>
-				<main>
-					<ul className="food-types">
-						{this.renderFoodTypes()}
-					</ul>
-				</main>
-				<footer>
-					<button type="button" onClick={handleClick}>Show Me Where I Can Eat!</button>
-				</footer>
+				{fetchedBusinesses ? (
+					<Redirect to="/results"/>
+				) : (
+				<div>
+					<header>
+						<h2>What types of food are you in the mood for?</h2>
+						<h3>Select at least one of the following:</h3>
+					</header>
+					<main>
+						<ul className="food-types">
+							{this.renderFoodTypes()}
+						</ul>
+					</main>
+					<footer>
+						<button type="button" onClick={handleClick}>Show Me Where I Can Eat!</button>
+					</footer>
+					</div>
+				)}
 			</div>
 		)
 	}
