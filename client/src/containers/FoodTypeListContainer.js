@@ -9,20 +9,11 @@ const mapStateToProps = (state, ownProps) => {
 	};
 }
 
-// const mapDispatchToProps = (dispatch, ownProps) => {
-// 	return {
-// 		handleClick: () => {
-// 			dispatch(fetchBusinesses());
-// 		}
-// 	}
-// }
-
 const mergeProps = (stateProps, dispatchProps, ownProps) => {
 	return {
 		businesses: stateProps.businesses,
 		handleClick: () => {
-			console.log(stateProps.businesses);
-			console.log('interesting');
+			dispatchProps.dispatch(fetchBusinesses());
 		}
 	};
 }
