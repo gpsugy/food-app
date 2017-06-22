@@ -5,21 +5,32 @@ import FoodTypeList from '../components/FoodTypeList';
 
 const mapStateToProps = (state, ownProps) => {
 	return {
-		fetchedBusinesses: (state.businesses !== undefined && state.businesses.length !== 0) ? true : false
+		businesses: state.businesses
 	};
 }
 
-const mapDispatchToProps = (dispatch, ownProps) => {
+// const mapDispatchToProps = (dispatch, ownProps) => {
+// 	return {
+// 		handleClick: () => {
+// 			dispatch(fetchBusinesses());
+// 		}
+// 	}
+// }
+
+const mergeProps = (stateProps, dispatchProps, ownProps) => {
 	return {
+		businesses: stateProps.businesses,
 		handleClick: () => {
-			dispatch(fetchBusinesses());
+			console.log(stateProps.businesses);
+			console.log('interesting');
 		}
-	}
+	};
 }
 
 const FoodTypeListContainer = connect(
 	mapStateToProps,
-	mapDispatchToProps
+	null,
+	mergeProps
 )(FoodTypeList)
 
 export default FoodTypeListContainer
