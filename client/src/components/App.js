@@ -3,14 +3,14 @@ import React from 'react';
 
 import FoodTypeListContainer from '../containers/FoodTypeListContainer';
 import LocationFinderContainer from '../containers/LocationFinderContainer';
-import ResultList from './ResultList';
+import ResultListContainer from '../containers/ResultListContainer';
 
 const App = () => (
   <main>
     <Switch>
       <Route exact path='/' component={LocationFinderContainer} />
       <Route path='/foodTypes' component={FoodTypeListContainer} />
-      <Route path='/results' component={ResultList} />
+      <Route path='/results' component={ResultListContainer} />
     </Switch>
   </main>
 )

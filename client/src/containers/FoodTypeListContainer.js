@@ -5,13 +5,13 @@ import FoodTypeList from '../components/FoodTypeList';
 
 const mapStateToProps = (state, ownProps) => {
 	return {
-		businesses: state.businesses
+		fetched: state.businesses.fetched
 	};
 }
 
 const mergeProps = (stateProps, dispatchProps, ownProps) => {
 	return {
-		businesses: stateProps.businesses,
+		fetched: stateProps.fetched,
 		handleClick: () => {
 			dispatchProps.dispatch(fetchBusinesses());
 		}

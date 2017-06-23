@@ -20,10 +20,10 @@ export default class FoodTypeList extends Component {
 	}
 
 	render() {
-		const { businesses, handleClick } = this.props;
+		const { fetched, handleClick } = this.props;
 		return (
 			<div>
-				{(businesses !== undefined && businesses.length !== 0) ? (
+				{(fetched) ? (
 					<Redirect to="/results"/>
 				) : (
 				<div>

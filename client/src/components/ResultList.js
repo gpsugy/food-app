@@ -1,11 +1,11 @@
 import { Link } from 'react-router-dom';
 import React from 'react';
 
-const ResultList = () => (
+const ResultList = ({ handleClick }) => (
 	<div>
 		<h1>I am a results list</h1>
 		<Link to='/foodTypes'>
-			<button type="button">Go Back</button>
+			<button type="button" onClick={handleClick}>Go Back</button>
 		</Link>
 	</div>
 )

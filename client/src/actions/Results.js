@@ -1,6 +1,7 @@
 export const FETCH_BUSINESSES_REQUEST = 'FETCH_BUSINESSES_REQUEST';
 export const FETCH_BUSINESSES_SUCCESS = 'FETCH_BUSINESSES_SUCCESS';
 export const FETCH_BUSINESSES_ERROR = 'FETCH_BUSINESSES_ERROR';
+export const ALLOW_REFETCH = 'ALLOW_REFETCH';
 
 export function fetchBusinessesSuccess(businesses) {
 	return {
@@ -35,8 +36,11 @@ export function fetchBusinesses() {
 			}).then(response => response.json())
 			.then(json => dispatch(fetchBusinessesSuccess(json)))
 			.catch(error => dispatch(fetchBusinessesError(error)));
+	}
+}
 
-			// .then(json => console.log(json))
-			// .catch(error => console.log(error))
+export function allowRefetch() {
+	return {
+		type: ALLOW_REFETCH
 	}
 }
