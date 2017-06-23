@@ -22,10 +22,10 @@ export function fetchBusinessesRequest() {
 	}
 }
 
-export function fetchBusinesses() {
+export function fetchBusinesses(terms, location) {
 	return (dispatch) => {
 		dispatch(fetchBusinessesRequest());
-		return fetch(`/businesses/search?term=Mexican+Asian&latitude=42.25830870000001&longitude=-83.7312938`)
+		return fetch(`/businesses/search?term=${terms.join('+')}&latitude=${location.latitude}&longitude=${location.longitude}`)
 			.then(response => {
 				if (response.status < 200 || response.status >= 300) {
 					let error = new Error(response.statusText);
