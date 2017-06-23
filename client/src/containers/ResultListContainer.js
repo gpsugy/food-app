@@ -3,8 +3,11 @@ import { connect } from 'react-redux';
 import { allowRefetch } from '../actions/Results';
 import ResultList from '../components/ResultList';
 
-// const mapStateToProps = (state, ownProps) => {
-// }
+const mapStateToProps = (state, ownProps) => {
+	return {
+		results: state.businesses.results
+	};
+}
 
 const mapDispatchToProps = (dispatch) => {
 	return {
@@ -15,7 +18,7 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 const ResultListContainer = connect(
-	null,
+	mapStateToProps,
 	mapDispatchToProps
 )(ResultList)
 
