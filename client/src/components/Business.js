@@ -17,9 +17,19 @@ export default class Business extends Component {
 		const { name, url, rating, review_count, price, categories, distance, image_url } = this.props;
 		return (
 			<li className="biz">
-				<img src={image_url} alt={name} />
+				<div className="img-box">
+					<a href={url} target="_blank" rel="noopener noreferrer">
+						<img src={image_url} alt={name} />
+					</a>
+				</div>
 				<div className="biz-main-info">
-					<h3>{name}</h3>
+					<h3>
+						<span>
+							<a href={url} target="_blank" rel="noopener noreferrer">
+								<span>{name}</span>
+							</a>
+						</span>
+					</h3>
 					<div>
 						<div>Rated {rating} stars</div>
 						<span>{review_count} reviews</span>

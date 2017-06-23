@@ -1,6 +1,5 @@
 body {
   box-sizing: border-box;
-  margin: 0;
   margin-bottom: 300px;
   padding: 0;
   font-family: sans-serif;
@@ -40,6 +39,10 @@ img {
 .biz-main-info {
 	display: inline-block;
 	margin-left: 25px;
+}
+
+.img-box {
+	display: inline-block;
 }
 
 .distance-traits {
