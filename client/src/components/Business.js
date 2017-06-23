@@ -3,6 +3,14 @@ import React, { Component } from 'react';
 export default class Business extends Component {
 	constructor(props) {
 		super(props);
+
+		this.convertToMiles = this.convertToMiles.bind(this);
+	}
+
+	convertToMiles(meters, decimals) {
+		let miles = meters / 1609.344;
+
+		return Number(Math.round(miles+'e'+decimals)+'e-'+decimals);
 	}
 
 	render() {
@@ -22,7 +30,7 @@ export default class Business extends Component {
 					</div>
 				</div>
 				<div className="distance-traits">
-					<span>{distance / 1609.344} miles away</span>
+					<span>{this.convertToMiles(distance, 2)} miles away</span>
 				</div>
 			</li>
 		)
