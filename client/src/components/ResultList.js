@@ -23,7 +23,7 @@ export default class ResultList extends Component {
 		return (
 			<div>
 				<header>
-					<h2>Here are those food places near you!</h2>
+					<h2>Here are your personalized results!</h2>
 				</header>
 				<main>
 					<ul>

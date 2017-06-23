@@ -2,7 +2,7 @@ import React from 'react';
 
 const Business = ({ name, url, rating, review_count, price, categories, distance, image_url }) => (
 	<li className="biz">
-		<img src={image_url}/>
+		<img src={image_url} alt={name} />
 		<div className="biz-main-info">
 			<h3>{name}</h3>
 			<div>
