@@ -9,6 +9,11 @@ ul {
 	list-style-type: none;
 }
 
+img {
+	height: 120px;
+	width: 120px;
+}
+
 .food-types li {
 	padding: 10px 0;
 	margin: 10px 0;
@@ -21,4 +26,22 @@ ul {
 
 .food-type.selected {
 	background-color: #a5a5a5;
+}
+
+.biz {
+	margin-bottom: 20px;
+}
+
+.biz img {
+	display: inline-block;
+}
+
+.biz-main-info {
+	display: inline-block;
+	margin-left: 25px;
+}
+
+.distance-traits {
+	display: inline-block;
+	margin-Left: 300px;
 }
