@@ -1,6 +1,7 @@
 body {
   box-sizing: border-box;
   margin: 0;
+  margin-bottom: 300px;
   padding: 0;
   font-family: sans-serif;
 }
