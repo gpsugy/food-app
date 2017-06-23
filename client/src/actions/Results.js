@@ -25,7 +25,7 @@ export function fetchBusinessesRequest() {
 export function fetchBusinesses() {
 	return (dispatch) => {
 		dispatch(fetchBusinessesRequest());
-		return fetch(`/businesses/search`)
+		return fetch(`/businesses/search?term=Mexican+Asian&latitude=42.25830870000001&longitude=-83.7312938`)
 			.then(response => {
 				if (response.status < 200 || response.status >= 300) {
 					let error = new Error(response.statusText);
