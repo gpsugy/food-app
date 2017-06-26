@@ -78,20 +78,24 @@ export const businesses = (state = {}, action) => {
 }
 
 // sorting: {
-// 	rating: 1,
-// 	price: 0,
-// 	distance: 2 
+// 	rating_si: 1,
+// 	price_si: 0,
+// 	distance_si: 2 
 // }
 export const sorting = (state = {}, action) => {
-	if (action.type === TOGGLE_SORT) {
-		return {
-			...state,
-			[action.category]: (state[action.category] + 1) % SORTING_TYPES.length
+	switch (action.type) {
+		case TOGGLE_SORT:
+			return {
+				...state,
+				[action.category + '_si']: (state[action.category + '_si'] + 1) % SORTING_TYPES.length
+			}
+		// case CONSTRUCT_SORT:
+		// 	return {
+
+		// 	}
+		default:
+			return state;
 		}
-	}
-	else {
-		return state;
-	}
 }
 
 export const appReducer = combineReducers({
