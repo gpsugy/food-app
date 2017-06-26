@@ -6,6 +6,7 @@ import {
   FETCH_BUSINESSES_REQUEST,
   FETCH_BUSINESSES_SUCCESS,
 } from '../actions/Results';
+import { CONSTRUCT_SORT, TOGGLE_SORT } from '../actions/SortingBar';
 import {
   FETCH_LOCATION_ERROR,
   FETCH_LOCATION_REQUEST,
@@ -13,7 +14,6 @@ import {
 } from '../actions';
 import { SORTING_TYPES } from '../utility/SortingTypes';
 import { UPDATE_FOOD_TYPE } from '../actions/FoodType';
-import { TOGGLE_SORT } from '../actions/SortingBar';
 import { findIndexOf, removeFromArr } from '../utility/arrayMethods';
 
 export const location = (state = {}, action) => {
@@ -88,11 +88,13 @@ export const sorting = (state = {}, action) => {
 			return {
 				...state,
 				[action.category + '_si']: (state[action.category + '_si'] + 1) % SORTING_TYPES.length
-			}
-		// case CONSTRUCT_SORT:
-		// 	return {
-
-		// 	}
+			};
+		case CONSTRUCT_SORT:
+			return {
+				rating_si: action.rating_si,
+				price_si: action.price_si,
+				distance_si: action.distance_si
+			};
 		default:
 			return state;
 		}
