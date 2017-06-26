@@ -11,7 +11,9 @@ import {
   FETCH_LOCATION_REQUEST,
   FETCH_LOCATION_SUCCESS,
 } from '../actions';
+import { SORTING_TYPES } from '../utility/SortingTypes';
 import { UPDATE_FOOD_TYPE } from '../actions/FoodType';
+import { TOGGLE_SORT } from '../actions/SortingBar';
 import { findIndexOf, removeFromArr } from '../utility/arrayMethods';
 
 export const location = (state = {}, action) => {
@@ -75,10 +77,28 @@ export const businesses = (state = {}, action) => {
 	}
 }
 
+// sorting: {
+// 	rating: 1,
+// 	price: 0,
+// 	distance: 2 
+// }
+export const sorting = (state = {}, action) => {
+	if (action.type === TOGGLE_SORT) {
+		return {
+			...state,
+			[action.category]: (state[action.category] + 1) % SORTING_TYPES.length
+		}
+	}
+	else {
+		return state;
+	}
+}
+
 export const appReducer = combineReducers({
 	businesses: businesses,
 	user: combineReducers({
 		location,
 		foodTypes
-	})
+	}),
+	sorting: sorting
 })
