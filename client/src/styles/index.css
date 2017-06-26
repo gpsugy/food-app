@@ -47,5 +47,12 @@ img {
 
 .distance-traits {
 	display: inline-block;
-	margin-Left: 300px;
+	margin-left: 300px;
+}
+
+.filter-list li {
+	display: inline;
+	padding: 8px 15px;
+	margin: 0 5px;
+	cursor: pointer;
 }
