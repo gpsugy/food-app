@@ -1,8 +1,8 @@
 import configureMockStore from 'redux-mock-store'
 import thunk from 'redux-thunk'
 
+import { constructSort, toggleSort } from '../actions/SortingBar';
 import { sorting } from './';
-import { toggleSort } from '../actions/SortingBar';
 
 const middlewares = [ thunk ];
 const mockStore = configureMockStore(middlewares);
@@ -50,6 +50,33 @@ describe('(Reducer) Sorting', () => {
 			{
 				rating_si: 1,
 				price_si: 1,
+				distance_si: 2
+			}
+		);
+	});
+
+	it('construct sorting state on CONSTRUCT_SORT', () => {
+		expect(
+			sorting({}, constructSort(1, 0, 2))
+		).toEqual(
+			{
+				rating_si: 1,
+				price_si: 0,
+				distance_si: 2
+			}
+		);
+
+		let state = {
+			rating_si: 1,
+			price_si: 0,
+			distance_si: 2
+		}
+		expect(
+			sorting({}, constructSort(2, 2, 2))
+		).toEqual(
+			{
+				rating_si: 2,
+				price_si: 2,
 				distance_si: 2
 			}
 		);
