@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import React, { Component } from 'react';
 
 import Business from './Business';
-import FilterBar from './FilterBar';
+import SortingBar from './SortingBar';
 
 export default class ResultList extends Component {
 	constructor(props) {
@@ -29,7 +29,7 @@ export default class ResultList extends Component {
 					<h2>Here are your personalized results!</h2>
 				</header>
 				<main>
-					<FilterBar />
+					<SortingBar />
 					<ul>
 						{this.renderResults(results)}
 					</ul>

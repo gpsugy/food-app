@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-export default class FilterBar extends Component {
+export default class SortingBar extends Component {
 	constructor(props) {
 		super(props);
 
@@ -10,7 +10,7 @@ export default class FilterBar extends Component {
 		const {  } = this.props;
 		return (
 			<div>
-				<ul className="filter-list">
+				<ul className="sorting-list">
 					<li><span>Rating ^</span></li>
 					<li><span>Price ^</span></li>
 					<li><span>Distance ^</span></li>
