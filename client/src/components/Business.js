@@ -5,12 +5,26 @@ export default class Business extends Component {
 		super(props);
 
 		this.convertToMiles = this.convertToMiles.bind(this);
+		this.renderCategories = this.renderCategories.bind(this);
 	}
 
 	convertToMiles(meters, decimals) {
 		let miles = meters / 1609.344;
 
 		return Number(Math.round(miles+'e'+decimals)+'e-'+decimals);
+	}
+
+	renderCategories(categories) {
+		let list = '';
+		for (let category of categories) {
+			console.log(category.title);
+			list += category.title + ', ';
+		};
+
+		// truncate last comma and space
+		list = list.substring(0, list.length-2);
+
+		return <span>{list}</span>;
 	}
 
 	render() {
@@ -35,8 +49,8 @@ export default class Business extends Component {
 						<span>{review_count} reviews</span>
 					</div>
 					<div>
-						<span>{price}</span>
-						<span>[categories here]</span>
+						<span>{price}  -  </span>
+						{this.renderCategories(categories)}
 					</div>
 				</div>
 				<div className="distance-traits">
