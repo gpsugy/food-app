@@ -12,11 +12,13 @@ export default class ResultList extends Component {
 	}
 
 	renderResults(results) {
-		return (
-			results.map((result) => {
-				return <Business key={result.id} name={result.name} url={result.url} rating={result.rating} review_count={result.review_count} price={result.price} categories={result.categories} distance={result.distance} image_url={result.image_url} />;
-			})
-		);
+		if (results) {
+			return (
+				results.map((result) => {
+					return <Business key={result.id} name={result.name} url={result.url} rating={result.rating} review_count={result.review_count} price={result.price} categories={result.categories} distance={result.distance} image_url={result.image_url} />;
+				})
+			);
+		}
 	}
 
 	render() {
