@@ -11,10 +11,14 @@ import {
   FETCH_LOCATION_REQUEST,
   FETCH_LOCATION_SUCCESS,
 } from '../actions';
-import { INIT_SORT, TOGGLE_RATING_SORT } from '../actions/FilterBar';
+import {
+  INIT_SORT,
+  SORT_BUSINESSES,
+  TOGGLE_RATING_SORT,
+} from '../actions/FilterBar';
 import { SORTING_TYPES } from '../utility/SortingTypes';
 import { UPDATE_FOOD_TYPE } from '../actions/FoodType';
-import { findIndexOf, removeFromArr } from '../utility/arrayMethods';
+import { findIndexOf, removeFromArr, sortArr } from '../utility/arrayMethods';
 
 export const location = (state = {}, action) => {
 	switch (action.type) {
@@ -71,6 +75,11 @@ export const businesses = (state = {}, action) => {
 			return {
 				...state,
 				fetched: false,
+			};
+		case SORT_BUSINESSES:
+			return {
+				...state,
+				results: sortArr(state.results, action.new_rating_si)
 			};
 		case TOGGLE_RATING_SORT:
 			let updatedSorting = {

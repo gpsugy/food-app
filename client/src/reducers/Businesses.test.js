@@ -1,8 +1,12 @@
 import { allowRefetch, fetchBusinessesSuccess } from '../actions/Results';
 import { businesses } from './';
-import { initSort, toggleRatingSort } from '../actions/FilterBar';
+import {
+  initSort,
+  sortBusinesses,
+  toggleRatingSort,
+} from '../actions/FilterBar';
 
-describe('(Reducer) Businesses', () => {
+describe('(Reducer) Businesses FETCH', () => {
 	it('populate businesses object on FETCH_BUSINESSES_SUCCESS', () => {
 		const results = [
 			{
@@ -95,8 +99,10 @@ describe('(Reducer) Businesses', () => {
 			businesses(init, allowRefetch())
 		).toEqual(expected);
 	});
+});
 
-	it('iterate through SORTING_TYPES array on TOGGLE_SORT', () => {
+describe('(Reduxer) Businesses SORTING object changes', () => {
+	it('increment rating_si on TOGGLE_RATING_SORT', () => {
 		let state = {
 			results: [
 				{
@@ -148,7 +154,7 @@ describe('(Reducer) Businesses', () => {
 		).toEqual(expected);
 	});
 
-	it('re-init sorting state on REINIT_SORT', () => {
+	it('init sorting state on INIT_SORT', () => {
 		let state = {
 			results: [
 				{
@@ -199,5 +205,169 @@ describe('(Reducer) Businesses', () => {
 		expect(
 			businesses(state, initSort())
 		).toEqual(expected);
+	});
+});
+
+describe('(Reducer) Businesses SORTING BUSINESSES', () => {
+	it('sort DESCENDING', () => {
+		let state = {
+			results: [
+			   { id: 'chia-shiang-restaurant-ann-arbor-2',
+			     name: 'Chia Shiang Restaurant',
+			     categories: [ 'Chinese' ],
+			     distance: 318.8331549082,
+			     price: '$$',
+			     rating: 3,
+			     review_count: 94,
+			     url: 'https://www.yelp.com/biz/chia-shiang-restaurant-ann-arbor-2?adjust_creative=3MSgslm41uAxRsSzTz1H9Q&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=3MSgslm41uAxRsSzTz1H9Q',
+			     image_url: 'https://s3-media3.fl.yelpcdn.com/bphoto/vuMYp4llVKcycQySoEAurA/o.jpg' },
+			   { id: 'no-thai-ann-arbor',
+			     name: 'No Thai!',
+			     categories: [ 'Thai' ],
+			     distance: 1813.8360979219997,
+			     price: '$',
+			     rating: 2.5,
+			     review_count: 159,
+			     url: 'https://www.yelp.com/biz/no-thai-ann-arbor?adjust_creative=3MSgslm41uAxRsSzTz1H9Q&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=3MSgslm41uAxRsSzTz1H9Q',
+			     image_url: 'https://s3-media2.fl.yelpcdn.com/bphoto/uO4qodWRlx1e_wqFhZRrzg/o.jpg' },
+			   { id: 'freshii-ann-arbor',
+			     name: 'Freshii',
+			     categories: [ 'Asian' ],
+			     distance: 2058.44724842,
+			     price: '$$',
+			     rating: 4,
+			     review_count: 15,
+			     url: 'https://www.yelp.com/biz/freshii-ann-arbor?adjust_creative=3MSgslm41uAxRsSzTz1H9Q&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=3MSgslm41uAxRsSzTz1H9Q',
+			     image_url: 'https://s3-media1.fl.yelpcdn.com/bphoto/WhSn71EmGDWESD3RThgDDg/o.jpg' },
+			   { id: 'banditos-restaurant-ann-arbor',
+			     name: 'Bandito\'s Restaurant',
+			     categories: [ 'Mexican' ],
+			     distance: 2744.61993488,
+			     price: '$$',
+			     rating: 5,
+			     review_count: 137,
+			     url: 'https://www.yelp.com/biz/banditos-restaurant-ann-arbor?adjust_creative=3MSgslm41uAxRsSzTz1H9Q&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=3MSgslm41uAxRsSzTz1H9Q',
+			     image_url: 'https://s3-media1.fl.yelpcdn.com/bphoto/7IZYUxVEJ3YzTN0wKy-zjQ/o.jpg' }
+			],
+			fetched: true,
+			sorting: {
+				rating_si: 1,
+				price_range: [1,3]
+			}
+		};
+
+		let newBusinesses = businesses(state, sortBusinesses(1));
+		expect(newBusinesses.results[0].id).toEqual('banditos-restaurant-ann-arbor');
+		expect(newBusinesses.results[1].id).toEqual('freshii-ann-arbor');
+		expect(newBusinesses.results[2].id).toEqual('chia-shiang-restaurant-ann-arbor-2');
+		expect(newBusinesses.results[3].id).toEqual('no-thai-ann-arbor');
+	});
+
+	it('sort ASCENDING', () => {
+		let descendingState = {
+			results: [
+			   { id: 'banditos-restaurant-ann-arbor',
+			     name: 'Bandito\'s Restaurant',
+			     categories: [ 'Mexican' ],
+			     distance: 2744.61993488,
+			     price: '$$',
+			     rating: 5,
+			     review_count: 137,
+			     url: 'https://www.yelp.com/biz/banditos-restaurant-ann-arbor?adjust_creative=3MSgslm41uAxRsSzTz1H9Q&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=3MSgslm41uAxRsSzTz1H9Q',
+			     image_url: 'https://s3-media1.fl.yelpcdn.com/bphoto/7IZYUxVEJ3YzTN0wKy-zjQ/o.jpg' },
+			   { id: 'freshii-ann-arbor',
+			     name: 'Freshii',
+			     categories: [ 'Asian' ],
+			     distance: 2058.44724842,
+			     price: '$$',
+			     rating: 4,
+			     review_count: 15,
+			     url: 'https://www.yelp.com/biz/freshii-ann-arbor?adjust_creative=3MSgslm41uAxRsSzTz1H9Q&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=3MSgslm41uAxRsSzTz1H9Q',
+			     image_url: 'https://s3-media1.fl.yelpcdn.com/bphoto/WhSn71EmGDWESD3RThgDDg/o.jpg' },
+			   { id: 'chia-shiang-restaurant-ann-arbor-2',
+			     name: 'Chia Shiang Restaurant',
+			     categories: [ 'Chinese' ],
+			     distance: 318.8331549082,
+			     price: '$$',
+			     rating: 3,
+			     review_count: 94,
+			     url: 'https://www.yelp.com/biz/chia-shiang-restaurant-ann-arbor-2?adjust_creative=3MSgslm41uAxRsSzTz1H9Q&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=3MSgslm41uAxRsSzTz1H9Q',
+			     image_url: 'https://s3-media3.fl.yelpcdn.com/bphoto/vuMYp4llVKcycQySoEAurA/o.jpg' },
+			   { id: 'no-thai-ann-arbor',
+			     name: 'No Thai!',
+			     categories: [ 'Thai' ],
+			     distance: 1813.8360979219997,
+			     price: '$',
+			     rating: 2.5,
+			     review_count: 159,
+			     url: 'https://www.yelp.com/biz/no-thai-ann-arbor?adjust_creative=3MSgslm41uAxRsSzTz1H9Q&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=3MSgslm41uAxRsSzTz1H9Q',
+			     image_url: 'https://s3-media2.fl.yelpcdn.com/bphoto/uO4qodWRlx1e_wqFhZRrzg/o.jpg' }
+			],
+			fetched: true,
+			sorting: {
+				rating_si: 2,
+				price_range: [1,3]
+			}
+		};
+
+		let newBusinesses = businesses(descendingState, sortBusinesses(2));
+		expect(newBusinesses.results[0].id).toEqual('no-thai-ann-arbor');
+		expect(newBusinesses.results[1].id).toEqual('chia-shiang-restaurant-ann-arbor-2');
+		expect(newBusinesses.results[2].id).toEqual('freshii-ann-arbor');
+		expect(newBusinesses.results[3].id).toEqual('banditos-restaurant-ann-arbor');
+	});
+
+	it('sort NO_SORT', () => {
+		let ascendingState = {
+			results: [
+			   { id: 'no-thai-ann-arbor',
+			     name: 'No Thai!',
+			     categories: [ 'Thai' ],
+			     distance: 1813.8360979219997,
+			     price: '$',
+			     rating: 2.5,
+			     review_count: 159,
+			     url: 'https://www.yelp.com/biz/no-thai-ann-arbor?adjust_creative=3MSgslm41uAxRsSzTz1H9Q&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=3MSgslm41uAxRsSzTz1H9Q',
+			     image_url: 'https://s3-media2.fl.yelpcdn.com/bphoto/uO4qodWRlx1e_wqFhZRrzg/o.jpg' },
+			   { id: 'chia-shiang-restaurant-ann-arbor-2',
+			     name: 'Chia Shiang Restaurant',
+			     categories: [ 'Chinese' ],
+			     distance: 318.8331549082,
+			     price: '$$',
+			     rating: 3,
+			     review_count: 94,
+			     url: 'https://www.yelp.com/biz/chia-shiang-restaurant-ann-arbor-2?adjust_creative=3MSgslm41uAxRsSzTz1H9Q&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=3MSgslm41uAxRsSzTz1H9Q',
+			     image_url: 'https://s3-media3.fl.yelpcdn.com/bphoto/vuMYp4llVKcycQySoEAurA/o.jpg' },
+			   { id: 'freshii-ann-arbor',
+			     name: 'Freshii',
+			     categories: [ 'Asian' ],
+			     distance: 2058.44724842,
+			     price: '$$',
+			     rating: 4,
+			     review_count: 15,
+			     url: 'https://www.yelp.com/biz/freshii-ann-arbor?adjust_creative=3MSgslm41uAxRsSzTz1H9Q&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=3MSgslm41uAxRsSzTz1H9Q',
+			     image_url: 'https://s3-media1.fl.yelpcdn.com/bphoto/WhSn71EmGDWESD3RThgDDg/o.jpg' },
+			   { id: 'banditos-restaurant-ann-arbor',
+			     name: 'Bandito\'s Restaurant',
+			     categories: [ 'Mexican' ],
+			     distance: 2744.61993488,
+			     price: '$$',
+			     rating: 5,
+			     review_count: 137,
+			     url: 'https://www.yelp.com/biz/banditos-restaurant-ann-arbor?adjust_creative=3MSgslm41uAxRsSzTz1H9Q&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=3MSgslm41uAxRsSzTz1H9Q',
+			     image_url: 'https://s3-media1.fl.yelpcdn.com/bphoto/7IZYUxVEJ3YzTN0wKy-zjQ/o.jpg' }
+			],
+			fetched: true,
+			sorting: {
+				rating_si: 0,
+				price_range: [2,3]
+			}
+		};
+
+		let newBusinesses = businesses(ascendingState, sortBusinesses(0));
+		expect(newBusinesses.results[0].id).toEqual('banditos-restaurant-ann-arbor');
+		expect(newBusinesses.results[1].id).toEqual('chia-shiang-restaurant-ann-arbor-2');
+		expect(newBusinesses.results[2].id).toEqual('freshii-ann-arbor');
+		expect(newBusinesses.results[3].id).toEqual('no-thai-ann-arbor');
 	});
 });
