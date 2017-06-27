@@ -1,4 +1,4 @@
-import { initSort } from './SortingBar';
+import { initSort } from './FilterBar';
 
 export const FETCH_BUSINESSES_REQUEST = 'FETCH_BUSINESSES_REQUEST';
 export const FETCH_BUSINESSES_SUCCESS = 'FETCH_BUSINESSES_SUCCESS';

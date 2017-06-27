@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import React, { Component } from 'react';
 
 import Business from './Business';
-import SortingBarContainer from '../containers/SortingBarContainer';
+import FilterBarContainer from '../containers/FilterBarContainer';
 
 export default class ResultList extends Component {
 	constructor(props) {
@@ -29,7 +29,7 @@ export default class ResultList extends Component {
 					<h2>Here are your personalized results!</h2>
 				</header>
 				<main>
-					<SortingBarContainer />
+					<FilterBarContainer />
 					<ul>
 						{this.renderResults(results)}
 					</ul>

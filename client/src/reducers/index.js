@@ -11,7 +11,7 @@ import {
   FETCH_LOCATION_REQUEST,
   FETCH_LOCATION_SUCCESS,
 } from '../actions';
-import { INIT_SORT, TOGGLE_RATING_SORT } from '../actions/SortingBar';
+import { INIT_SORT, TOGGLE_RATING_SORT } from '../actions/FilterBar';
 import { SORTING_TYPES } from '../utility/SortingTypes';
 import { UPDATE_FOOD_TYPE } from '../actions/FoodType';
 import { findIndexOf, removeFromArr } from '../utility/arrayMethods';

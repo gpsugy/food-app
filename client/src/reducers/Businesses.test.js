@@ -1,6 +1,6 @@
 import { allowRefetch, fetchBusinessesSuccess } from '../actions/Results';
 import { businesses } from './';
-import { initSort, toggleRatingSort } from '../actions/SortingBar';
+import { initSort, toggleRatingSort } from '../actions/FilterBar';
 
 describe('(Reducer) Businesses', () => {
 	it('populate businesses object on FETCH_BUSINESSES_SUCCESS', () => {

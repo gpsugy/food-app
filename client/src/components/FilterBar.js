@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-export default class SortingBar extends Component {
+export default class FilterBar extends Component {
 	constructor(props) {
 		super(props);
 
@@ -10,7 +10,7 @@ export default class SortingBar extends Component {
 		const { clickRating } = this.props;
 		return (
 			<div>
-				<ul className="sorting-list">
+				<ul className="filter-list">
 					<li onClick={clickRating}><span>Rating ^</span></li>
 					<li><span>Price ^</span></li>
 					<li><span>Distance ^</span></li>

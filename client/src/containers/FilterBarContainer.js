@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import SortingBar from '../components/SortingBar';
+import FilterBar from '../components/FilterBar';
 
 // const mapStateToProps = (state, ownProps) => {
 // 	return {
@@ -17,9 +17,9 @@ const mapDispatchToProps = (dispatch) => {
 	};
 }
 
-const SortingBarContainer = connect(
+const FilterBarContainer = connect(
 	null,
 	mapDispatchToProps
-)(SortingBar)
+)(FilterBar)
 
-export default SortingBarContainer
+export default FilterBarContainer
