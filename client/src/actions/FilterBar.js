@@ -15,9 +15,8 @@ export function initSort() {
 	}
 }
 
-export function sortBusinesses(rating_si) {
+export function sortBusinesses() {
 	return {
-		type: SORT_BUSINESSES,
-		new_rating_si: rating_si
+		type: SORT_BUSINESSES
 	}
 }

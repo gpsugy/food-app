@@ -79,7 +79,7 @@ export const businesses = (state = {}, action) => {
 		case SORT_BUSINESSES:
 			return {
 				...state,
-				results: sortArr(state.results, action.new_rating_si)
+				results: sortArr(state.results, state.sorting.rating_si)
 			};
 		case TOGGLE_RATING_SORT:
 			let updatedSorting = {
