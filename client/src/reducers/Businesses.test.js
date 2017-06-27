@@ -37,11 +37,7 @@ describe('(Reducer) Businesses', () => {
 					image_url: 'https://s3-media1.fl.yelpcdn.com/bphoto/TTf4I5_GLhElpRUH-mXzxw/o.jpg'
 				}
 			],
-			fetched: true,
-			sorting: {
-				rating_si: 1,
-				price_range: [1, 2]
-			}
+			fetched: true
 		};
 		expect(
 			businesses({}, fetchBusinessesSuccess(results))

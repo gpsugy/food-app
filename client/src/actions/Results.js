@@ -1,3 +1,5 @@
+import { initSort } from './SortingBar';
+
 export const FETCH_BUSINESSES_REQUEST = 'FETCH_BUSINESSES_REQUEST';
 export const FETCH_BUSINESSES_SUCCESS = 'FETCH_BUSINESSES_SUCCESS';
 export const FETCH_BUSINESSES_ERROR = 'FETCH_BUSINESSES_ERROR';
@@ -34,7 +36,10 @@ export function fetchBusinesses(terms, location) {
 				}
 				return response;
 			}).then(response => response.json())
-			.then(json => dispatch(fetchBusinessesSuccess(json)))
+			.then(json => {
+				dispatch(fetchBusinessesSuccess(json));
+				dispatch(initSort());
+			})
 			.catch(error => dispatch(fetchBusinessesError(error)));
 	}
 }

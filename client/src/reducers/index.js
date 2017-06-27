@@ -60,11 +60,7 @@ export const businesses = (state = {}, action) => {
 		case FETCH_BUSINESSES_SUCCESS:
 			return {
 				results: action.results,
-				fetched: true,
-				sorting: {
-					rating_si: 1,
-					price_range: [1, 2]
-				}
+				fetched: true
 			};
 		case FETCH_BUSINESSES_ERROR:
 			console.log(action.error);
