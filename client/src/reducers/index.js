@@ -11,7 +11,7 @@ import {
   FETCH_LOCATION_REQUEST,
   FETCH_LOCATION_SUCCESS,
 } from '../actions';
-import { REINIT_SORT, TOGGLE_SORT } from '../actions/SortingBar';
+import { INIT_SORT, TOGGLE_SORT } from '../actions/SortingBar';
 import { SORTING_TYPES } from '../utility/SortingTypes';
 import { UPDATE_FOOD_TYPE } from '../actions/FoodType';
 import { findIndexOf, removeFromArr } from '../utility/arrayMethods';
@@ -62,9 +62,8 @@ export const businesses = (state = {}, action) => {
 				results: action.results,
 				fetched: true,
 				sorting: {
-					rating_si: 2,
-					price_si: 0,
-					distance_si: 0
+					rating_si: 1,
+					price_range: [1, 2]
 				}
 			};
 		case FETCH_BUSINESSES_ERROR:
@@ -86,13 +85,12 @@ export const businesses = (state = {}, action) => {
 				...state,
 				sorting: updatedSorting
 			};
-		case REINIT_SORT:
+		case INIT_SORT:
 			return {
 				...state,
 				sorting: {
-					rating_si: action.rating_si,
-					price_si: action.price_si,
-					distance_si: action.distance_si
+					rating_si: 1,
+					price_range: [1, 2]
 				}
 			};
 		default:
@@ -107,3 +105,7 @@ export const appReducer = combineReducers({
 		foodTypes
 	})
 })
+
+// Sort by rating. Choose category of price. Always sort by distance.
+
+

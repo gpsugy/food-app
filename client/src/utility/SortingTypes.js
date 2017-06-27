@@ -1,9 +1,9 @@
 export const NO_SORT = 'NO_SORT';
-export const ASCENDING = 'ASCENDING';
 export const DESCENDING = 'DESCENDING';
+export const ASCENDING = 'ASCENDING';
 
 export const SORTING_TYPES = [
 	NO_SORT,
-	ASCENDING,
-	DESCENDING
+	DESCENDING,
+	ASCENDING
 ];

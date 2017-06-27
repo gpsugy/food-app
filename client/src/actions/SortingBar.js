@@ -1,5 +1,5 @@
 export const TOGGLE_SORT = 'TOGGLE_SORT';
-export const REINIT_SORT = 'REINIT_SORT';
+export const INIT_SORT = 'INIT_SORT';
 
 export function toggleSort(category) {
 	return {
@@ -9,11 +9,8 @@ export function toggleSort(category) {
 }
 
 // si - "sorting index"
-export function reInitSort(rating_si, price_si, distance_si) {
+export function initSort() {
 	return {
-		type: REINIT_SORT,
-		rating_si: rating_si,
-		price_si: price_si,
-		distance_si: distance_si
+		type: INIT_SORT
 	}
 }

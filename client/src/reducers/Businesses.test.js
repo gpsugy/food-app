@@ -1,6 +1,6 @@
 import { allowRefetch, fetchBusinessesSuccess } from '../actions/Results';
 import { businesses } from './';
-import { reInitSort, toggleSort } from '../actions/SortingBar';
+import { initSort, toggleSort } from '../actions/SortingBar';
 
 describe('(Reducer) Businesses', () => {
 	it('populate businesses object on FETCH_BUSINESSES_SUCCESS', () => {
@@ -39,9 +39,8 @@ describe('(Reducer) Businesses', () => {
 			],
 			fetched: true,
 			sorting: {
-				rating_si: 2,
-				price_si: 0,
-				distance_si: 0
+				rating_si: 1,
+				price_range: [1, 2]
 			}
 		};
 		expect(
@@ -69,9 +68,8 @@ describe('(Reducer) Businesses', () => {
 			],
 			fetched: true,
 			sorting: {
-				rating_si: 1,
-				price_si: 0,
-				distance_si: 2
+				rating_si: 2,
+				price_range: [1, 3],
 			}
 		};
 		const expected = {
@@ -93,9 +91,8 @@ describe('(Reducer) Businesses', () => {
 			],
 			fetched: false,
 			sorting: {
-				rating_si: 1,
-				price_si: 0,
-				distance_si: 2
+				rating_si: 2,
+				price_range: [1, 3],
 			}
 		};
 		expect(
@@ -124,8 +121,7 @@ describe('(Reducer) Businesses', () => {
 			fetched: true,
 			sorting: {
 				rating_si: 1,
-				price_si: 0,
-				distance_si: 2
+				price_range: [1, 3],
 			}
 		};
 		let expected = {
@@ -148,8 +144,7 @@ describe('(Reducer) Businesses', () => {
 			fetched: true,
 			sorting: {
 				rating_si: 2,
-				price_si: 0,
-				distance_si: 2
+				price_range: [1, 3]
 			}
 		};
 		expect(
@@ -177,9 +172,8 @@ describe('(Reducer) Businesses', () => {
 			],
 			fetched: true,
 			sorting: {
-				rating_si: 1,
-				price_si: 2,
-				distance_si: 1
+				rating_si: 0,
+				price_range: [1, 3],
 			}
 		};
 
@@ -202,13 +196,12 @@ describe('(Reducer) Businesses', () => {
 			],
 			fetched: true,
 			sorting: {
-				rating_si: 2,
-				price_si: 0,
-				distance_si: 0
+				rating_si: 1,
+				price_range: [1, 2],
 			}
 		};
 		expect(
-			businesses(state, reInitSort(2, 0, 0))
+			businesses(state, initSort())
 		).toEqual(expected);
 	});
 });
