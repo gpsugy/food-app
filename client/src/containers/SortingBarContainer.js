@@ -8,17 +8,18 @@ import SortingBar from '../components/SortingBar';
 // 	};
 // }
 
-// const mapDispatchToProps = (dispatch) => {
-// 	return {
-// 		handleClick: () => {
-// 			dispatch(allowRefetch());
-// 		}
-// 	};
-// }
+const mapDispatchToProps = (dispatch) => {
+	return {
+		clickRating: () => {
+			// dispatch(allowRefetch());
+			console.log('clicked rating');
+		}
+	};
+}
 
 const SortingBarContainer = connect(
 	null,
-	null
+	mapDispatchToProps
 )(SortingBar)
 
 export default SortingBarContainer
