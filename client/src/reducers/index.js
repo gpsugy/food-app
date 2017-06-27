@@ -6,12 +6,12 @@ import {
   FETCH_BUSINESSES_REQUEST,
   FETCH_BUSINESSES_SUCCESS,
 } from '../actions/Results';
-import { CONSTRUCT_SORT, TOGGLE_SORT } from '../actions/SortingBar';
 import {
   FETCH_LOCATION_ERROR,
   FETCH_LOCATION_REQUEST,
   FETCH_LOCATION_SUCCESS,
 } from '../actions';
+import { REINIT_SORT, TOGGLE_SORT } from '../actions/SortingBar';
 import { SORTING_TYPES } from '../utility/SortingTypes';
 import { UPDATE_FOOD_TYPE } from '../actions/FoodType';
 import { findIndexOf, removeFromArr } from '../utility/arrayMethods';
@@ -60,7 +60,12 @@ export const businesses = (state = {}, action) => {
 		case FETCH_BUSINESSES_SUCCESS:
 			return {
 				results: action.results,
-				fetched: true
+				fetched: true,
+				sorting: {
+					rating_si: 2,
+					price_si: 0,
+					distance_si: 0
+				}
 			};
 		case FETCH_BUSINESSES_ERROR:
 			console.log(action.error);
@@ -70,34 +75,29 @@ export const businesses = (state = {}, action) => {
 		case ALLOW_REFETCH:
 			return {
 				...state,
-				fetched: false
+				fetched: false,
+			};
+		case TOGGLE_SORT:
+			let updatedSorting = {
+				...state.sorting,
+				[action.category + '_si']: (state.sorting[action.category + '_si'] + 1) % SORTING_TYPES.length
+			};
+			return {
+				...state,
+				sorting: updatedSorting
+			};
+		case REINIT_SORT:
+			return {
+				...state,
+				sorting: {
+					rating_si: action.rating_si,
+					price_si: action.price_si,
+					distance_si: action.distance_si
+				}
 			};
 		default:
 			return state;
 	}
-}
-
-// sorting: {
-// 	rating_si: 1,
-// 	price_si: 0,
-// 	distance_si: 2 
-// }
-export const sorting = (state = {}, action) => {
-	switch (action.type) {
-		case TOGGLE_SORT:
-			return {
-				...state,
-				[action.category + '_si']: (state[action.category + '_si'] + 1) % SORTING_TYPES.length
-			};
-		case CONSTRUCT_SORT:
-			return {
-				rating_si: action.rating_si,
-				price_si: action.price_si,
-				distance_si: action.distance_si
-			};
-		default:
-			return state;
-		}
 }
 
 export const appReducer = combineReducers({
@@ -105,6 +105,5 @@ export const appReducer = combineReducers({
 	user: combineReducers({
 		location,
 		foodTypes
-	}),
-	sorting: sorting
+	})
 })

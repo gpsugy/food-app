@@ -7,7 +7,7 @@ export default class SortingBar extends Component {
 	}
 
 	render() {
-		const {  } = this.props;
+		// const {  } = this.props;
 		return (
 			<div>
 				<ul className="sorting-list">
