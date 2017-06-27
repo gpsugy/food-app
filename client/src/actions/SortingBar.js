@@ -1,9 +1,9 @@
-export const TOGGLE_SORT = 'TOGGLE_SORT';
+export const TOGGLE_RATING_SORT = 'TOGGLE_RATING_SORT';
 export const INIT_SORT = 'INIT_SORT';
 
-export function toggleSort(category) {
+export function toggleRatingSort(category) {
 	return {
-		type: TOGGLE_SORT,
+		type: TOGGLE_RATING_SORT,
 		category: category
 	}
 }

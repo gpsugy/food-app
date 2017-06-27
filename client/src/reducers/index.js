@@ -11,7 +11,7 @@ import {
   FETCH_LOCATION_REQUEST,
   FETCH_LOCATION_SUCCESS,
 } from '../actions';
-import { INIT_SORT, TOGGLE_SORT } from '../actions/SortingBar';
+import { INIT_SORT, TOGGLE_RATING_SORT } from '../actions/SortingBar';
 import { SORTING_TYPES } from '../utility/SortingTypes';
 import { UPDATE_FOOD_TYPE } from '../actions/FoodType';
 import { findIndexOf, removeFromArr } from '../utility/arrayMethods';
@@ -72,10 +72,10 @@ export const businesses = (state = {}, action) => {
 				...state,
 				fetched: false,
 			};
-		case TOGGLE_SORT:
+		case TOGGLE_RATING_SORT:
 			let updatedSorting = {
 				...state.sorting,
-				[action.category + '_si']: (state.sorting[action.category + '_si'] + 1) % SORTING_TYPES.length
+				rating_si: (state.sorting.rating_si + 1) % SORTING_TYPES.length
 			};
 			return {
 				...state,

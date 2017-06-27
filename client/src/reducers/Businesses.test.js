@@ -1,6 +1,6 @@
 import { allowRefetch, fetchBusinessesSuccess } from '../actions/Results';
 import { businesses } from './';
-import { initSort, toggleSort } from '../actions/SortingBar';
+import { initSort, toggleRatingSort } from '../actions/SortingBar';
 
 describe('(Reducer) Businesses', () => {
 	it('populate businesses object on FETCH_BUSINESSES_SUCCESS', () => {
@@ -144,7 +144,7 @@ describe('(Reducer) Businesses', () => {
 			}
 		};
 		expect(
-			businesses(state, toggleSort('rating'))
+			businesses(state, toggleRatingSort('rating'))
 		).toEqual(expected);
 	});
 
