@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 
+import { toggleRatingSort } from '../actions/FilterBar';
 import FilterBar from '../components/FilterBar';
 
 // const mapStateToProps = (state, ownProps) => {
@@ -11,8 +12,7 @@ import FilterBar from '../components/FilterBar';
 const mapDispatchToProps = (dispatch) => {
 	return {
 		clickRating: () => {
-			// dispatch(allowRefetch());
-			console.log('clicked rating');
+			dispatch(toggleRatingSort());
 		}
 	};
 }
