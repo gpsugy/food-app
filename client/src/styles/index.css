@@ -63,4 +63,15 @@ img {
 
 .price-filters {
 	display: inline-block;
+	cursor: pointer;
+}
+
+.price-filters li {
+	display: inline-block;
+	padding: 5px 10px;
+	border: 1px solid gray;
+}
+
+.price-selected {
+	background-color: gray;
 }

@@ -7,11 +7,13 @@ export default class FilterBar extends Component {
 		super(props);
 
 		this.renderArrow = this.renderArrow.bind(this);
+		this.renderArrow = this.renderArrow.bind(this);
 	}
 
 	renderArrow(sorting) {
-		if (!sorting)
+		if (!sorting) {
 			return null;
+		}
 		switch (SORTING_TYPES[sorting.rating_si]) {
 			case ASCENDING:
 				return <span className="arrow-up">&uarr;</span>;
@@ -22,13 +24,29 @@ export default class FilterBar extends Component {
 		}
 	}
 
+	renderPriceFilters(sorting, clickPrice) {
+		let priceFilters = [];
+
+		(typeof sorting !== 'undefined' && sorting.prices.indexOf(1) !== -1)
+			? priceFilters.push(<li key='1' onClick={() => clickPrice(1)} className="price-selected">$</li>) : priceFilters.push(<li key='1' onClick={() => clickPrice(1)}>$</li>);
+		(typeof sorting !== 'undefined' && sorting.prices.indexOf(2) !== -1)
+			? priceFilters.push(<li key='2' onClick={() => clickPrice(2)} className="price-selected">$$</li>) : priceFilters.push(<li key='2' onClick={() => clickPrice(2)}>$$</li>);
+		(typeof sorting !== 'undefined' && sorting.prices.indexOf(3) !== -1)
+			? priceFilters.push(<li key='3' onClick={() => clickPrice(3)} className="price-selected">$$$</li>) : priceFilters.push(<li key='3' onClick={() => clickPrice(3)}>$$$</li>);
+		(typeof sorting !== 'undefined' && sorting.prices.indexOf(4) !== -1)
+			? priceFilters.push(<li key='4' onClick={() => clickPrice(4)} className="price-selected">$$$$</li>) : priceFilters.push(<li key='4' onClick={() => clickPrice(4)}>$$$$</li>);
+
+
+		return priceFilters;
+	}
+
 	render() {
-		const { sorting, clickRating } = this.props;
+		const { sorting, clickRating, clickPrice } = this.props;
 		return (
 			<div className="filter-list">
 				<div className="rating-btn" onClick={clickRating}><span>Rating </span>{this.renderArrow(sorting)}</div>
 				<ul className="price-filters">
-					<li>Price</li>
+					{this.renderPriceFilters(sorting, clickPrice)}
 				</ul>
 			</div>
 		)
