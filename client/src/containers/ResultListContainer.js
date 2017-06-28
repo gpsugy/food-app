@@ -4,10 +4,10 @@ import { allowRefetch } from '../actions/Results';
 import ResultList from '../components/ResultList';
 
 const mapStateToProps = (state, ownProps) => {
-	console.log(state.user.location);
 	return {
 		location: state.user.location,
-		results: state.businesses.results
+		results: state.businesses.results,
+		sorting: state.businesses.sorting
 	};
 }
 
