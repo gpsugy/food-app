@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { Redirect } from 'react-router';
 import React, { Component } from 'react';
 
 import Business from './Business';
@@ -11,34 +12,44 @@ export default class ResultList extends Component {
 		this.renderResults = this.renderResults.bind(this);
 	}
 
-	renderResults(results) {
-		if (results) {
-			return (
-				results.map((result) => {
-					return <Business key={result.id} name={result.name} url={result.url} rating={result.rating} review_count={result.review_count} price={result.price} categories={result.categories} distance={result.distance} image_url={result.image_url} />;
-				})
-			);
+	renderResults(results, sorting) {
+		let businesses = [];
+		if (results && typeof sorting !== 'undefined') {
+			// only render results within filtered prices
+			for (let result of results) {
+				if (sorting.prices[result.price.length-1] !== null) {
+					businesses.push(<Business key={result.id} name={result.name} url={result.url} rating={result.rating} review_count={result.review_count} price={result.price} categories={result.categories} distance={result.distance} image_url={result.image_url} />);
+				}
+				continue;
+			}
+			return businesses;
 		}
 	}
 
 	render() {
-		const { results, handleClick } = this.props;
+		const { location, results, sorting, handleClick } = this.props;
 		return (
 			<div>
-				<header>
-					<h2>Here are your personalized results!</h2>
-				</header>
-				<main>
-					<FilterBarContainer />
-					<ul>
-						{this.renderResults(results)}
-					</ul>
-				</main>
-				<footer>
-					<Link to='/foodTypes'>
-						<button type="button" onClick={handleClick}>Go Back</button>
-					</Link>
-				</footer>
+				{location === undefined || location.longitude === undefined || location.latitude === undefined ? (
+					<Redirect to="/"/>
+				) : (
+				<div>
+					<header>
+						<h2>Here are your personalized results!</h2>
+					</header>
+					<main>
+						<FilterBarContainer />
+						<ul>
+							{this.renderResults(results, sorting)}
+						</ul>
+					</main>
+					<footer>
+						<Link to='/foodTypes'>
+							<button type="button" onClick={handleClick}>Go Back</button>
+						</Link>
+					</footer>
+				</div>
+				)}
 			</div>
 		)
 	}

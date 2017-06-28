@@ -50,8 +50,8 @@ img {
 	margin-left: 300px;
 }
 
-.filter-list li {
-	display: inline;
+.rating-btn {
+	display: inline-block;
 	padding: 8px 15px;
 	margin: 0 5px;
 	cursor: pointer;
@@ -59,4 +59,19 @@ img {
 
 .space-lg {
 	margin-right: 6px;
+}
+
+.price-filters {
+	display: inline-block;
+	cursor: pointer;
+}
+
+.price-filters li {
+	display: inline-block;
+	padding: 5px 10px;
+	border: 1px solid gray;
+}
+
+.price-selected {
+	background-color: gray;
 }
