@@ -69,7 +69,7 @@ describe('(Reducer) Businesses FETCH', () => {
 			fetched: true,
 			sorting: {
 				rating_si: 2,
-				price_range: [1, 3],
+				prices: [1, 3],
 			}
 		};
 		const expected = {
@@ -92,7 +92,7 @@ describe('(Reducer) Businesses FETCH', () => {
 			fetched: false,
 			sorting: {
 				rating_si: 2,
-				price_range: [1, 3],
+				prices: [1, 3],
 			}
 		};
 		expect(
@@ -123,7 +123,7 @@ describe('(Reduxer) Businesses SORTING object changes', () => {
 			fetched: true,
 			sorting: {
 				rating_si: 1,
-				price_range: [1, 3],
+				prices: [1, 3],
 			}
 		};
 		let expected = {
@@ -146,7 +146,7 @@ describe('(Reduxer) Businesses SORTING object changes', () => {
 			fetched: true,
 			sorting: {
 				rating_si: 2,
-				price_range: [1, 3]
+				prices: [1, 3]
 			}
 		};
 		expect(
@@ -175,7 +175,7 @@ describe('(Reduxer) Businesses SORTING object changes', () => {
 			fetched: true,
 			sorting: {
 				rating_si: 0,
-				price_range: [1, 3],
+				prices: [1, 3],
 			}
 		};
 
@@ -199,7 +199,7 @@ describe('(Reduxer) Businesses SORTING object changes', () => {
 			fetched: true,
 			sorting: {
 				rating_si: 1,
-				price_range: [1, 2],
+				prices: [1, 2],
 			}
 		};
 		expect(
@@ -252,7 +252,7 @@ describe('(Reducer) Businesses SORTING BUSINESSES', () => {
 			fetched: true,
 			sorting: {
 				rating_si: 0,
-				price_range: [1,3]
+				prices: [1,3]
 			}
 		};
 
@@ -308,7 +308,7 @@ describe('(Reducer) Businesses SORTING BUSINESSES', () => {
 			fetched: true,
 			sorting: {
 				rating_si: 1,
-				price_range: [1,3]
+				prices: [1,3]
 			}
 		};
 
@@ -364,7 +364,7 @@ describe('(Reducer) Businesses SORTING BUSINESSES', () => {
 			fetched: true,
 			sorting: {
 				rating_si: 2,
-				price_range: [2,3]
+				prices: [2,3]
 			}
 		};
 

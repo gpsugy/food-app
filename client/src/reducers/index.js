@@ -95,7 +95,7 @@ export const businesses = (state = {}, action) => {
 				...state,
 				sorting: {
 					rating_si: 1,
-					price_range: [1, 2]
+					prices: [1, 2]
 				}
 			};
 		default:
