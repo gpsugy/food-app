@@ -17,7 +17,6 @@ export default class Business extends Component {
 	renderCategories(categories) {
 		let list = '';
 		for (let category of categories) {
-			console.log(category.title);
 			list += category.title + ', ';
 		};
 

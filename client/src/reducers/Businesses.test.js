@@ -251,16 +251,18 @@ describe('(Reducer) Businesses SORTING BUSINESSES', () => {
 			],
 			fetched: true,
 			sorting: {
-				rating_si: 1,
+				rating_si: 0,
 				price_range: [1,3]
 			}
 		};
 
-		let newBusinesses = businesses(state, sortBusinesses(1));
+		let newRatingSI = businesses(state, toggleRatingSort());
+		let newBusinesses = businesses(newRatingSI, sortBusinesses(1));
 		expect(newBusinesses.results[0].id).toEqual('banditos-restaurant-ann-arbor');
 		expect(newBusinesses.results[1].id).toEqual('freshii-ann-arbor');
 		expect(newBusinesses.results[2].id).toEqual('chia-shiang-restaurant-ann-arbor-2');
 		expect(newBusinesses.results[3].id).toEqual('no-thai-ann-arbor');
+		expect(newBusinesses.sorting.rating_si).toEqual(1);
 	});
 
 	it('sort ASCENDING', () => {
@@ -305,16 +307,18 @@ describe('(Reducer) Businesses SORTING BUSINESSES', () => {
 			],
 			fetched: true,
 			sorting: {
-				rating_si: 2,
+				rating_si: 1,
 				price_range: [1,3]
 			}
 		};
 
-		let newBusinesses = businesses(descendingState, sortBusinesses(2));
+		let newRatingSI = businesses(descendingState, toggleRatingSort());
+		let newBusinesses = businesses(newRatingSI, sortBusinesses());
 		expect(newBusinesses.results[0].id).toEqual('no-thai-ann-arbor');
 		expect(newBusinesses.results[1].id).toEqual('chia-shiang-restaurant-ann-arbor-2');
 		expect(newBusinesses.results[2].id).toEqual('freshii-ann-arbor');
 		expect(newBusinesses.results[3].id).toEqual('banditos-restaurant-ann-arbor');
+		expect(newBusinesses.sorting.rating_si).toEqual(2);
 	});
 
 	it('sort NO_SORT', () => {
@@ -359,15 +363,17 @@ describe('(Reducer) Businesses SORTING BUSINESSES', () => {
 			],
 			fetched: true,
 			sorting: {
-				rating_si: 0,
+				rating_si: 2,
 				price_range: [2,3]
 			}
 		};
 
-		let newBusinesses = businesses(ascendingState, sortBusinesses(0));
+		let newRatingSI = businesses(ascendingState, toggleRatingSort());
+		let newBusinesses = businesses(newRatingSI, sortBusinesses());
 		expect(newBusinesses.results[0].id).toEqual('banditos-restaurant-ann-arbor');
 		expect(newBusinesses.results[1].id).toEqual('chia-shiang-restaurant-ann-arbor-2');
 		expect(newBusinesses.results[2].id).toEqual('freshii-ann-arbor');
 		expect(newBusinesses.results[3].id).toEqual('no-thai-ann-arbor');
+		expect(newBusinesses.sorting.rating_si).toEqual(0);
 	});
 });
