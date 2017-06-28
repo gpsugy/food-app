@@ -25,10 +25,10 @@ export default class FilterBar extends Component {
 	render() {
 		const { sorting, clickRating } = this.props;
 		return (
-			<div>
-				<ul className="filter-list">
-					<li onClick={clickRating}><span>Rating </span>{this.renderArrow(sorting)}</li>
-					<li><span>Price ^</span></li>
+			<div className="filter-list">
+				<div className="rating-btn" onClick={clickRating}><span>Rating </span>{this.renderArrow(sorting)}</div>
+				<ul className="price-filters">
+					<li>Price</li>
 				</ul>
 			</div>
 		)
