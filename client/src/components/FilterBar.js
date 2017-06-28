@@ -27,13 +27,13 @@ export default class FilterBar extends Component {
 	renderPriceFilters(sorting, clickPrice) {
 		let priceFilters = [];
 
-		(typeof sorting !== 'undefined' && sorting.prices.indexOf(1) !== -1)
+		(typeof sorting !== 'undefined' && sorting.prices[0] != null)
 			? priceFilters.push(<li key='1' onClick={() => clickPrice(1)} className="price-selected">$</li>) : priceFilters.push(<li key='1' onClick={() => clickPrice(1)}>$</li>);
-		(typeof sorting !== 'undefined' && sorting.prices.indexOf(2) !== -1)
+		(typeof sorting !== 'undefined' && sorting.prices[1] != null)
 			? priceFilters.push(<li key='2' onClick={() => clickPrice(2)} className="price-selected">$$</li>) : priceFilters.push(<li key='2' onClick={() => clickPrice(2)}>$$</li>);
-		(typeof sorting !== 'undefined' && sorting.prices.indexOf(3) !== -1)
+		(typeof sorting !== 'undefined' && sorting.prices[2] != null)
 			? priceFilters.push(<li key='3' onClick={() => clickPrice(3)} className="price-selected">$$$</li>) : priceFilters.push(<li key='3' onClick={() => clickPrice(3)}>$$$</li>);
-		(typeof sorting !== 'undefined' && sorting.prices.indexOf(4) !== -1)
+		(typeof sorting !== 'undefined' && sorting.prices[3] != null)
 			? priceFilters.push(<li key='4' onClick={() => clickPrice(4)} className="price-selected">$$$$</li>) : priceFilters.push(<li key='4' onClick={() => clickPrice(4)}>$$$$</li>);
 
 

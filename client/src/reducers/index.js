@@ -96,33 +96,37 @@ export const businesses = (state = {}, action) => {
 				...state,
 				sorting: {
 					rating_si: 1,
-					prices: [1, 2]
+					prices: [1, 2, 3, 4]
 				}
 			};
 		case UPDATE_PRICES:
-			let i = state.sorting.prices.indexOf(action.price);
+			if (state.sorting === 'undefined') {
+				return state;
+			}
+			// 0-indexing
+			let i = action.price - 1;
 			// remove price
-			if (i !== -1) {
+			if (state.sorting.prices[i] != null) {
+				let newPrices = state.sorting.prices.slice();
+				// 0-indexing
+				newPrices[i] = null;
 				return {
 					...state,
 					sorting: {
 						...state.sorting,
-						prices: [
-							...state.sorting.prices.slice(0, i),
-							...state.sorting.prices.slice(i + 1)
-						]
+						prices: newPrices
 					}
 				}
 			}
 			// add price
 			else {
+				let newPrices = state.sorting.prices.slice();
+				newPrices[i] = action.price;
 				return {
 					...state,
 					sorting: {
 						...state.sorting,
-						prices: [
-							...state.sorting.prices,
-							action.price]
+						prices: newPrices
 					}
 				}
 			}

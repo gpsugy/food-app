@@ -176,7 +176,7 @@ describe('(Reduxer) Businesses SORTING object changes', () => {
 			fetched: true,
 			sorting: {
 				rating_si: 0,
-				prices: [1, 3],
+				prices: [1, null, 3, 4],
 			}
 		};
 
@@ -200,7 +200,7 @@ describe('(Reduxer) Businesses SORTING object changes', () => {
 			fetched: true,
 			sorting: {
 				rating_si: 1,
-				prices: [1, 2],
+				prices: [1, 2, 3, 4],
 			}
 		};
 		expect(
@@ -396,12 +396,12 @@ describe('(Reducer) Businesses FILTER PRICES', () => {
 			fetched: true,
 			sorting: {
 				rating_si: 2,
-				prices: [2,3]
+				prices: [null, 2, 3, null]
 			}
 		};
 
 		let newPrices = businesses(state, updatePrices(1));
-		expect(newPrices.sorting.prices).toEqual([2,3,1]);
+		expect(newPrices.sorting.prices).toEqual([1, 2, 3, null]);
 	});
 
 	it('add new price when empty', () => {
@@ -420,12 +420,12 @@ describe('(Reducer) Businesses FILTER PRICES', () => {
 			fetched: true,
 			sorting: {
 				rating_si: 2,
-				prices: []
+				prices: [null, null, null, null]
 			}
 		};
 
 		let newPrices = businesses(state, updatePrices(3));
-		expect(newPrices.sorting.prices).toEqual([3]);
+		expect(newPrices.sorting.prices).toEqual([null, null, 3, null]);
 	});
 
 	it('remove price', () => {
@@ -444,12 +444,12 @@ describe('(Reducer) Businesses FILTER PRICES', () => {
 			fetched: true,
 			sorting: {
 				rating_si: 2,
-				prices: [1,2,3]
+				prices: [1,2,3, null]
 			}
 		};
 
 		let newPrices = businesses(state, updatePrices(2));
-		expect(newPrices.sorting.prices).toEqual([1,3]);
+		expect(newPrices.sorting.prices).toEqual([1, null, 3, null]);
 	});
 
 	it('remove price when only 1 elt', () => {
@@ -468,11 +468,11 @@ describe('(Reducer) Businesses FILTER PRICES', () => {
 			fetched: true,
 			sorting: {
 				rating_si: 2,
-				prices: [3]
+				prices: [null, null, 3, null]
 			}
 		};
 
 		let newPrices = businesses(state, updatePrices(3));
-		expect(newPrices.sorting.prices).toEqual([]);
+		expect(newPrices.sorting.prices).toEqual([null, null, null, null]);
 	});
 });
