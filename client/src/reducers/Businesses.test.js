@@ -4,6 +4,7 @@ import {
   initSort,
   sortBusinesses,
   toggleRatingSort,
+  updatePrices,
 } from '../actions/FilterBar';
 
 describe('(Reducer) Businesses FETCH', () => {
@@ -375,5 +376,103 @@ describe('(Reducer) Businesses SORTING BUSINESSES', () => {
 		expect(newBusinesses.results[2].id).toEqual('freshii-ann-arbor');
 		expect(newBusinesses.results[3].id).toEqual('no-thai-ann-arbor');
 		expect(newBusinesses.sorting.rating_si).toEqual(0);
+	});
+});
+
+describe('(Reducer) Businesses FILTER PRICES', () => {
+	it('add new price', () => {
+		let state = {
+			results: [
+			   { id: 'no-thai-ann-arbor',
+			     name: 'No Thai!',
+			     categories: [ 'Thai' ],
+			     distance: 1813.8360979219997,
+			     price: '$',
+			     rating: 2.5,
+			     review_count: 159,
+			     url: 'https://www.yelp.com/biz/no-thai-ann-arbor?adjust_creative=3MSgslm41uAxRsSzTz1H9Q&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=3MSgslm41uAxRsSzTz1H9Q',
+			     image_url: 'https://s3-media2.fl.yelpcdn.com/bphoto/uO4qodWRlx1e_wqFhZRrzg/o.jpg' }
+			],
+			fetched: true,
+			sorting: {
+				rating_si: 2,
+				prices: [2,3]
+			}
+		};
+
+		let newPrices = businesses(state, updatePrices(1));
+		expect(newPrices.sorting.prices).toEqual([2,3,1]);
+	});
+
+	it('add new price when empty', () => {
+		let state = {
+			results: [
+			   { id: 'no-thai-ann-arbor',
+			     name: 'No Thai!',
+			     categories: [ 'Thai' ],
+			     distance: 1813.8360979219997,
+			     price: '$',
+			     rating: 2.5,
+			     review_count: 159,
+			     url: 'https://www.yelp.com/biz/no-thai-ann-arbor?adjust_creative=3MSgslm41uAxRsSzTz1H9Q&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=3MSgslm41uAxRsSzTz1H9Q',
+			     image_url: 'https://s3-media2.fl.yelpcdn.com/bphoto/uO4qodWRlx1e_wqFhZRrzg/o.jpg' }
+			],
+			fetched: true,
+			sorting: {
+				rating_si: 2,
+				prices: []
+			}
+		};
+
+		let newPrices = businesses(state, updatePrices(3));
+		expect(newPrices.sorting.prices).toEqual([3]);
+	});
+
+	it('remove price', () => {
+		let state = {
+			results: [
+			   { id: 'no-thai-ann-arbor',
+			     name: 'No Thai!',
+			     categories: [ 'Thai' ],
+			     distance: 1813.8360979219997,
+			     price: '$',
+			     rating: 2.5,
+			     review_count: 159,
+			     url: 'https://www.yelp.com/biz/no-thai-ann-arbor?adjust_creative=3MSgslm41uAxRsSzTz1H9Q&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=3MSgslm41uAxRsSzTz1H9Q',
+			     image_url: 'https://s3-media2.fl.yelpcdn.com/bphoto/uO4qodWRlx1e_wqFhZRrzg/o.jpg' }
+			],
+			fetched: true,
+			sorting: {
+				rating_si: 2,
+				prices: [1,2,3]
+			}
+		};
+
+		let newPrices = businesses(state, updatePrices(2));
+		expect(newPrices.sorting.prices).toEqual([1,3]);
+	});
+
+	it('remove price when only 1 elt', () => {
+		let state = {
+			results: [
+			   { id: 'no-thai-ann-arbor',
+			     name: 'No Thai!',
+			     categories: [ 'Thai' ],
+			     distance: 1813.8360979219997,
+			     price: '$',
+			     rating: 2.5,
+			     review_count: 159,
+			     url: 'https://www.yelp.com/biz/no-thai-ann-arbor?adjust_creative=3MSgslm41uAxRsSzTz1H9Q&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=3MSgslm41uAxRsSzTz1H9Q',
+			     image_url: 'https://s3-media2.fl.yelpcdn.com/bphoto/uO4qodWRlx1e_wqFhZRrzg/o.jpg' }
+			],
+			fetched: true,
+			sorting: {
+				rating_si: 2,
+				prices: [3]
+			}
+		};
+
+		let newPrices = businesses(state, updatePrices(3));
+		expect(newPrices.sorting.prices).toEqual([]);
 	});
 });

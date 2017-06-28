@@ -15,6 +15,7 @@ import {
   INIT_SORT,
   SORT_BUSINESSES,
   TOGGLE_RATING_SORT,
+  UPDATE_PRICES,
 } from '../actions/FilterBar';
 import { SORTING_TYPES } from '../utility/SortingTypes';
 import { UPDATE_FOOD_TYPE } from '../actions/FoodType';
@@ -98,6 +99,33 @@ export const businesses = (state = {}, action) => {
 					prices: [1, 2]
 				}
 			};
+		case UPDATE_PRICES:
+			let i = state.sorting.prices.indexOf(action.price);
+			// remove price
+			if (i !== -1) {
+				return {
+					...state,
+					sorting: {
+						...state.sorting,
+						prices: [
+							...state.sorting.prices.slice(0, i),
+							...state.sorting.prices.slice(i + 1)
+						]
+					}
+				}
+			}
+			// add price
+			else {
+				return {
+					...state,
+					sorting: {
+						...state.sorting,
+						prices: [
+							...state.sorting.prices,
+							action.price]
+					}
+				}
+			}
 		default:
 			return state;
 	}

@@ -1,6 +1,7 @@
 export const TOGGLE_RATING_SORT = 'TOGGLE_RATING_SORT';
 export const INIT_SORT = 'INIT_SORT';
 export const SORT_BUSINESSES = 'SORT_BUSINESSES';
+export const UPDATE_PRICES = 'UPDATE_PRICES';
 
 export function toggleRatingSort() {
 	return {
@@ -18,5 +19,12 @@ export function initSort() {
 export function sortBusinesses() {
 	return {
 		type: SORT_BUSINESSES
+	}
+}
+
+export function updatePrices(price) {
+	return {
+		type: UPDATE_PRICES,
+		price: price
 	}
 }
