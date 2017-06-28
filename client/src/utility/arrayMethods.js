@@ -27,14 +27,14 @@ export function sortArr(arr, sortType_i) {
 			}
 			return newArr;
 		case DESCENDING:
-			newArr = arr;
+			newArr = arr.slice();
 			newArr.sort((a, b) => {
 				return b.rating - a.rating;
 			});
 			return newArr;
 		// sort by id
 		case NO_SORT:
-			newArr = arr;
+			newArr = arr.slice();
 			newArr.sort((a, b) => {
 				let id1 = a.id.toLowerCase();
 				let id2 = b.id.toLowerCase();
