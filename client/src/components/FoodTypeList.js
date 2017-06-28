@@ -39,7 +39,7 @@ export default class FoodTypeList extends Component {
 					<footer>
 						<button type="button" onClick={handleClick}>Show Me Where I Can Eat!</button>
 					</footer>
-					</div>
+				</div>
 				)}
 			</div>
 		)

@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { Redirect } from 'react-router';
 import React, { Component } from 'react';
 
 import Business from './Business';
@@ -22,23 +23,29 @@ export default class ResultList extends Component {
 	}
 
 	render() {
-		const { results, handleClick } = this.props;
+		const { location, results, handleClick } = this.props;
 		return (
 			<div>
-				<header>
-					<h2>Here are your personalized results!</h2>
-				</header>
-				<main>
-					<FilterBarContainer />
-					<ul>
-						{this.renderResults(results)}
-					</ul>
-				</main>
-				<footer>
-					<Link to='/foodTypes'>
-						<button type="button" onClick={handleClick}>Go Back</button>
-					</Link>
-				</footer>
+				{location === undefined || location.longitude === undefined || location.latitude === undefined ? (
+					<Redirect to="/"/>
+				) : (
+				<div>
+					<header>
+						<h2>Here are your personalized results!</h2>
+					</header>
+					<main>
+						<FilterBarContainer />
+						<ul>
+							{this.renderResults(results)}
+						</ul>
+					</main>
+					<footer>
+						<Link to='/foodTypes'>
+							<button type="button" onClick={handleClick}>Go Back</button>
+						</Link>
+					</footer>
+				</div>
+				)}
 			</div>
 		)
 	}
