@@ -29,7 +29,6 @@ export default class FilterBar extends Component {
 				<ul className="filter-list">
 					<li onClick={clickRating}><span>Rating </span>{this.renderArrow(sorting)}</li>
 					<li><span>Price ^</span></li>
-					<li><span>Distance ^</span></li>
 				</ul>
 			</div>
 		)
