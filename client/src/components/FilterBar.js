@@ -14,11 +14,11 @@ export default class FilterBar extends Component {
 			return null;
 		switch (SORTING_TYPES[sorting.rating_si]) {
 			case ASCENDING:
-				return <span>^</span>;
+				return <span className="arrow-up">&uarr;</span>;
 			case DESCENDING:
-				return <span>.</span>;
+				return <span className="arrow-down">&darr;</span>;
 			default:
-				return null;
+				return <span className="space-lg">&nbsp;</span>;
 		}
 	}
 
