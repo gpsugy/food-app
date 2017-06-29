@@ -13,6 +13,6 @@ export function convertDistanceFI_ToMiles(distance_fi) {
 		case DRIVING:
 			return 5.0;
 		default:
-			return 15.0;
+			return 10.0;
 	}
 };
