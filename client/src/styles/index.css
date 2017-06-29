@@ -1,8 +1,8 @@
 body {
-  box-sizing: border-box;
-  margin-bottom: 300px;
-  padding: 0;
-  font-family: sans-serif;
+	box-sizing: border-box;
+	margin-bottom: 300px;
+	padding: 0;
+	font-family: sans-serif;
 }
 
 ul {
@@ -20,11 +20,10 @@ img {
 	width: 100px;
 	height: 30px;
 	text-align: center;
-	border: 1px solid #ddd;
+	border: 1px solid #DDDDDD;
 	cursor: pointer;
 }
 
 .food-type.selected {
-	background-color: #a5a5a5;
+	background-color: #A5A5A5;
 }
-

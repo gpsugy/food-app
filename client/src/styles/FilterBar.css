@@ -20,10 +20,13 @@
 	margin-left: 300px;
 }
 
+.filter-list > li {
+	margin-right: 40px;
+}
+
 .rating-btn {
 	display: inline-block;
 	padding: 8px 15px;
-	margin: 0 5px;
 	cursor: pointer;
 }
 
@@ -34,6 +37,7 @@
 .price-filters {
 	display: inline-block;
 	cursor: pointer;
+	padding: 0;
 }
 
 .price-filters li {
@@ -47,4 +51,9 @@
 
 .filter-list li {
 	display: inline-block;
+}
+
+.filter-btn {
+	border: 1px solid gray;
+	padding: 5px 10px;
 }
