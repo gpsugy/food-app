@@ -1,0 +1,42 @@
+/* All Filters */
+
+.filter-list > li {
+	margin-right: 40px;
+}
+
+.filter-list li {
+	display: inline-block;
+}
+
+.filter-btn {
+	border: 1px solid gray;
+	padding: 5px 10px;
+	display: inline-block;
+	cursor: pointer;
+}
+
+
+/* Rating Btn */
+
+.rating-btn {
+	padding: 8px 15px;
+}
+
+.space-lg {
+	margin-right: 6px;
+}
+
+
+/* Price Filters */
+
+.price-filters {
+	padding: 0;
+}
+
+.price-filters li {
+	padding: 5px 10px;
+}
+
+.price-selected {
+	background-color: gray;
+}

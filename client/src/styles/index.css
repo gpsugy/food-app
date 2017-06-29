@@ -1,8 +1,8 @@
 body {
-  box-sizing: border-box;
-  margin-bottom: 300px;
-  padding: 0;
-  font-family: sans-serif;
+	box-sizing: border-box;
+	margin-bottom: 300px;
+	padding: 0;
+	font-family: sans-serif;
 }
 
 ul {
@@ -20,12 +20,12 @@ img {
 	width: 100px;
 	height: 30px;
 	text-align: center;
-	border: 1px solid #ddd;
+	border: 1px solid #DDDDDD;
 	cursor: pointer;
 }
 
 .food-type.selected {
-	background-color: #a5a5a5;
+	background-color: #A5A5A5;
 }
 
 .biz {
@@ -48,30 +48,4 @@ img {
 .distance-traits {
 	display: inline-block;
 	margin-left: 300px;
-}
-
-.rating-btn {
-	display: inline-block;
-	padding: 8px 15px;
-	margin: 0 5px;
-	cursor: pointer;
-}
-
-.space-lg {
-	margin-right: 6px;
-}
-
-.price-filters {
-	display: inline-block;
-	cursor: pointer;
-}
-
-.price-filters li {
-	display: inline-block;
-	padding: 5px 10px;
-	border: 1px solid gray;
-}
-
-.price-selected {
-	background-color: gray;
 }

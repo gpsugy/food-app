@@ -3,6 +3,7 @@ import { businesses } from './';
 import {
   initSort,
   sortBusinesses,
+  toggleDistanceFilter,
   toggleRatingSort,
   updatePrices,
 } from '../actions/FilterBar';
@@ -71,6 +72,7 @@ describe('(Reducer) Businesses FETCH', () => {
 			sorting: {
 				rating_si: 2,
 				prices: [1, 3],
+				distance_fi: 2
 			}
 		};
 		const expected = {
@@ -94,6 +96,7 @@ describe('(Reducer) Businesses FETCH', () => {
 			sorting: {
 				rating_si: 2,
 				prices: [1, 3],
+				distance_fi: 2
 			}
 		};
 		expect(
@@ -125,6 +128,7 @@ describe('(Reduxer) Businesses SORTING object changes', () => {
 			sorting: {
 				rating_si: 1,
 				prices: [1, 3],
+				distance_fi: 1
 			}
 		};
 		let expected = {
@@ -147,7 +151,8 @@ describe('(Reduxer) Businesses SORTING object changes', () => {
 			fetched: true,
 			sorting: {
 				rating_si: 2,
-				prices: [1, 3]
+				prices: [1, 3],
+				distance_fi: 1
 			}
 		};
 		expect(
@@ -177,6 +182,7 @@ describe('(Reduxer) Businesses SORTING object changes', () => {
 			sorting: {
 				rating_si: 0,
 				prices: [1, null, 3, 4],
+				distance_fi: 2
 			}
 		};
 
@@ -201,6 +207,7 @@ describe('(Reduxer) Businesses SORTING object changes', () => {
 			sorting: {
 				rating_si: 1,
 				prices: [1, 2, 3, 4],
+				distance_fi: 0
 			}
 		};
 		expect(
@@ -253,7 +260,8 @@ describe('(Reducer) Businesses SORTING BUSINESSES', () => {
 			fetched: true,
 			sorting: {
 				rating_si: 0,
-				prices: [1,3]
+				prices: [1,3],
+				distance_fi: 1
 			}
 		};
 
@@ -309,7 +317,8 @@ describe('(Reducer) Businesses SORTING BUSINESSES', () => {
 			fetched: true,
 			sorting: {
 				rating_si: 1,
-				prices: [1,3]
+				prices: [1,3],
+				distance_fi: 1
 			}
 		};
 
@@ -365,7 +374,8 @@ describe('(Reducer) Businesses SORTING BUSINESSES', () => {
 			fetched: true,
 			sorting: {
 				rating_si: 2,
-				prices: [2,3]
+				prices: [2,3],
+				distance_fi: 1
 			}
 		};
 
@@ -396,7 +406,8 @@ describe('(Reducer) Businesses FILTER PRICES', () => {
 			fetched: true,
 			sorting: {
 				rating_si: 2,
-				prices: [null, 2, 3, null]
+				prices: [null, 2, 3, null],
+				distance_fi: 1
 			}
 		};
 
@@ -420,7 +431,8 @@ describe('(Reducer) Businesses FILTER PRICES', () => {
 			fetched: true,
 			sorting: {
 				rating_si: 2,
-				prices: [null, null, null, null]
+				prices: [null, null, null, null],
+				distance_fi: 1
 			}
 		};
 
@@ -444,7 +456,8 @@ describe('(Reducer) Businesses FILTER PRICES', () => {
 			fetched: true,
 			sorting: {
 				rating_si: 2,
-				prices: [1,2,3, null]
+				prices: [1,2,3, null],
+				distance_fi: 1
 			}
 		};
 
@@ -468,11 +481,39 @@ describe('(Reducer) Businesses FILTER PRICES', () => {
 			fetched: true,
 			sorting: {
 				rating_si: 2,
-				prices: [null, null, 3, null]
+				prices: [null, null, 3, null],
+				distance_fi: 1
 			}
 		};
 
 		let newPrices = businesses(state, updatePrices(3));
 		expect(newPrices.sorting.prices).toEqual([null, null, null, null]);
+	});
+});
+
+describe('(Reducer) Businesses FILTER DISTANCE', () => {
+	it('toggle price', () => {
+		let state = {
+			results: [
+			   { id: 'no-thai-ann-arbor',
+			     name: 'No Thai!',
+			     categories: [ 'Thai' ],
+			     distance: 1813.8360979219997,
+			     price: '$',
+			     rating: 2.5,
+			     review_count: 159,
+			     url: 'https://www.yelp.com/biz/no-thai-ann-arbor?adjust_creative=3MSgslm41uAxRsSzTz1H9Q&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=3MSgslm41uAxRsSzTz1H9Q',
+			     image_url: 'https://s3-media2.fl.yelpcdn.com/bphoto/uO4qodWRlx1e_wqFhZRrzg/o.jpg' }
+			],
+			fetched: true,
+			sorting: {
+				rating_si: 2,
+				prices: [null, null, 3, null],
+				distance_fi: 2
+			}
+		};
+
+		let newDistance = businesses(state, toggleDistanceFilter());
+		expect(newDistance.sorting.distance_fi).toEqual(0);
 	});
 });

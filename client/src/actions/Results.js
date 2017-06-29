@@ -37,8 +37,8 @@ export function fetchBusinesses(terms, location) {
 				return response;
 			}).then(response => response.json())
 			.then(json => {
-				dispatch(fetchBusinessesSuccess(json));
 				dispatch(initSort());
+				dispatch(fetchBusinessesSuccess(json));
 			})
 			.catch(error => dispatch(fetchBusinessesError(error)));
 	}
