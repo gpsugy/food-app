@@ -19,13 +19,3 @@ export const DISTANCE_FILTER_TYPES = [
 	ROAD_TRIP
 ];
 
-export function convertDistanceFI_ToMiles(distance_fi) {
-	switch (DISTANCE_FILTER_TYPES[distance_fi]) {
-		case WALKING:
-			return 1.0;
-		case DRIVING:
-			return 5.0;
-		default:
-			return 15.0;
-	}
-};
