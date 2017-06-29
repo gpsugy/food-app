@@ -1,4 +1,4 @@
-import { ASCENDING, DESCENDING, NO_SORT, SORTING_TYPES } from './SortingTypes';
+import { ASCENDING, DESCENDING, NO_SORT, RATING_SORT_TYPES } from './SortingTypes';
 
 export function findIndexOf(arr, elt) {
 	let index = -1;
@@ -19,7 +19,7 @@ export function removeFromArr(arr, index) {
 
 export function sortArr(arr, sortType_i) {
 	let newArr = [];
-	switch (SORTING_TYPES[sortType_i]) {
+	switch (RATING_SORT_TYPES[sortType_i]) {
 		// previously DESCENDING - simply reverse
 		case ASCENDING:
 			for (let i = arr.length - 1; i >= 0; i--) {

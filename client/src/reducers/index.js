@@ -7,6 +7,10 @@ import {
   FETCH_BUSINESSES_SUCCESS,
 } from '../actions/Results';
 import {
+  DISTANCE_FILTER_TYPES,
+  RATING_SORT_TYPES,
+} from '../utility/SortingTypes';
+import {
   FETCH_LOCATION_ERROR,
   FETCH_LOCATION_REQUEST,
   FETCH_LOCATION_SUCCESS,
@@ -14,10 +18,10 @@ import {
 import {
   INIT_SORT,
   SORT_BUSINESSES,
+  TOGGLE_DISTANCE_FILTER,
   TOGGLE_RATING_SORT,
   UPDATE_PRICES,
 } from '../actions/FilterBar';
-import { SORTING_TYPES } from '../utility/SortingTypes';
 import { UPDATE_FOOD_TYPE } from '../actions/FoodType';
 import { findIndexOf, removeFromArr, sortArr } from '../utility/arrayMethods';
 
@@ -85,7 +89,7 @@ export const businesses = (state = {}, action) => {
 		case TOGGLE_RATING_SORT:
 			let updatedSorting = {
 				...state.sorting,
-				rating_si: (state.sorting.rating_si + 1) % SORTING_TYPES.length
+				rating_si: (state.sorting.rating_si + 1) % RATING_SORT_TYPES.length
 			};
 			return {
 				...state,
@@ -96,7 +100,8 @@ export const businesses = (state = {}, action) => {
 				...state,
 				sorting: {
 					rating_si: 1,
-					prices: [1, 2, 3, 4]
+					prices: [1, 2, 3, 4],
+					distance_fi: 1
 				}
 			};
 		case UPDATE_PRICES:
@@ -130,6 +135,14 @@ export const businesses = (state = {}, action) => {
 					}
 				}
 			}
+		case TOGGLE_DISTANCE_FILTER:
+			return {
+				...state,
+				sorting: {
+					...state.sorting,
+					distance_fi: (state.sorting.distance_fi + 1) % DISTANCE_FILTER_TYPES.length
+				}
+			};
 		default:
 			return state;
 	}
