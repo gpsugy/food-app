@@ -9,7 +9,7 @@ import {
   DRIVING,
   ROAD_TRIP,
   RATING_SORT_TYPES,
-} from '../utility/SortingTypes';
+} from '../utility/FilterTypes';
 
 export default class FilterBar extends Component {
 	constructor(props) {

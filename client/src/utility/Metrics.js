@@ -1,4 +1,4 @@
-import { DISTANCE_FILTER_TYPES, DRIVING, WALKING } from './SortingTypes';
+import { DISTANCE_FILTER_TYPES, DRIVING, WALKING } from './FilterTypes';
 
 export function convertMetersToMiles(meters, decimals) {
 	let miles = meters / 1609.344;

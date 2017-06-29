@@ -1,4 +1,4 @@
-import { ASCENDING, DESCENDING, NO_SORT, RATING_SORT_TYPES } from './SortingTypes';
+import { ASCENDING, DESCENDING, NO_SORT, RATING_SORT_TYPES } from './FilterTypes';
 
 export function findIndexOf(arr, elt) {
 	let index = -1;
