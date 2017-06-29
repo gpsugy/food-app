@@ -32,16 +32,16 @@ export function sortArr(arr, sortType_i) {
 				return b.rating - a.rating;
 			});
 			return newArr;
-		// sort by id
+		// sort by distance
 		case NO_SORT:
 			newArr = arr.slice();
 			newArr.sort((a, b) => {
-				let id1 = a.id.toLowerCase();
-				let id2 = b.id.toLowerCase();
-				if (id1 < id2) {
+				let d1 = a.distance;
+				let d2 = b.distance;
+				if (d1 < d2) {
 					return -1;
 				}
-				if (id1 > id2) {
+				if (d1 > d2) {
 					return 1;
 				}
 				return 0;
