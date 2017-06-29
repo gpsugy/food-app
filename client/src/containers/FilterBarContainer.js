@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 
 import {
   sortBusinesses,
+  toggleDistanceFilter,
   toggleRatingSort,
   updatePrices,
 } from '../actions/FilterBar';
@@ -21,6 +22,10 @@ const mapDispatchToProps = (dispatch) => {
 		},
 		clickPrice: (price) => {
 			dispatch(updatePrices(price));
+		},
+		clickDistance: () => {
+			// console.log('clicked distance');
+			dispatch(toggleDistanceFilter());
 		}
 	};
 }

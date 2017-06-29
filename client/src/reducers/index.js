@@ -68,6 +68,7 @@ export const businesses = (state = {}, action) => {
 	switch (action.type) {
 		case FETCH_BUSINESSES_SUCCESS:
 			return {
+				...state, 
 				results: action.results,
 				fetched: true
 			};
@@ -101,7 +102,7 @@ export const businesses = (state = {}, action) => {
 				sorting: {
 					rating_si: 1,
 					prices: [1, 2, 3, 4],
-					distance_fi: 1
+					distance_fi: 0
 				}
 			};
 		case UPDATE_PRICES:

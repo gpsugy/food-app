@@ -207,7 +207,7 @@ describe('(Reduxer) Businesses SORTING object changes', () => {
 			sorting: {
 				rating_si: 1,
 				prices: [1, 2, 3, 4],
-				distance_fi: 1
+				distance_fi: 0
 			}
 		};
 		expect(

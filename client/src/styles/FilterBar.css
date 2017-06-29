@@ -1,52 +1,7 @@
-.biz {
-	margin-bottom: 20px;
-}
-
-.biz img {
-	display: inline-block;
-}
-
-.biz-main-info {
-	display: inline-block;
-	margin-left: 25px;
-}
-
-.img-box {
-	display: inline-block;
-}
-
-.distance-traits {
-	display: inline-block;
-	margin-left: 300px;
-}
+/* All Filters */
 
 .filter-list > li {
 	margin-right: 40px;
-}
-
-.rating-btn {
-	display: inline-block;
-	padding: 8px 15px;
-	cursor: pointer;
-}
-
-.space-lg {
-	margin-right: 6px;
-}
-
-.price-filters {
-	display: inline-block;
-	cursor: pointer;
-	padding: 0;
-}
-
-.price-filters li {
-	padding: 5px 10px;
-	border: 1px solid gray;
-}
-
-.price-selected {
-	background-color: gray;
 }
 
 .filter-list li {
@@ -56,4 +11,32 @@
 .filter-btn {
 	border: 1px solid gray;
 	padding: 5px 10px;
+	display: inline-block;
+	cursor: pointer;
+}
+
+
+/* Rating Btn */
+
+.rating-btn {
+	padding: 8px 15px;
+}
+
+.space-lg {
+	margin-right: 6px;
+}
+
+
+/* Price Filters */
+
+.price-filters {
+	padding: 0;
+}
+
+.price-filters li {
+	padding: 5px 10px;
+}
+
+.price-selected {
+	background-color: gray;
 }

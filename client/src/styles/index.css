@@ -27,3 +27,25 @@ img {
 .food-type.selected {
 	background-color: #A5A5A5;
 }
+
+.biz {
+	margin-bottom: 20px;
+}
+
+.biz img {
+	display: inline-block;
+}
+
+.biz-main-info {
+	display: inline-block;
+	margin-left: 25px;
+}
+
+.img-box {
+	display: inline-block;
+}
+
+.distance-traits {
+	display: inline-block;
+	margin-left: 300px;
+}
