@@ -43,12 +43,14 @@ export default class FilterBar extends Component {
 	render() {
 		const { sorting, clickRating, clickPrice } = this.props;
 		return (
-			<div className="filter-list">
-				<div className="rating-btn" onClick={clickRating}><span>Rating </span>{this.renderArrow(sorting)}</div>
-				<ul className="price-filters">
-					{this.renderPriceFilters(sorting, clickPrice)}
-				</ul>
-			</div>
+			<ul className="filter-list">
+				<li className="rating-btn" onClick={clickRating}><span>Rating </span>{this.renderArrow(sorting)}</li>
+				<li>
+					<ul className="price-filters">
+						{this.renderPriceFilters(sorting, clickPrice)}
+					</ul>
+				</li>
+			</ul>
 		)
 	}
 }

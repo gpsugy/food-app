@@ -67,11 +67,14 @@ img {
 }
 
 .price-filters li {
-	display: inline-block;
 	padding: 5px 10px;
 	border: 1px solid gray;
 }
 
 .price-selected {
 	background-color: gray;
+}
+
+.filter-list li {
+	display: inline-block;
 }
