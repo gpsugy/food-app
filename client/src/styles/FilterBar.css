@@ -1,0 +1,50 @@
+.biz {
+	margin-bottom: 20px;
+}
+
+.biz img {
+	display: inline-block;
+}
+
+.biz-main-info {
+	display: inline-block;
+	margin-left: 25px;
+}
+
+.img-box {
+	display: inline-block;
+}
+
+.distance-traits {
+	display: inline-block;
+	margin-left: 300px;
+}
+
+.rating-btn {
+	display: inline-block;
+	padding: 8px 15px;
+	margin: 0 5px;
+	cursor: pointer;
+}
+
+.space-lg {
+	margin-right: 6px;
+}
+
+.price-filters {
+	display: inline-block;
+	cursor: pointer;
+}
+
+.price-filters li {
+	padding: 5px 10px;
+	border: 1px solid gray;
+}
+
+.price-selected {
+	background-color: gray;
+}
+
+.filter-list li {
+	display: inline-block;
+}

@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 
 import { ASCENDING, DESCENDING, SORTING_TYPES } from '../utility/SortingTypes';
 
+import '../styles/FilterBar.css';
+
 export default class FilterBar extends Component {
 	constructor(props) {
 		super(props);
