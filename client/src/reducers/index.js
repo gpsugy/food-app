@@ -9,7 +9,7 @@ import {
 import {
   DISTANCE_FILTER_TYPES,
   RATING_SORT_TYPES,
-} from '../utility/SortingTypes';
+} from '../utility/FilterTypes';
 import {
   FETCH_LOCATION_ERROR,
   FETCH_LOCATION_REQUEST,

@@ -381,10 +381,10 @@ describe('(Reducer) Businesses SORTING BUSINESSES', () => {
 
 		let newRatingSI = businesses(ascendingState, toggleRatingSort());
 		let newBusinesses = businesses(newRatingSI, sortBusinesses());
-		expect(newBusinesses.results[0].id).toEqual('banditos-restaurant-ann-arbor');
-		expect(newBusinesses.results[1].id).toEqual('chia-shiang-restaurant-ann-arbor-2');
+		expect(newBusinesses.results[0].id).toEqual('chia-shiang-restaurant-ann-arbor-2');
+		expect(newBusinesses.results[1].id).toEqual('no-thai-ann-arbor');
 		expect(newBusinesses.results[2].id).toEqual('freshii-ann-arbor');
-		expect(newBusinesses.results[3].id).toEqual('no-thai-ann-arbor');
+		expect(newBusinesses.results[3].id).toEqual('banditos-restaurant-ann-arbor');
 		expect(newBusinesses.sorting.rating_si).toEqual(0);
 	});
 });
