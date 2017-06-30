@@ -38,6 +38,17 @@ let userDB = {
 			mongoose.disconnect();
 		});
 	}
+	// read(user) {
+	// 	User.findOne({name: user.name, email: user.email}, (err, user.name) {
+	// 		if (err || !user) {
+	// 			console.error('Could not read snippet', user.name);
+	// 			mongoose.disconnect();
+	// 			return;
+	// 		}
+	// 		console.log('Read snippet', user.name);
+	// 		mongoose.disconnect();
+	// 	});
+	// }
 };
 
 
