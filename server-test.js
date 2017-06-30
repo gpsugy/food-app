@@ -10,7 +10,7 @@ unirest.post('http://localhost:8080/test')
 .headers({'Accept': 'application/json', 'Content-Type': 'application/json'})
 .send({
 	id: 1,
-	name: 'Sugy Ghang'
+	name: 'Sugy Ghang',
 	email: 'gpsugy@gmail.com'
 })
 .end(function(res) {
@@ -21,7 +21,7 @@ unirest.post('http://localhost:8080/user')
 .headers({'Accept': 'application/json', 'Content-Type': 'application/json'})
 .send({
 	id: 1,
-	name: 'Sugy Ghang'
+	name: 'Sugy Ghang',
 	email: 'gpsugy@gmail.com'
 })
 .end(function(res) {
