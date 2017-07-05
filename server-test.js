@@ -6,22 +6,33 @@ unirest.get('http://localhost:8080/test').end(function(res) {
 	}
 });
 
+unirest.post('http://localhost:8080/test')
+.headers({'Accept': 'application/json', 'Content-Type': 'application/json'})
+.send({
+	id: 1,
+	name: 'Sugy Ghang',
+	email: 'gpsugy@gmail.com'
+})
+.end(function(res) {
+	console.log(res.body);
+});
+
 unirest.get('http://localhost:8080/login').end(function(res) {
 	if (res.body !== 'login') {
 		'login route broke!!!';
 	}
 });
 
-// unirest.post('http://localhost:8080/test')
-// .headers({'Accept': 'application/json', 'Content-Type': 'application/json'})
-// .send({
-// 	id: 1,
-// 	name: 'Sugy Ghang',
-// 	email: 'gpsugy@gmail.com'
-// })
-// .end(function(res) {
-// 	console.log(res.body);
-// });
+unirest.post('http://localhost:8080/signup')
+.headers({'Accept': 'application/json', 'Content-Type': 'application/json'})
+.send({
+	email: 'gpsugy9@gmail.com',
+	password: 'pass'
+})
+.end(function(res) {
+	console.log(res.body);
+});
+
 
 // unirest.post('http://localhost:8080/user')
 // .headers({'Accept': 'application/json', 'Content-Type': 'application/json'})
