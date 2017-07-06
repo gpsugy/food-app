@@ -22,6 +22,11 @@ import {
   TOGGLE_RATING_SORT,
   UPDATE_PRICES,
 } from '../actions/FilterBar';
+import {
+  SIGNUP_REQUEST,
+  SIGNUP_SUCCESS,
+  SIGNUP_ERROR
+} from '../actions/Account';
 import { UPDATE_FOOD_TYPE } from '../actions/FoodType';
 import { findIndexOf, removeFromArr, sortArr } from '../utility/arrayMethods';
 
@@ -59,6 +64,27 @@ export const foodTypes = (state = [], action) => {
 				let index = findIndexOf(state, action.foodType);
 				return removeFromArr(state, index);
 			}
+		default:
+			return state;
+	}
+}
+
+export const account = (state = {}, action) => {
+	switch (action.type) {
+		case SIGNUP_REQUEST:
+			return {
+				...state,
+				isFetching: true
+			};
+		case SIGNUP_SUCCESS:
+			return {
+				...state,
+				isFetching: false,
+				email: action.email
+			};
+		case SIGNUP_ERROR:
+			console.log(action.error);
+			return state;
 		default:
 			return state;
 	}
@@ -153,8 +179,10 @@ export const appReducer = combineReducers({
 	businesses: businesses,
 	user: combineReducers({
 		location,
-		foodTypes
-	})
+		foodTypes,
+		account
+	}),
+
 })
 
 // Sort by rating. Choose category of price. Always sort by distance.
