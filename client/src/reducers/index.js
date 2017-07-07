@@ -29,7 +29,7 @@ import {
 } from '../actions/Account';
 import { UPDATE_FOOD_TYPE } from '../actions/FoodType';
 import { findIndexOf, removeFromArr, sortArr } from '../utility/arrayMethods';
-
+import { reducer as formReducer } from 'redux-form';
 export const location = (state = {}, action) => {
 	switch (action.type) {
 		case FETCH_LOCATION_SUCCESS:
@@ -182,7 +182,7 @@ export const appReducer = combineReducers({
 		foodTypes,
 		account
 	}),
-
+	form: formReducer
 })
 
 // Sort by rating. Choose category of price. Always sort by distance.

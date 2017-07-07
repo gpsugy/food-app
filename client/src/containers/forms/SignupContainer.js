@@ -1,22 +1,25 @@
 import { connect } from 'react-redux';
 
-const mapStateToProps = (state, ownProps) => {
-	// return {
-	// 	sorting: state.businesses.sorting
-	// };
-}
+import Signup from '../../components/forms/Signup';
+
+// const mapStateToProps = (state, ownProps) => {
+// 	return {
+// 		hi: 'hi'
+// 	};
+// }
 
 const mapDispatchToProps = (dispatch) => {
 	return {
-		handleSubmit: () => {
-			console.log('clicked submit');
+		onSubmit: (values) => {
+			console.log('ready to dispatch');
+			// console.log(values.email);
 		}
 	};
 }
 
 const SignupContainer = connect(
-	// mapStateToProps,
-	// mapDispatchToProps
+	null,
+	mapDispatchToProps
 )(Signup)
 
 export default SignupContainer

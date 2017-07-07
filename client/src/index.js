@@ -1,7 +1,7 @@
 import './styles/index.css';
 import './styles/normalize.css';
 
-import { HashRouter } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -12,9 +12,9 @@ import registerServiceWorker from './registerServiceWorker';
 
 ReactDOM.render(
 	<Provider store={store}>
-		<HashRouter>
+		<BrowserRouter>
 			<App />
-		</HashRouter>
+		</BrowserRouter>
 	</Provider>
 	, document.getElementById('root'));
 registerServiceWorker();

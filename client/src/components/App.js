@@ -5,7 +5,7 @@ import FoodTypeListContainer from '../containers/FoodTypeListContainer';
 import LocationFinderContainer from '../containers/LocationFinderContainer';
 import Login from './forms/Login';
 import ResultListContainer from '../containers/ResultListContainer';
-import Signup from './forms/Signup';
+import SignupContainer from '../containers/forms/SignupContainer';
 
 const App = () => (
   <main>
@@ -14,7 +14,7 @@ const App = () => (
       <Route path='/foodTypes' component={FoodTypeListContainer} />
       <Route path='/results' component={ResultListContainer} />
       <Route path='/login' component={Login} />
-      <Route path='/signup' component={Signup} />
+      <Route path='/signup' component={SignupContainer} />
     </Switch>
   </main>
 )
