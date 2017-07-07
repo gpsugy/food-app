@@ -1,4 +1,7 @@
 import { connect } from 'react-redux';
+import React from 'react';
+
+import { reduxForm } from 'redux-form';
 
 import Signup from '../../components/forms/Signup';
 
@@ -8,18 +11,14 @@ import Signup from '../../components/forms/Signup';
 // 	};
 // }
 
-const mapDispatchToProps = (dispatch) => {
-	return {
-		onSubmit: (values) => {
-			console.log('ready to dispatch');
-			// console.log(values.email);
-		}
-	};
-}
+let SignupContainer = ({ handleSubmit, values }) =>
+	<Signup onSubmit={(values) => handleSubmit(values)} />
 
-const SignupContainer = connect(
+const mapDispatchToProps = (dispatch) => ({
+	handleSubmit: (values) => console.log(values.email)
+});
+
+export default reduxForm({ form: 'SignupContainer' })(connect(
 	null,
 	mapDispatchToProps
-)(Signup)
-
-export default SignupContainer
+)(SignupContainer));
