@@ -11,7 +11,7 @@ export function signupRequest() {
 export function signupSuccess(user) {
 	return {
 		type: SIGNUP_SUCCESS,
-		email: user.email
+				email: user.email
 	};
 }
 
@@ -25,12 +25,13 @@ export function signupError(error) {
 export function requestSignup(user) {
 	return (dispatch) => {
 		dispatch(signupRequest());
-		return fetch("/login", {
+		return fetch("/signup", {
 			method: "POST",
-			body: {
-				email: user.email,
-				password: user.password
-			}
+			headers: {
+				'Accept': 'application/json',
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify(user)
 		})
 			.then(response => {
 				if (response.status < 200 || response.status >= 300) {

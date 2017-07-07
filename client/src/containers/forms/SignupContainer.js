@@ -3,22 +3,19 @@ import React from 'react';
 
 import { reduxForm } from 'redux-form';
 
+import { requestSignup } from '../../actions/Account';
 import Signup from '../../components/forms/Signup';
-
-// const mapStateToProps = (state, ownProps) => {
-// 	return {
-// 		hi: 'hi'
-// 	};
-// }
 
 let SignupContainer = ({ handleSubmit, values }) =>
 	<Signup onSubmit={(values) => handleSubmit(values)} />
 
 const mapDispatchToProps = (dispatch) => ({
-	handleSubmit: (values) => console.log(values.email)
+	handleSubmit: (values) => dispatch(requestSignup(values))
 });
 
-export default reduxForm({ form: 'SignupContainer' })(connect(
+export default reduxForm({
+	form: 'SignupContainer'
+})(connect(
 	null,
 	mapDispatchToProps
 )(SignupContainer));
