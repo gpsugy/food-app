@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 
 import { Field, reduxForm } from 'redux-form';
 
-		// const isEnabled = email.length > 0 && password.length > 0;
 class Signup extends Component {
 	render() {
 		const { handleSubmit } = this.props;

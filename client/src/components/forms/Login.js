@@ -1,53 +1,37 @@
 import { Link } from 'react-router-dom';
 import React, { Component } from 'react';
 
-export default class Signup extends Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			email: '',
-			password: ''
-		};
+import { Field, reduxForm } from 'redux-form';
 
-		this.handleChange = this.handleChange.bind(this);
-		this.handleSubmit = this.handleSubmit.bind(this);
-	}
-
-	handleChange(e) {
-		this.setState({
-			[e.target.name]: e.target.value
-		});
-	}
-
-	handleSubmit(e) {
-		e.preventDefault();
-		console.log('User logged in: ' + this.state.email + this.state.password);
-	}
-
+		// const isEnabled = email.length > 0 && password.length > 0;
+class Login extends Component {
 	render() {
-		const { email, password } = this.state;
-		const isEnabled = email.length > 0 && password.length > 0;
+		const { handleSubmit } = this.props;
 		return (
 			<div>
-				<h1>Signup</h1>
-				<form onSubmit={this.handleSubmit}>
-					<div className="form-group">
+				<h1>Login</h1>
+				<form onSubmit={handleSubmit}>
+					<div className="form-group">	
 						<label>
 							Email: 
-							<input type="text" name="email" value={this.state.email} onChange={this.handleChange} />
+							<Field component="input" type="text" name="email" />
 						</label>
 					</div>
-					<div>	
+					<div>
 						<label>
 							Password: 
-							<input type="password" name="password" value={this.state.password} onChange={this.handleChange} />
+							<Field component="input" type="password" name="password" />
 						</label>
 					</div>
-					<input disabled={!isEnabled} type="submit" value="Submit" />
+					<button type="submit" >Submit</button>
 				</form>
-				<p>Need an account? <Link to="/signup">Signup</Link></p>
+				<p>Need an account? <Link to="/login">Signup</Link></p>
 				<Link to="/">Home</Link>
 			</div>
 		)
 	}
 }
+
+export default reduxForm({
+	form: 'Login'
+})(Login)
