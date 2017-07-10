@@ -20,21 +20,36 @@ unirest.post('http://localhost:8080/test')
 // unirest.post('http://localhost:8080/signup')
 // .headers({'Accept': 'application/json', 'Content-Type': 'application/json'})
 // .send({
-// 	email: 'gpsugy9@gmail.com',
-// 	password: 'pass'
+// 	email: 'test19@gmail.com',
+// 	password: 'password'
 // })
 // .end(function(res) {
 // 	console.log(res.body);
 // });
 
-unirest.post('http://localhost:8080/login')
+// unirest.post('http://localhost:8080/login')
+// .headers({'Accept': 'application/json', 'Content-Type': 'application/json'})
+// .send({
+// 	email: 'test17@gmail.com',
+// 	password: 'password'
+// })
+// .end(function(res) {
+// 	console.log('***Login***');
+// 	console.log(res.body);
+// });
+
+unirest.post('http://localhost:8080/filter-defaults')
 .headers({'Accept': 'application/json', 'Content-Type': 'application/json'})
 .send({
-	email: 'test17@gmail.com',
-	password: 'password'
+	email: 'test19@gmail.com',
+	filters: {
+		rating_si: 2,
+		prices: [1, null, null, 4],
+		distance_fi: 1
+	}
 })
 .end(function(res) {
-	console.log('***Login***');
+	console.log('***Filter Defaults***');
 	console.log(res.body);
 });
 

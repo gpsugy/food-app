@@ -12,6 +12,18 @@ let userSchema = mongoose.Schema({
 	local: {
 		email: String,
 		password: String
+	},
+	default: {
+		filters: {
+			rating_si: Number,
+			prices: [
+				Number,
+				Number,
+				Number,
+				Number
+			],
+			distance_fi: Number
+		}
 	}
 });
 
