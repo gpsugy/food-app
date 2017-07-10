@@ -1,6 +1,11 @@
 export const SIGNUP_REQUEST = 'SIGNUP_SEND_REQUEST';
 export const SIGNUP_SUCCESS = 'SIGNUP_SUCCESS';
 export const SIGNUP_ERROR = 'SIGNUP_ERROR';
+export const LOGIN_REQUEST = 'LOGIN_SEND_REQUEST';
+export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
+export const LOGIN_ERROR = 'LOGIN_ERROR';
+
+/* Signup */
 
 export function signupRequest() {
 	return {
@@ -21,6 +26,30 @@ export function signupError(error) {
 		error
 	};
 }
+
+/* Login */
+
+export function loginRequest() {
+	return {
+		type: LOGIN_REQUEST
+	};
+}
+
+export function loginSuccess(user) {
+	return {
+		type: LOGIN_SUCCESS,
+		email: user.email
+	};
+}
+
+export function loginError(error) {
+	return {
+		type: LOGIN_ERROR,
+		error
+	};
+}
+
+/* API Calls */
 
 export function requestSignup(user) {
 	return (dispatch) => {

@@ -1,5 +1,7 @@
 import { combineReducers } from 'redux';
 
+import { reducer as formReducer } from 'redux-form';
+
 import {
   ALLOW_REFETCH,
   FETCH_BUSINESSES_ERROR,
@@ -23,13 +25,16 @@ import {
   UPDATE_PRICES,
 } from '../actions/FilterBar';
 import {
+  LOGIN_ERROR,
+  LOGIN_REQUEST,
+  LOGIN_SUCCESS,
+  SIGNUP_ERROR,
   SIGNUP_REQUEST,
   SIGNUP_SUCCESS,
-  SIGNUP_ERROR
 } from '../actions/Account';
 import { UPDATE_FOOD_TYPE } from '../actions/FoodType';
 import { findIndexOf, removeFromArr, sortArr } from '../utility/arrayMethods';
-import { reducer as formReducer } from 'redux-form';
+
 export const location = (state = {}, action) => {
 	switch (action.type) {
 		case FETCH_LOCATION_SUCCESS:
@@ -72,17 +77,20 @@ export const foodTypes = (state = [], action) => {
 export const account = (state = {}, action) => {
 	switch (action.type) {
 		case SIGNUP_REQUEST:
+		case LOGIN_REQUEST:
 			return {
 				...state,
 				isFetching: true
 			};
 		case SIGNUP_SUCCESS:
+		case LOGIN_SUCCESS:
 			return {
 				...state,
 				isFetching: false,
 				email: action.email
 			};
 		case SIGNUP_ERROR:
+		case LOGIN_ERROR:
 			console.log(action.error);
 			return state;
 		default:
