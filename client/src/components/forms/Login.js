@@ -1,7 +1,6 @@
+import { Field, reduxForm } from 'redux-form';
 import { Link } from 'react-router-dom';
 import React, { Component } from 'react';
-
-import { Field, reduxForm } from 'redux-form';
 
 		// const isEnabled = email.length > 0 && password.length > 0;
 class Login extends Component {
@@ -23,9 +22,9 @@ class Login extends Component {
 							<Field component="input" type="password" name="password" />
 						</label>
 					</div>
-					<button type="submit" >Submit</button>
+					<button type="submit" >Login</button>
 				</form>
-				<p>Need an account? <Link to="/login">Signup</Link></p>
+				<p>Need an account? <Link to="/signup">Signup</Link></p>
 				<Link to="/">Home</Link>
 			</div>
 		)

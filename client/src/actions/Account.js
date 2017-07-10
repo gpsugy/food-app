@@ -74,3 +74,27 @@ export function requestSignup(user) {
 			.catch(error => dispatch(signupError(error)));
 	}
 }
+
+export function requestLogin(user) {
+	return (dispatch) => {
+		dispatch(loginRequest());
+		return fetch("/login", {
+			method: "POST",
+			headers: {
+				'Accept': 'application/json',
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify(user)
+		})
+			.then(response => {
+				if (response.status < 200 || response.status >= 300) {
+					let error = new Error(response.statusText);
+					error.response = response;
+					throw error;
+				}
+				return response;
+			}).then(response => response.json())
+			.then(json => dispatch(loginSuccess(json)))
+			.catch(error => dispatch(loginError(error)));
+	}
+}

@@ -1,7 +1,6 @@
 import { connect } from 'react-redux';
-import React from 'react';
-
 import { reduxForm } from 'redux-form';
+import React from 'react';
 
 import { requestLogin } from '../../actions/Account';
 import Login from '../../components/forms/Login';
