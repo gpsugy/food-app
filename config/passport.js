@@ -11,11 +11,13 @@ export default function passportConfig(passport) {
 
     // used to serialize the user for the session
     passport.serializeUser((user, done) => {
+        console.log('serializing user');
         done(null, user.id);
     });
 
     // used to deserialize the user
     passport.deserializeUser((id, done) => {
+        console.log('deserializing user');
         User.findById(id, (err, user) => {
             done(err, user);
         });

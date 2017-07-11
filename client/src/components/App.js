@@ -18,5 +18,6 @@ const App = () => (
     </Switch>
   </main>
 )
+      // <PrivateRoute path="/settings" component={Settings} />
 
 export default App;

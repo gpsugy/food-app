@@ -27,7 +27,8 @@ export function fetchBusinessesRequest() {
 export function fetchBusinesses(terms, location) {
 	return (dispatch) => {
 		dispatch(fetchBusinessesRequest());
-		return fetch(`/businesses/search?term=${terms.join('+')}&latitude=${location.latitude}&longitude=${location.longitude}`)
+		return fetch(`/businesses/search?term=${terms.join('+')}&latitude=${location.latitude}&longitude=${location.longitude}`,
+			{credentials: 'include'})
 			.then(response => {
 				if (response.status < 200 || response.status >= 300) {
 					let error = new Error(response.statusText);
