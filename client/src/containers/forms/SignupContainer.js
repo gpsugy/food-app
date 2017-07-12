@@ -16,7 +16,6 @@ let SignupContainer = ({ handleSubmit, jwt_token, values }) =>
 	</div>
 
 const mapStateToProps = (state) => {
-	console.log(state.user.account.jwt_token);
 	return {
 		jwt_token: state.user.account.jwt_token
 	};

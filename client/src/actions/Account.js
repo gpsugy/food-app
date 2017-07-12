@@ -98,3 +98,31 @@ export function requestLogin(user) {
 			.catch(error => dispatch(loginError(error)));
 	}
 }
+
+export function testJWT(account) {
+	return (dispatch) => {
+		// dispatch(loginRequest());
+		console.log(account);
+			// body: JSON.stringify(account.user)
+		return fetch("/settings", {
+			method: "GET",
+			headers: {
+				'Accept': 'application/json',
+				'Content-Type': 'application/json',
+				'Authorization': `JWT ${account.jwt_token}`
+			}
+		})
+			.then(response => {
+				if (response.status < 200 || response.status >= 300) {
+					let error = new Error(response.statusText);
+					error.response = response;
+					throw error;
+				}
+				return response;
+			}).then(response => response.json())
+			.then(json => console.log(json))
+			.catch(error => console.log(error));
+			// .then(json => dispatch(loginSuccess(json)))
+			// .catch(error => dispatch(loginError(error)));
+	}
+}
