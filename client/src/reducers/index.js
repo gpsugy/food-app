@@ -87,7 +87,7 @@ export const account = (state = {}, action) => {
 			return {
 				...state,
 				isFetching: false,
-				email: action.email
+				jwt_token: action.token
 			};
 		case SIGNUP_ERROR:
 		case LOGIN_ERROR:

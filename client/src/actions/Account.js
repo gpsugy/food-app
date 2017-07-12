@@ -16,7 +16,7 @@ export function signupRequest() {
 export function signupSuccess(user) {
 	return {
 		type: SIGNUP_SUCCESS,
-				email: user.email
+		token: user.token
 	};
 }
 
@@ -38,7 +38,7 @@ export function loginRequest() {
 export function loginSuccess(user) {
 	return {
 		type: LOGIN_SUCCESS,
-		email: user.email
+		token: user.token
 	};
 }
 
