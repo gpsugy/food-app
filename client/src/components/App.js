@@ -5,6 +5,7 @@ import FoodTypeListContainer from '../containers/FoodTypeListContainer';
 import LocationFinderContainer from '../containers/LocationFinderContainer';
 import LoginContainer from '../containers/forms/LoginContainer';
 import ResultListContainer from '../containers/ResultListContainer';
+import Settings from './private/Settings';
 import SignupContainer from '../containers/forms/SignupContainer';
 
 const App = () => (
@@ -15,6 +16,7 @@ const App = () => (
       <Route path='/results' component={ResultListContainer} />
       <Route path='/login' component={LoginContainer} />
       <Route path='/signup' component={SignupContainer} />
+      <Route path='/settings' component={Settings} />
     </Switch>
   </main>
 )
