@@ -98,6 +98,55 @@ export const account = (state = {}, action) => {
 	}
 }
 
+export const filters = (state = {}, action) => {
+	switch (action.type) {
+		case TOGGLE_RATING_SORT:
+			return {
+				...state,
+				rating_si: (state.rating_si + 1) % RATING_SORT_TYPES.length
+			};
+		case INIT_SORT:
+			return {
+				...state,
+				rating_si: 1,
+				prices: [1, 2, 3, 4],
+				distance_fi: 0
+			};
+		case UPDATE_PRICES:
+			if (state === 'undefined') {
+				return state;
+			}
+			// 0-indexing
+			let i = action.price - 1;
+			// remove price
+			if (state.prices[i] != null) {
+				let newPrices = state.prices.slice();
+				// 0-indexing
+				newPrices[i] = null;
+				return {
+					...state,
+					prices: newPrices
+				};
+			}
+			// add price
+			else {
+				let newPrices = state.prices.slice();
+				newPrices[i] = action.price;
+				return {
+					...state,
+					prices: newPrices
+				}
+			}
+		case TOGGLE_DISTANCE_FILTER:
+			return {
+				...state,
+				distance_fi: (state.distance_fi + 1) % DISTANCE_FILTER_TYPES.length
+			};
+		default:
+			return state;
+	}
+}
+
 export const businesses = (state = {}, action) => {
 	switch (action.type) {
 		case FETCH_BUSINESSES_SUCCESS:
@@ -122,61 +171,12 @@ export const businesses = (state = {}, action) => {
 				results: sortArr(state.results, state.sorting.rating_si)
 			};
 		case TOGGLE_RATING_SORT:
-			let updatedSorting = {
-				...state.sorting,
-				rating_si: (state.sorting.rating_si + 1) % RATING_SORT_TYPES.length
-			};
-			return {
-				...state,
-				sorting: updatedSorting
-			};
 		case INIT_SORT:
-			return {
-				...state,
-				sorting: {
-					rating_si: 1,
-					prices: [1, 2, 3, 4],
-					distance_fi: 0
-				}
-			};
 		case UPDATE_PRICES:
-			if (state.sorting === 'undefined') {
-				return state;
-			}
-			// 0-indexing
-			let i = action.price - 1;
-			// remove price
-			if (state.sorting.prices[i] != null) {
-				let newPrices = state.sorting.prices.slice();
-				// 0-indexing
-				newPrices[i] = null;
-				return {
-					...state,
-					sorting: {
-						...state.sorting,
-						prices: newPrices
-					}
-				}
-			}
-			// add price
-			else {
-				let newPrices = state.sorting.prices.slice();
-				newPrices[i] = action.price;
-				return {
-					...state,
-					sorting: {
-						...state.sorting,
-						prices: newPrices
-					}
-				}
-			}
 		case TOGGLE_DISTANCE_FILTER:
 			return {
 				...state,
-				sorting: {
-					...state.sorting,
-					distance_fi: (state.sorting.distance_fi + 1) % DISTANCE_FILTER_TYPES.length
-				}
+				sorting: filters(state.sorting, action)
 			};
 		default:
 			return state;
