@@ -6,9 +6,9 @@ import React from 'react';
 import { requestLogin } from '../../actions/Account';
 import Login from '../../components/forms/Login';
 
-let LoginContainer = ({ handleSubmit, jwt_token, values }) =>
+let LoginContainer = ({ handleSubmit, email, values }) =>
 	<div>
-		{jwt_token !== undefined && jwt_token !== null ? (
+		{email !== undefined && email !== null ? (
 			<Redirect to="/settings"/>
 		) : (
 			<Login onSubmit={(values) => handleSubmit(values)} />
@@ -17,17 +17,23 @@ let LoginContainer = ({ handleSubmit, jwt_token, values }) =>
 
 const mapStateToProps = (state) => {
 	return {
-		jwt_token: state.user.account.jwt_token
+		email: state.user.account.email
 	};
 }
 
-const mapDispatchToProps = (dispatch) => ({
-	handleSubmit: (values) => dispatch(requestLogin(values))
-});
+const mergeProps = (stateProps, dispatchProps, ownProps) => {
+	return {
+		email: stateProps.email,
+		handleSubmit: (values) => {
+			dispatchProps.dispatch(requestLogin(values));
+		}
+	};
+}
 
 export default reduxForm({
 	form: 'LoginContainer'
 })(connect(
 	mapStateToProps,
-	mapDispatchToProps
+	null,
+	mergeProps
 )(LoginContainer));
