@@ -6,6 +6,7 @@ import {
   FETCH_BUSINESSES_ERROR,
   FETCH_BUSINESSES_REQUEST,
   FETCH_BUSINESSES_SUCCESS,
+  SET_BUSINESSES_FILTERS
 } from '../actions/Results';
 import {
   DISTANCE_FILTER_TYPES,
@@ -126,6 +127,7 @@ export const filters = (state = {}, action) => {
 				distance_fi: 0
 			};
 		case SET_USER_FILTERS:
+		case SET_BUSINESSES_FILTERS:
 			console.log('SET_FILTERS reducer triggered');
 			// default settings has never been set for this user - initialize
 			if (action.filters.rating_si === undefined) {
@@ -204,6 +206,11 @@ export const businesses = (state = {}, action) => {
 				...state,
 				sorting: filters(state.sorting, action)
 			};
+		case SET_BUSINESSES_FILTERS:
+			return {
+				...state,
+				sorting: filters(state.sorting, action)
+			}
 		default:
 			return state;
 	}

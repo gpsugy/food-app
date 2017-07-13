@@ -4,6 +4,7 @@ export const FETCH_BUSINESSES_REQUEST = 'FETCH_BUSINESSES_REQUEST';
 export const FETCH_BUSINESSES_SUCCESS = 'FETCH_BUSINESSES_SUCCESS';
 export const FETCH_BUSINESSES_ERROR = 'FETCH_BUSINESSES_ERROR';
 export const ALLOW_REFETCH = 'ALLOW_REFETCH';
+export const SET_BUSINESSES_FILTERS = 'SET_BUSINESSES_FILTERS';
 
 export function fetchBusinessesSuccess(businesses) {
 	return {
@@ -22,6 +23,13 @@ export function fetchBusinessesRequest() {
 	return {
 		type: FETCH_BUSINESSES_REQUEST
 	}
+}
+
+export function setBusinessesFilters(filters) {
+	return {
+		type: SET_BUSINESSES_FILTERS,
+		filters: filters
+	};
 }
 
 export function fetchBusinesses(terms, location) {

@@ -1,4 +1,5 @@
 import { getTokenFromCookie } from '../utility/Cookie';
+import { setBusinessesFilters } from './Results';
 
 export const SIGNUP_REQUEST = 'SIGNUP_SEND_REQUEST';
 export const SIGNUP_SUCCESS = 'SIGNUP_SUCCESS';
@@ -152,6 +153,8 @@ export function getUserSettings(email) {
 				return response;
 			}).then(response => response.json())
 			.then(json => dispatch(setUserFilters(json)))
-			.catch(error => dispatch(settingsError(error)));
+			.catch(error => dispatch(settingsError(error)))
+			.then(() => dispatch(setBusinessesFilters(getState().user.account.default.filters)))
+			.catch(error => console.log('setBusinessesFilters ' + error));
 	}
 }
