@@ -1,3 +1,5 @@
+import { getTokenFromCookie } from '../utility/Cookie';
+
 export const SIGNUP_REQUEST = 'SIGNUP_SEND_REQUEST';
 export const SIGNUP_SUCCESS = 'SIGNUP_SUCCESS';
 export const SIGNUP_ERROR = 'SIGNUP_ERROR';
@@ -101,28 +103,30 @@ export function requestLogin(user) {
 	}
 }
 
-export function testJWT(account) {
+export function getUserSettings(email) {
 	return (dispatch) => {
 		// dispatch(loginRequest());
-		console.log(account);
+		console.log('getUserSettings dispatched');
 			// body: JSON.stringify(account.user)
-		return fetch("/settings", {
-			method: "GET",
-			headers: {
-				'Accept': 'application/json',
-				'Content-Type': 'application/json',
-				'Authorization': `JWT ${account.jwt_token}`
-			}
-		})
-			.then(response => {
-				if (response.status < 200 || response.status >= 300) {
-					let error = new Error(response.statusText);
-					error.response = response;
-					throw error;
-				}
-				return response;
-			}).then(response => response.json())
-			.then(json => console.log(json))
-			.catch(error => console.log(error));
+		let token = getTokenFromCookie('token');
+		console.log('token is: ' + token);
+		// return fetch("/settings", {
+		// 	method: "GET",
+		// 	headers: {
+		// 		'Accept': 'application/json',
+		// 		'Content-Type': 'application/json',
+		// 		'Authorization': `JWT ${account.jwt_token}`
+		// 	}
+		// })
+		// 	.then(response => {
+		// 		if (response.status < 200 || response.status >= 300) {
+		// 			let error = new Error(response.statusText);
+		// 			error.response = response;
+		// 			throw error;
+		// 		}
+		// 		return response;
+		// 	}).then(response => response.json())
+		// 	.then(json => console.log(json))
+		// 	.catch(error => console.log(error));
 	}
 }
