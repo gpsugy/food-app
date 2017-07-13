@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 
-import { testJWT } from '../../actions/Account';
 import Settings from '../../components/private/Settings';
+import { getUserSettings } from '../../actions/Account';
 
 const mapStateToProps = (state) => {
 	return {
@@ -11,10 +11,10 @@ const mapStateToProps = (state) => {
 
 const mergeProps = (stateProps, dispatchProps, ownProps) => {
 	return {
-		handleClick: () => {
-			dispatchProps.dispatch(testJWT(stateProps.account));
+		onMount: () => {
+			dispatchProps.dispatch(getUserSettings(stateProps.account.email));
 		}
-	};
+	}
 }
 
 const SettingsContainer = connect(

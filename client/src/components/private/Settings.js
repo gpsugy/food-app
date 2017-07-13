@@ -1,8 +1,15 @@
 import React, { Component } from 'react';
 
+import FilterDefaultsContainer from
+  '../../containers/private/FilterDefaultsContainer';
+
 export default class Settings extends Component {
+	componentDidMount() {
+		this.props.onMount();
+	}
+
+		// const { } = this.props;
 	render() {
-		const { handleClick } = this.props;
 		return (
 			<div>
 				<header>
@@ -14,8 +21,9 @@ export default class Settings extends Component {
 						<h3>Default Filters</h3>
 					</div>
 				</main>
-				<button type="button" onClick={handleClick}>Test JWT Auth</button>
 			</div>
 		)
 	}
 }
+				// <button type="button" onClick={handleClick}>Test JWT Auth</button>
+						// <FilterDefaultsContainer />
