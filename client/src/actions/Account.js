@@ -7,7 +7,7 @@ export const LOGIN_REQUEST = 'LOGIN_SEND_REQUEST';
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 export const LOGIN_ERROR = 'LOGIN_ERROR';
 export const SETTINGS_REQUEST = 'SETTINGS_SEND_REQUEST';
-export const SETTINGS_SUCCESS = 'SETTINGS_SUCCESS';
+export const SET_USER_FILTERS = 'SET_USER_FILTERS';
 export const SETTINGS_ERROR = 'SETTINGS_ERROR';
 
 /* Signup */
@@ -64,9 +64,9 @@ export function settingsRequest() {
 	};
 }
 
-export function settingsSuccess(user) {
+export function setUserFilters(user) {
 	return {
-		type: SETTINGS_SUCCESS,
+		type: SET_USER_FILTERS,
 		filters: user.default.filters
 	};
 }
@@ -151,7 +151,7 @@ export function getUserSettings(email) {
 				}
 				return response;
 			}).then(response => response.json())
-			.then(json => dispatch(settingsSuccess(json)))
+			.then(json => dispatch(setUserFilters(json)))
 			.catch(error => dispatch(settingsError(error)));
 	}
 }
