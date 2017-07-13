@@ -12,6 +12,6 @@ export function getTokenFromCookie(name) {
 	console.log('cookie is: ' + document.cookie);
 	var value = "; " + document.cookie;
 	var parts = value.split("; " + name + "=");
-	if (parts.length == 2)
+	if (parts.length === 2)
 		return parts.pop().split(";").shift();
 };

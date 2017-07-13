@@ -23,6 +23,9 @@ import {
   TOGGLE_DISTANCE_FILTER,
   TOGGLE_RATING_SORT,
   UPDATE_PRICES,
+  USER_TOGGLE_DISTANCE_FILTER,
+  USER_TOGGLE_RATING_SORT,
+  USER_UPDATE_PRICES,
 } from '../actions/FilterBar';
 import {
   LOGIN_ERROR,
@@ -103,6 +106,15 @@ export const account = (state = {}, action) => {
 					filters: filters(state.filters, action)
 				}
 			}
+		case USER_TOGGLE_RATING_SORT:
+		case USER_UPDATE_PRICES:
+		case USER_TOGGLE_DISTANCE_FILTER:
+			return {
+				...state,
+				default: {
+					filters: filters(state.filters, action)
+				}
+			}
 		case SIGNUP_ERROR:
 		case LOGIN_ERROR:
 		case SETTINGS_ERROR:
@@ -116,6 +128,7 @@ export const account = (state = {}, action) => {
 export const filters = (state = {}, action) => {
 	switch (action.type) {
 		case TOGGLE_RATING_SORT:
+		case USER_TOGGLE_RATING_SORT:
 			return {
 				...state,
 				rating_si: (state.rating_si + 1) % RATING_SORT_TYPES.length
@@ -141,6 +154,7 @@ export const filters = (state = {}, action) => {
 				return action.filters
 			}
 		case UPDATE_PRICES:
+		case USER_UPDATE_PRICES:
 			if (state === 'undefined') {
 				return state;
 			}
@@ -166,6 +180,7 @@ export const filters = (state = {}, action) => {
 				}
 			}
 		case TOGGLE_DISTANCE_FILTER:
+		case USER_TOGGLE_DISTANCE_FILTER:
 			return {
 				...state,
 				distance_fi: (state.distance_fi + 1) % DISTANCE_FILTER_TYPES.length
