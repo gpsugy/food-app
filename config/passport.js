@@ -34,16 +34,15 @@ export default function passportConfig(passport) {
 
 
     passport.use(new JwtStrategy(jwtOptions, (payload, done) => {
-        console.log('payload received', payload);
+        console.log('JWT Authorization Check... payload received', payload);
         // find a user whose email is the same as the forms email
         // we are checking to see if the user trying to login already exists
-        User.findOne({ id :  payload.id }, (err, user) => {
+        User.findOne({ _id :  payload.id }, (err, user) => {
             // if there are any errors, return the error before anything else
             if (err) {
                 console.log('db error');
                 return done(err);
             }
-
             // if no user is found, return the message
             if (!user) {
                 console.log('no such user found');

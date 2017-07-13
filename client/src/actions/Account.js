@@ -107,26 +107,26 @@ export function getUserSettings(email) {
 	return (dispatch) => {
 		// dispatch(loginRequest());
 		console.log('getUserSettings dispatched');
-			// body: JSON.stringify(account.user)
 		let token = getTokenFromCookie('token');
 		console.log('token is: ' + token);
-		// return fetch("/settings", {
-		// 	method: "GET",
-		// 	headers: {
-		// 		'Accept': 'application/json',
-		// 		'Content-Type': 'application/json',
-		// 		'Authorization': `JWT ${account.jwt_token}`
-		// 	}
-		// })
-		// 	.then(response => {
-		// 		if (response.status < 200 || response.status >= 300) {
-		// 			let error = new Error(response.statusText);
-		// 			error.response = response;
-		// 			throw error;
-		// 		}
-		// 		return response;
-		// 	}).then(response => response.json())
-		// 	.then(json => console.log(json))
-		// 	.catch(error => console.log(error));
+			// body: JSON.stringify(email)
+		return fetch(`/settings?email=${email}`, {
+			method: "GET",
+			headers: {
+				'Accept': 'application/json',
+				'Content-Type': 'application/json',
+				'Authorization': `JWT ${token}`
+			}
+		})
+			.then(response => {
+				if (response.status < 200 || response.status >= 300) {
+					let error = new Error(response.statusText);
+					error.response = response;
+					throw error;
+				}
+				return response;
+			}).then(response => response.json())
+			.then(json => console.log(json))
+			.catch(error => console.log(error));
 	}
 }
