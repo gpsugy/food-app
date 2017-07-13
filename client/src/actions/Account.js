@@ -7,7 +7,7 @@ export const LOGIN_REQUEST = 'LOGIN_SEND_REQUEST';
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 export const LOGIN_ERROR = 'LOGIN_ERROR';
 export const SETTINGS_REQUEST = 'SETTINGS_SEND_REQUEST';
-export const SET_USER_FILTERS = 'SET_USER_FILTERS';
+export const SET_FILTERS = 'SET_FILTERS';
 export const SETTINGS_ERROR = 'SETTINGS_ERROR';
 
 /* Signup */
@@ -66,7 +66,7 @@ export function settingsRequest() {
 
 export function setUserFilters(user) {
 	return {
-		type: SET_USER_FILTERS,
+		type: SET_FILTERS,
 		filters: user.default.filters
 	};
 }
