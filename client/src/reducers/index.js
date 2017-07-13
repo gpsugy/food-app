@@ -1,5 +1,4 @@
 import { combineReducers } from 'redux';
-
 import { reducer as formReducer } from 'redux-form';
 
 import {
@@ -34,6 +33,7 @@ import {
 } from '../actions/Account';
 import { UPDATE_FOOD_TYPE } from '../actions/FoodType';
 import { findIndexOf, removeFromArr, sortArr } from '../utility/arrayMethods';
+import { setTokenInCookie } from '../utility/Cookie';
 
 export const location = (state = {}, action) => {
 	switch (action.type) {
@@ -84,11 +84,7 @@ export const account = (state = {}, action) => {
 			};
 		case SIGNUP_SUCCESS:
 		case LOGIN_SUCCESS:
-			console.log('cookie WAS: ' + document.cookie);
-			let date = new Date();
-	        date.setTime(date.getTime()+(180000)); // 3 min expiration
-	        document.cookie = 'token=' + action.token + '; expires=' + date.toGMTString();
-	        console.log('cookie is NOW: ' + document.cookie);
+			setTokenInCookie(action.token);
 			return {
 				...state,
 				isFetching: false,
