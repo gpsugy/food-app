@@ -38,7 +38,8 @@ export function loginRequest() {
 export function loginSuccess(user) {
 	return {
 		type: LOGIN_SUCCESS,
-		token: user.token
+		token: user.token,
+		email: user.email
 	};
 }
 
@@ -122,7 +123,5 @@ export function testJWT(account) {
 			}).then(response => response.json())
 			.then(json => console.log(json))
 			.catch(error => console.log(error));
-			// .then(json => dispatch(loginSuccess(json)))
-			// .catch(error => dispatch(loginError(error)));
 	}
 }
