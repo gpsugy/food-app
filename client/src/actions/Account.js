@@ -6,6 +6,9 @@ export const SIGNUP_ERROR = 'SIGNUP_ERROR';
 export const LOGIN_REQUEST = 'LOGIN_SEND_REQUEST';
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 export const LOGIN_ERROR = 'LOGIN_ERROR';
+export const SETTINGS_REQUEST = 'SETTINGS_SEND_REQUEST';
+export const SETTINGS_SUCCESS = 'SETTINGS_SUCCESS';
+export const SETTINGS_ERROR = 'SETTINGS_ERROR';
 
 /* Signup */
 
@@ -49,6 +52,28 @@ export function loginSuccess(user) {
 export function loginError(error) {
 	return {
 		type: LOGIN_ERROR,
+		error
+	};
+}
+
+/* Settings */
+
+export function settingsRequest() {
+	return {
+		type: SIGNUP_REQUEST
+	};
+}
+
+export function settingsSuccess(user) {
+	return {
+		type: SETTINGS_SUCCESS,
+		filters: user.default.filters
+	};
+}
+
+export function settingsError(error) {
+	return {
+		type: SETTINGS_ERROR,
 		error
 	};
 }
@@ -105,11 +130,11 @@ export function requestLogin(user) {
 
 export function getUserSettings(email) {
 	return (dispatch) => {
-		// dispatch(loginRequest());
+		dispatch(settingsRequest());
 		console.log('getUserSettings dispatched');
 		let token = getTokenFromCookie('token');
 		console.log('token is: ' + token);
-			// body: JSON.stringify(email)
+
 		return fetch(`/settings?email=${email}`, {
 			method: "GET",
 			headers: {
@@ -126,7 +151,7 @@ export function getUserSettings(email) {
 				}
 				return response;
 			}).then(response => response.json())
-			.then(json => console.log(json))
-			.catch(error => console.log(error));
+			.then(json => dispatch(settingsSuccess(json)))
+			.catch(error => dispatch(settingsError(error)));
 	}
 }

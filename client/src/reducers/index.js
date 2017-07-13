@@ -27,6 +27,9 @@ import {
   LOGIN_ERROR,
   LOGIN_REQUEST,
   LOGIN_SUCCESS,
+  SETTINGS_ERROR,
+  SETTINGS_REQUEST,
+  SETTINGS_SUCCESS,
   SIGNUP_ERROR,
   SIGNUP_REQUEST,
   SIGNUP_SUCCESS,
@@ -78,6 +81,7 @@ export const account = (state = {}, action) => {
 	switch (action.type) {
 		case SIGNUP_REQUEST:
 		case LOGIN_REQUEST:
+		case SETTINGS_REQUEST:
 			return {
 				...state,
 				isFetching: true
@@ -90,8 +94,17 @@ export const account = (state = {}, action) => {
 				isFetching: false,
 				email: action.email
 			};
+		case SETTINGS_SUCCESS:
+			return {
+				...state,
+				isFetching: false,
+				default: {
+					filters: filters(state.filters, action)
+				}
+			}
 		case SIGNUP_ERROR:
 		case LOGIN_ERROR:
+		case SETTINGS_ERROR:
 			console.log(action.error);
 			return state;
 		default:
@@ -108,11 +121,22 @@ export const filters = (state = {}, action) => {
 			};
 		case INIT_SORT:
 			return {
-				...state,
 				rating_si: 1,
 				prices: [1, 2, 3, 4],
 				distance_fi: 0
 			};
+		case SETTINGS_SUCCESS:
+			// default settings has never been set for this user - initialize
+			if (action.filters.rating_si === undefined) {
+				return {
+					rating_si: 1,
+					prices: [1, 2, 3, 4],
+					distance_fi: 0
+				}
+			}
+			else {
+				return action.filters
+			}
 		case UPDATE_PRICES:
 			if (state === 'undefined') {
 				return state;
