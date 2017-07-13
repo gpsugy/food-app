@@ -35,7 +35,7 @@ export default class FilterBar extends Component {
 
 	renderPriceFilters(sorting, clickPrice) {
 		let priceFilters = [];
-
+		console.log('rendering price filters ' + sorting);
 		(sorting.prices[0] != null)
 			? priceFilters.push(<li key='1' onClick={() => clickPrice(1)} className="filter-btn price-selected">$</li>) : priceFilters.push(<li key='1' className="filter-btn" onClick={() => clickPrice(1)}>$</li>);
 		(sorting.prices[1] != null)

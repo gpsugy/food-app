@@ -4,12 +4,14 @@ import FilterDefaultsContainer from
   '../../containers/private/FilterDefaultsContainer';
 
 export default class Settings extends Component {
-	componentDidMount() {
-		this.props.onMount();
+	constructor(props) {
+		super(props);
+		
+		props.onMount();
 	}
 
-		// const { } = this.props;
 	render() {
+		const { fetchedDefaults } = this.props;
 		return (
 			<div>
 				<header>
@@ -20,10 +22,10 @@ export default class Settings extends Component {
 					<div>
 						<h3>Default Filters</h3>
 					</div>
+					{fetchedDefaults ? <FilterDefaultsContainer /> : <h4>YOU STINK</h4>}
 				</main>
 			</div>
 		)
 	}
 }
 				// <button type="button" onClick={handleClick}>Test JWT Auth</button>
-						// <FilterDefaultsContainer />

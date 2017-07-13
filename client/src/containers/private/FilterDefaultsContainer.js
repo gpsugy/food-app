@@ -1,31 +1,29 @@
 import { connect } from 'react-redux';
 
 import {
-  sortBusinesses,
-  toggleDistanceFilter,
-  toggleRatingSort,
-  updatePrices,
+  userToggleDistanceFilter,
+  userToggleRatingSort,
+  userUpdatePrices,
 } from '../../actions/FilterBar';
 import FilterBar from '../../components/FilterBar';
 
 const mapStateToProps = (state, ownProps) => {
 	return {
-		sorting: state.user.account.sorting
+		sorting: state.user.account.default.filters
 	};
 }
 
 const mapDispatchToProps = (dispatch) => {
 	return {
 		clickRating: () => {
-			dispatch(toggleRatingSort());
-			dispatch(sortBusinesses());
+			dispatch(userToggleRatingSort());
 		},
 		clickPrice: (price) => {
-			dispatch(updatePrices(price));
+			dispatch(userUpdatePrices(price));
 		},
 		clickDistance: () => {
 			// console.log('clicked distance');
-			dispatch(toggleDistanceFilter());
+			dispatch(userToggleDistanceFilter());
 		}
 	};
 }
