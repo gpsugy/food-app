@@ -29,7 +29,7 @@ import {
   LOGIN_SUCCESS,
   SETTINGS_ERROR,
   SETTINGS_REQUEST,
-  SET_FILTERS,
+  SET_USER_FILTERS,
   SIGNUP_ERROR,
   SIGNUP_REQUEST,
   SIGNUP_SUCCESS,
@@ -94,7 +94,7 @@ export const account = (state = {}, action) => {
 				isFetching: false,
 				email: action.email
 			};
-		case SET_FILTERS:
+		case SET_USER_FILTERS:
 			return {
 				...state,
 				isFetching: false,
@@ -125,7 +125,7 @@ export const filters = (state = {}, action) => {
 				prices: [1, 2, 3, 4],
 				distance_fi: 0
 			};
-		case SET_FILTERS:
+		case SET_USER_FILTERS:
 			console.log('SET_FILTERS reducer triggered');
 			// default settings has never been set for this user - initialize
 			if (action.filters.rating_si === undefined) {
