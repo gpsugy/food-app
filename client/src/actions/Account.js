@@ -17,6 +17,7 @@ export function signupSuccess(user) {
 	return {
 		type: SIGNUP_SUCCESS,
 		token: user.token
+		email: user.email
 	};
 }
 
