@@ -6,7 +6,7 @@ import User from '../models/User';
 
 let jwtOptions = {
     jwtFromRequest: ExtractJwt.fromAuthHeader(),
-    secretOrKey: 'someRandomSecret'
+    secretOrKey: process.env.NODE_ENV === 'production' ? process.env.JWT_SECRET :'dev-secret-134fj89j'
 };
 
 export { jwtOptions };
