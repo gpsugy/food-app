@@ -7,6 +7,7 @@ import LoginContainer from '../containers/forms/LoginContainer';
 import ResultListContainer from '../containers/ResultListContainer';
 import SettingsContainer from '../containers/private/SettingsContainer';
 import SignupContainer from '../containers/forms/SignupContainer';
+import UnAuthorizedContainer from '../containers/errors/UnAuthorizedContainer';
 
 const App = () => (
   <main>
@@ -17,9 +18,9 @@ const App = () => (
       <Route path='/login' component={LoginContainer} />
       <Route path='/signup' component={SignupContainer} />
       <Route path='/settings' component={SettingsContainer} />
+      <Route path='/unauthorized' component={UnAuthorizedContainer} />
     </Switch>
   </main>
 )
-      // <PrivateRoute path="/settings" component={Settings} />
 
 export default App;

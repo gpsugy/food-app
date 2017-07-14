@@ -10,13 +10,15 @@ const mapStateToProps = (state) => {
 	}
 	return {
 		account: state.user.account,
-		fetchedDefaults: fetchedDefaults
+		fetchedDefaults: fetchedDefaults,
+		redirect: state.redirect
 	};
 }
 
 const mergeProps = (stateProps, dispatchProps, ownProps) => {
 	return {
 		fetchedDefaults: stateProps.fetchedDefaults,
+		redirect: stateProps.redirect,
 		onMount: () => {
 			dispatchProps.dispatch(getUserSettings(stateProps.account.email));
 		}

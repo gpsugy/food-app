@@ -1,3 +1,4 @@
+import { Redirect } from 'react-router-dom';
 import React, { Component } from 'react';
 
 import FilterDefaultsContainer from
@@ -11,19 +12,25 @@ export default class Settings extends Component {
 	}
 
 	render() {
-		const { fetchedDefaults } = this.props;
+		const { fetchedDefaults, redirect } = this.props;
 		return (
 			<div>
-				<header>
-					<h1>Settings</h1>
-					<h2>gpsugy@gmail.com</h2>
-				</header>
-				<main>
+				{redirect === undefined || redirect === null ? (
 					<div>
-						<h3>Default Filters</h3>
+						<header>
+							<h1>Settings</h1>
+							<h2>gpsugy@gmail.com</h2>
+						</header>
+						<main>
+							<div>
+								<h3>Default Filters</h3>
+							</div>
+							{fetchedDefaults && <FilterDefaultsContainer />}
+						</main>
 					</div>
-					{fetchedDefaults && <FilterDefaultsContainer />}
-				</main>
+				) : (
+					<Redirect to="/unauthorized"/>
+				)}
 			</div>
 		)
 	}

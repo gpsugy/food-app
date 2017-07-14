@@ -38,6 +38,8 @@ import {
   SIGNUP_REQUEST,
   SIGNUP_SUCCESS,
 } from '../actions/Account';
+import { REDIRECT,
+	CLEAR_REDIRECT } from '../actions/Redirect';
 import { UPDATE_FOOD_TYPE } from '../actions/FoodType';
 import { findIndexOf, removeFromArr, sortArr } from '../utility/arrayMethods';
 import { setTokenInCookie } from '../utility/Cookie';
@@ -231,6 +233,17 @@ export const businesses = (state = {}, action) => {
 	}
 }
 
+export const redirect = (state = null, action) => {
+	switch (action.type) {
+		case REDIRECT:
+			return action.route;
+		case CLEAR_REDIRECT:
+			return null;
+		default:
+			return state;
+	}
+}
+
 export const appReducer = combineReducers({
 	businesses: businesses,
 	user: combineReducers({
@@ -238,6 +251,7 @@ export const appReducer = combineReducers({
 		foodTypes,
 		account
 	}),
+	redirect: redirect,
 	form: formReducer
 })
 

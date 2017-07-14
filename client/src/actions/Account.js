@@ -1,4 +1,5 @@
 import { getTokenFromCookie } from '../utility/Cookie';
+import { redirect } from './Redirect';
 import { setBusinessesFilters } from './Results';
 
 export const SIGNUP_REQUEST = 'SIGNUP_SEND_REQUEST';
@@ -145,9 +146,14 @@ export function getUserSettings(email) {
 			}
 		})
 			.then(response => {
+				console.log('got response');
 				if (response.status < 200 || response.status >= 300) {
+					console.log('got random');
 					let error = new Error(response.statusText);
 					error.response = response;
+					// unauthorized
+					if (response.status === 401)
+						dispatch(redirect('/restricted'));
 					throw error;
 				}
 				return response;
