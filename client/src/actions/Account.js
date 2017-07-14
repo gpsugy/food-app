@@ -130,13 +130,13 @@ export function requestLogin(user) {
 	}
 }
 
-export function getUserSettings(email) {
+export function getUserSettings() {
 	return (dispatch, getState) => {
 		dispatch(settingsRequest());
 		let token = getTokenFromCookie('token');
 		console.log('token is: ' + token);
 
-		return fetch(`/settings?email=${email}`, {
+		return fetch(`/settings`, {
 			method: "GET",
 			headers: {
 				'Accept': 'application/json',
@@ -144,20 +144,20 @@ export function getUserSettings(email) {
 				'Authorization': `JWT ${token}`
 			}
 		})
-			.then(response => {
-				if (response.status < 200 || response.status >= 300) {
-					let error = new Error(response.statusText);
-					error.response = response;
-					// unauthorized
-					if (response.status === 401)
-						dispatch(redirect('/restricted'));
-					throw error;
-				}
-				return response;
-			}).then(response => response.json())
-			.then(json => dispatch(setUserFilters(json)))
-			.catch(error => dispatch(settingsError(error)))
-			.then(() => dispatch(setBusinessesFilters(getState().user.account.default.filters)))
-			.catch(error => console.log('setBusinessesFilters ' + error));
+		.then(response => {
+			if (response.status < 200 || response.status >= 300) {
+				let error = new Error(response.statusText);
+				error.response = response;
+				// unauthorized
+				if (response.status === 401)
+					dispatch(redirect('/restricted'));
+				throw error;
+			}
+			return response;
+		}).then(response => response.json())
+		.then(json => dispatch(setUserFilters(json)))
+		.catch(error => dispatch(settingsError(error)))
+		.then(() => dispatch(setBusinessesFilters(getState().user.account.default.filters)))
+		.catch(error => console.log('setBusinessesFilters ' + error));
 	}
 }

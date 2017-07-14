@@ -9,7 +9,6 @@ const mapStateToProps = (state) => {
 		fetchedDefaults = state.user.account.default.filters.rating_si !== undefined;
 	}
 	return {
-		account: state.user.account,
 		fetchedDefaults: fetchedDefaults,
 		redirect: state.redirect
 	};
@@ -20,7 +19,7 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
 		fetchedDefaults: stateProps.fetchedDefaults,
 		redirect: stateProps.redirect,
 		onMount: () => {
-			dispatchProps.dispatch(getUserSettings(stateProps.account.email));
+			dispatchProps.dispatch(getUserSettings());
 		}
 	}
 }
