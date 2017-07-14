@@ -2,13 +2,13 @@ import { getTokenFromCookie } from '../utility/Cookie';
 import { redirect } from './Redirect';
 import { setBusinessesFilters } from './Results';
 
-export const SIGNUP_REQUEST = 'SIGNUP_SEND_REQUEST';
+export const SIGNUP_REQUEST = 'SIGNUP_REQUEST';
 export const SIGNUP_SUCCESS = 'SIGNUP_SUCCESS';
 export const SIGNUP_ERROR = 'SIGNUP_ERROR';
-export const LOGIN_REQUEST = 'LOGIN_SEND_REQUEST';
+export const LOGIN_REQUEST = 'LOGIN_REQUEST';
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 export const LOGIN_ERROR = 'LOGIN_ERROR';
-export const SETTINGS_REQUEST = 'SETTINGS_SEND_REQUEST';
+export const SETTINGS_REQUEST = 'SETTINGS_REQUEST';
 export const SET_USER_FILTERS = 'SET_USER_FILTERS';
 export const SETTINGS_ERROR = 'SETTINGS_ERROR';
 
@@ -62,7 +62,7 @@ export function loginError(error) {
 
 export function settingsRequest() {
 	return {
-		type: SIGNUP_REQUEST
+		type: SETTINGS_REQUEST
 	};
 }
 
@@ -134,6 +134,7 @@ export function getUserSettings(email) {
 	return (dispatch, getState) => {
 		dispatch(settingsRequest());
 		let token = getTokenFromCookie('token');
+		console.log('token is: ' + token);
 
 		return fetch(`/settings?email=${email}`, {
 			method: "GET",
