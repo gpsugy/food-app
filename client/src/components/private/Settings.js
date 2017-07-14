@@ -22,10 +22,9 @@ export default class Settings extends Component {
 					<div>
 						<h3>Default Filters</h3>
 					</div>
-					{fetchedDefaults ? <FilterDefaultsContainer /> : <h4>YOU STINK</h4>}
+					{fetchedDefaults && <FilterDefaultsContainer />}
 				</main>
 			</div>
 		)
 	}
 }
-				// <button type="button" onClick={handleClick}>Test JWT Auth</button>

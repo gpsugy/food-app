@@ -103,7 +103,7 @@ export const account = (state = {}, action) => {
 				...state,
 				isFetching: false,
 				default: {
-					filters: filters(state.filters, action)
+					filters: (state.default === undefined) ? filters({}, action) : filters(state.default.filters, action)
 				}
 			}
 		case USER_TOGGLE_RATING_SORT:
@@ -112,7 +112,7 @@ export const account = (state = {}, action) => {
 			return {
 				...state,
 				default: {
-					filters: filters(state.filters, action)
+					filters: filters(state.default.filters, action)
 				}
 			}
 		case SIGNUP_ERROR:
