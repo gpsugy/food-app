@@ -17,16 +17,20 @@ export default class Settings extends Component {
 			<div>
 				{redirect === undefined || redirect === null ? (
 					<div>
-						<header>
-							<h1>Settings</h1>
-							<h2>gpsugy@gmail.com</h2>
-						</header>
-						<main>
-							<div>
-								<h3>Default Filters</h3>
-							</div>
-							{fetchedDefaults && <FilterDefaultsContainer />}
-						</main>
+					{fetchedDefaults &&
+						<div>
+							<header>
+								<h1>Settings</h1>
+								<h2>gpsugy@gmail.com</h2>
+							</header>
+							<main>
+								<div>
+									<h3>Default Filters</h3>
+								</div>
+								<FilterDefaultsContainer />
+							</main>
+						</div>
+					}
 					</div>
 				) : (
 					<Redirect to="/unauthorized"/>
