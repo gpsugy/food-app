@@ -133,9 +133,7 @@ export function requestLogin(user) {
 export function getUserSettings(email) {
 	return (dispatch, getState) => {
 		dispatch(settingsRequest());
-		console.log('getUserSettings dispatched');
 		let token = getTokenFromCookie('token');
-		console.log('token is: ' + token);
 
 		return fetch(`/settings?email=${email}`, {
 			method: "GET",
@@ -146,9 +144,7 @@ export function getUserSettings(email) {
 			}
 		})
 			.then(response => {
-				console.log('got response');
 				if (response.status < 200 || response.status >= 300) {
-					console.log('got random');
 					let error = new Error(response.statusText);
 					error.response = response;
 					// unauthorized
