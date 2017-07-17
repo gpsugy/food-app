@@ -20,5 +20,6 @@ const store = createStore(
 );
 
 persistStore(store);
+// persistStore(store).purge();
 
 export { store };

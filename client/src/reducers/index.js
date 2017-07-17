@@ -72,7 +72,8 @@ export const location = (state = {}, action) => {
 				fetched: refetch(state.fetched, action),
 			};
 		case 'persist/REHYDRATE':
-			return action.payload.user.location;
+			return (action.payload.user !== undefined
+				&& action.payload.user.location !== undefined) ? action.payload.user.location : state;
 		default:
 			return state;
 	}
@@ -93,7 +94,8 @@ export const foodTypes = (state = [], action) => {
 				return removeFromArr(state, index);
 			}
 		case 'persist/REHYDRATE':
-			return action.payload.user.foodTypes;
+			return (action.payload.user !== undefined
+				&& action.payload.user.foodTypes !== undefined) ? action.payload.user.foodTypes : state;
 		default:
 			return state;
 	}
@@ -251,7 +253,7 @@ export const businesses = (state = {}, action) => {
 				sorting: filters(state.sorting, action)
 			}
 		case 'persist/REHYDRATE':
-			return action.payload.businesses;
+			return (action.payload.businesses !== undefined) ? action.payload.businesses : state;
 		default:
 			return state;
 	}
