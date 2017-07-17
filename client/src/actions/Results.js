@@ -3,8 +3,8 @@ import { initSort } from './FilterBar';
 export const FETCH_BUSINESSES_REQUEST = 'FETCH_BUSINESSES_REQUEST';
 export const FETCH_BUSINESSES_SUCCESS = 'FETCH_BUSINESSES_SUCCESS';
 export const FETCH_BUSINESSES_ERROR = 'FETCH_BUSINESSES_ERROR';
-export const ALLOW_REFETCH = 'ALLOW_REFETCH';
 export const SET_BUSINESSES_FILTERS = 'SET_BUSINESSES_FILTERS';
+export const ALLOW_RESULTS_REFETCH = 'ALLOW_RESULTS_REFETCH';
 
 export function fetchBusinessesSuccess(businesses) {
 	return {
@@ -33,7 +33,7 @@ export function setBusinessesFilters(filters) {
 }
 
 export function fetchBusinesses(terms, location) {
-	return (dispatch) => {
+	return (dispatch, getState) => {
 		dispatch(fetchBusinessesRequest());
 		return fetch(`/businesses/search?term=${terms.join('+')}&latitude=${location.latitude}&longitude=${location.longitude}`,
 			{credentials: 'include'})
@@ -46,6 +46,7 @@ export function fetchBusinesses(terms, location) {
 				return response;
 			}).then(response => response.json())
 			.then(json => {
+				// if (getState().businesses.sortinglt.filters)
 				dispatch(initSort());
 				dispatch(fetchBusinessesSuccess(json));
 			})
@@ -53,8 +54,8 @@ export function fetchBusinesses(terms, location) {
 	}
 }
 
-export function allowRefetch() {
+export function allowResultsRefetch() {
 	return {
-		type: ALLOW_REFETCH
+		type: ALLOW_RESULTS_REFETCH
 	}
 }

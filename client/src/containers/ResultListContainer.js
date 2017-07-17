@@ -1,6 +1,8 @@
+import {  } from '../actions/Redirect';
+
 import { connect } from 'react-redux';
 
-import { allowRefetch } from '../actions/Results';
+import { allowResultsRefetch } from '../actions/Results';
 import ResultList from '../components/ResultList';
 
 const mapStateToProps = (state, ownProps) => {
@@ -14,7 +16,7 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch) => {
 	return {
 		handleClick: () => {
-			dispatch(allowRefetch());
+			dispatch(allowResultsRefetch());
 		}
 	};
 }

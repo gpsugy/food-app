@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 import { Redirect } from 'react-router'
 import React from 'react';
 
-const LocationFinder = ({ location, handleClick }) => (
+const LocationFinder = ({ fetched, handleClick }) => (
 	<div>
-		{location !== undefined && location.longitude !== null && location.latitude !== undefined ? (
+		{fetched !== false && fetched != null ? (
 			<Redirect to="/foodTypes"/>
 		) : (
 			<div>

@@ -4,8 +4,10 @@ import { fetchUserLocation } from '../actions';
 import LocationFinder from '../components/LocationFinder';
 
 const mapStateToProps = (state, ownProps) => {
+	let fetched = (state.user.location.fetched !== undefined) ? state.user.location.fetched : false;
+	console.log(fetched);
 	return {
-		location: state.user.location
+		fetched: fetched
 	}
 }
 
