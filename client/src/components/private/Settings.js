@@ -12,7 +12,7 @@ export default class Settings extends Component {
 	}
 
 	render() {
-		const { fetchedDefaults, redirect } = this.props;
+		const { fetchedDefaults, redirect, handleClick } = this.props;
 		return (
 			<div>
 				{redirect === undefined || redirect === null ? (
@@ -28,6 +28,7 @@ export default class Settings extends Component {
 									<h3>Default Filters</h3>
 								</div>
 								<FilterDefaultsContainer />
+								<button type="button" onClick={handleClick}>Update Settings</button>
 							</main>
 						</div>
 					}

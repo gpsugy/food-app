@@ -31,15 +31,17 @@ import {
   LOGIN_ERROR,
   LOGIN_REQUEST,
   LOGIN_SUCCESS,
-  SETTINGS_ERROR,
-  SETTINGS_REQUEST,
-  SET_USER_FILTERS,
   SIGNUP_ERROR,
   SIGNUP_REQUEST,
   SIGNUP_SUCCESS,
 } from '../actions/Account';
 import { REDIRECT,
 	CLEAR_REDIRECT } from '../actions/Redirect';
+import {
+  SETTINGS_ERROR,
+  SETTINGS_REQUEST,
+  SET_USER_FILTERS,
+} from '../actions/Settings';
 import { UPDATE_FOOD_TYPE } from '../actions/FoodType';
 import { findIndexOf, removeFromArr, sortArr } from '../utility/arrayMethods';
 import { setTokenInCookie } from '../utility/Cookie';
