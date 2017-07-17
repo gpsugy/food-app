@@ -46,8 +46,9 @@ export function fetchBusinesses(terms, location) {
 				return response;
 			}).then(response => response.json())
 			.then(json => {
-				// if (getState().businesses.sortinglt.filters)
-				dispatch(initSort());
+				// do not initialize sorting state if user is already logged in
+				if (getState().businesses.sorting === undefined)
+					dispatch(initSort());
 				dispatch(fetchBusinessesSuccess(json));
 				dispatch(allowResultsRefetch()); // allows user to go back to /foodTypes page
 			})
