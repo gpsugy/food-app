@@ -41,6 +41,9 @@ import {
   SETTINGS_ERROR,
   SETTINGS_REQUEST,
   SET_USER_FILTERS,
+  UPDATE_SETTINGS_ERROR,
+  UPDATE_SETTINGS_REQUEST,
+  UPDATE_SETTINGS_SUCCESS,
 } from '../actions/Settings';
 import { UPDATE_FOOD_TYPE } from '../actions/FoodType';
 import { findIndexOf, removeFromArr, sortArr } from '../utility/arrayMethods';
@@ -90,6 +93,7 @@ export const account = (state = {}, action) => {
 		case SIGNUP_REQUEST:
 		case LOGIN_REQUEST:
 		case SETTINGS_REQUEST:
+		case UPDATE_SETTINGS_REQUEST:
 			return {
 				...state,
 				isFetching: true
@@ -101,6 +105,11 @@ export const account = (state = {}, action) => {
 				...state,
 				isFetching: false,
 				email: action.email
+			};
+		case UPDATE_SETTINGS_SUCCESS:
+			return {
+				...state,
+				isFetching: false
 			};
 		case SET_USER_FILTERS:
 			return {
@@ -122,6 +131,7 @@ export const account = (state = {}, action) => {
 		case SIGNUP_ERROR:
 		case LOGIN_ERROR:
 		case SETTINGS_ERROR:
+		case UPDATE_SETTINGS_ERROR:
 			console.log(action.error);
 			return state;
 		default:
@@ -145,7 +155,6 @@ export const filters = (state = {}, action) => {
 			};
 		case SET_USER_FILTERS:
 		case SET_BUSINESSES_FILTERS:
-			console.log('SET_FILTERS reducer triggered');
 			// default settings has never been set for this user - initialize
 			if (action.filters.rating_si === undefined) {
 				return {

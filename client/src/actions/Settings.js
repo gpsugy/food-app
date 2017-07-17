@@ -35,10 +35,9 @@ export function updateSettingsRequest() {
 	};
 }
 
-export function updateSettingsSuccess(user) {
+export function updateSettingsSuccess() {
 	return {
-		type: UPDATE_SETTINGS_SUCCESS,
-		filters: user.default.filters
+		type: UPDATE_SETTINGS_SUCCESS
 	};
 }
 
@@ -108,9 +107,8 @@ export function updateUserSettings(filters) {
 			return response;
 		}).then(response => response.json())
 		.then(json => {
-			console.log(json);
-			// dispatch(updateSettingsSuccess(json));
-			// dispatch(setBusinessesFilters(json.default.filters));
+			dispatch(updateSettingsSuccess());
+			dispatch(setBusinessesFilters(json.filters));
 		})
 		.catch(error => dispatch(updateSettingsError(error)))
 	}
