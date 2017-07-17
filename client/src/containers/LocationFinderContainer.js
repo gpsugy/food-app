@@ -5,7 +5,7 @@ import LocationFinder from '../components/LocationFinder';
 
 const mapStateToProps = (state, ownProps) => {
 	return {
-		location: state.user.location
+		fetched: state.user.location.fetched
 	}
 }
 

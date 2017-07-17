@@ -3,6 +3,7 @@ export const FETCH_USER_LOCATION = 'FETCH_USER_LOCATION';
 export const FETCH_LOCATION_SUCCESS = 'FETCH_LOCATION_SUCCESS';
 export const FETCH_LOCATION_ERROR = 'FETCH_LOCATION_ERROR';
 export const FETCH_LOCATION_REQUEST = 'FETCH_LOCATION_REQUEST';
+export const ALLOW_LOCATION_REFETCH = 'ALLOW_LOCATION_REFETCH';
 
 // action creators
 export function fetchLocationSuccess(location) {
@@ -28,6 +29,12 @@ export function fetchLocationRequest() {
 	}
 }
 
+export function allowLocationRefetch() {
+	return {
+		type: ALLOW_LOCATION_REFETCH
+	};
+}
+
 export function fetchUserLocation() {
 	return (dispatch) => {
 		var options = {
@@ -46,6 +53,7 @@ export function fetchUserLocation() {
 				console.log(`Longitude: ${crd.longitude}`);
 				console.log(`More or less ${crd.accuracy} meters.`);
 				dispatch(fetchLocationSuccess(crd));
+				dispatch(allowLocationRefetch());
 			}, (err) => {
 				// alert(`ERROR(${err.code}): ${err.message}`);
 				dispatch(fetchLocationError(err.message));
@@ -53,3 +61,4 @@ export function fetchUserLocation() {
 		);
 	}
 }
+

@@ -20,9 +20,9 @@ export default class FilterBar extends Component {
 	}
 
 	renderArrow(sorting) {
-		if (!sorting) {
+		if (sorting === undefined)
 			return null;
-		}
+
 		switch (RATING_SORT_TYPES[sorting.rating_si]) {
 			case ASCENDING:
 				return <span className="arrow-up">&uarr;</span>;
@@ -35,7 +35,9 @@ export default class FilterBar extends Component {
 
 	renderPriceFilters(sorting, clickPrice) {
 		let priceFilters = [];
-		console.log('rendering price filters ' + sorting);
+		if (sorting === undefined)
+			return null;
+
 		(sorting.prices[0] != null)
 			? priceFilters.push(<li key='1' onClick={() => clickPrice(1)} className="filter-btn price-selected">$</li>) : priceFilters.push(<li key='1' className="filter-btn" onClick={() => clickPrice(1)}>$</li>);
 		(sorting.prices[1] != null)
@@ -50,6 +52,9 @@ export default class FilterBar extends Component {
 	}
 
 	renderDistanceFilter(sorting, clickDistance) {
+		if (sorting === undefined)
+			return null;
+
 		switch (DISTANCE_FILTER_TYPES[sorting.distance_fi]) {
 			case DRIVING:
 				return <span onClick={clickDistance}>Driving</span>;

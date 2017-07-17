@@ -13,3 +13,4 @@ export function clearRedirect() {
 		type: CLEAR_REDIRECT
 	}
 }
+

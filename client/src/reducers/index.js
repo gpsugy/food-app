@@ -1,13 +1,15 @@
 import { combineReducers } from 'redux';
 import { reducer as formReducer } from 'redux-form';
 
+import { ALLOW_LOCATION_REFETCH } from '../actions/Location';
 import {
-  ALLOW_REFETCH,
+  ALLOW_RESULTS_REFETCH,
   FETCH_BUSINESSES_ERROR,
   FETCH_BUSINESSES_REQUEST,
   FETCH_BUSINESSES_SUCCESS,
-  SET_BUSINESSES_FILTERS
+  SET_BUSINESSES_FILTERS,
 } from '../actions/Results';
+import { CLEAR_REDIRECT, REDIRECT } from '../actions/Redirect';
 import {
   DISTANCE_FILTER_TYPES,
   RATING_SORT_TYPES,
@@ -35,8 +37,6 @@ import {
   SIGNUP_REQUEST,
   SIGNUP_SUCCESS,
 } from '../actions/Account';
-import { REDIRECT,
-	CLEAR_REDIRECT } from '../actions/Redirect';
 import {
   SETTINGS_ERROR,
   SETTINGS_REQUEST,
@@ -53,17 +53,27 @@ export const location = (state = {}, action) => {
 	switch (action.type) {
 		case FETCH_LOCATION_SUCCESS:
 			return {
-				...action.location, fetching: false
-			}
+				...action.location,
+				fetching: false,
+				fetched: true
+			};
 		case FETCH_LOCATION_ERROR:
 			console.log(action.error);
 			return {
 				longitude: null, latitude: null, fetching: false
-			}
+			};
 		case FETCH_LOCATION_REQUEST:
 			return {
 				longitude: null, latitude: null, fetching: true
-			}
+			};
+		case ALLOW_LOCATION_REFETCH:
+			return {
+				...state,
+				fetched: refetch(state.fetched, action),
+			};
+		case 'persist/REHYDRATE':
+			return (action.payload.user !== undefined
+				&& action.payload.user.location !== undefined) ? action.payload.user.location : state;
 		default:
 			return state;
 	}
@@ -83,6 +93,9 @@ export const foodTypes = (state = [], action) => {
 				let index = findIndexOf(state, action.foodType);
 				return removeFromArr(state, index);
 			}
+		case 'persist/REHYDRATE':
+			return (action.payload.user !== undefined
+				&& action.payload.user.foodTypes !== undefined) ? action.payload.user.foodTypes : state;
 		default:
 			return state;
 	}
@@ -216,10 +229,10 @@ export const businesses = (state = {}, action) => {
 			return state;
 		case FETCH_BUSINESSES_REQUEST:
 			return state;
-		case ALLOW_REFETCH:
+		case ALLOW_RESULTS_REFETCH:
 			return {
 				...state,
-				fetched: false,
+				fetched: refetch(state.fetched, action),
 			};
 		case SORT_BUSINESSES:
 			return {
@@ -239,6 +252,8 @@ export const businesses = (state = {}, action) => {
 				...state,
 				sorting: filters(state.sorting, action)
 			}
+		case 'persist/REHYDRATE':
+			return (action.payload.businesses !== undefined) ? action.payload.businesses : state;
 		default:
 			return state;
 	}
@@ -250,6 +265,16 @@ export const redirect = (state = null, action) => {
 			return action.route;
 		case CLEAR_REDIRECT:
 			return null;
+		default:
+			return state;
+	}
+}
+
+export const refetch = (state = null, action) => {
+	switch (action.type) {
+		case ALLOW_LOCATION_REFETCH:
+		case ALLOW_RESULTS_REFETCH:
+			return false;
 		default:
 			return state;
 	}
