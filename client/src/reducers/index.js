@@ -64,6 +64,8 @@ export const location = (state = {}, action) => {
 			return {
 				longitude: null, latitude: null, fetching: true
 			}
+		case 'persist/REHYDRATE':
+			return action.payload.user.location;
 		default:
 			return state;
 	}
@@ -83,6 +85,8 @@ export const foodTypes = (state = [], action) => {
 				let index = findIndexOf(state, action.foodType);
 				return removeFromArr(state, index);
 			}
+		case 'persist/REHYDRATE':
+			return action.payload.user.foodTypes;
 		default:
 			return state;
 	}
@@ -239,6 +243,8 @@ export const businesses = (state = {}, action) => {
 				...state,
 				sorting: filters(state.sorting, action)
 			}
+		case 'persist/REHYDRATE':
+			return action.payload.businesses;
 		default:
 			return state;
 	}
