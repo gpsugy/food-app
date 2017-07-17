@@ -1,4 +1,7 @@
-import { allowRefetch, fetchBusinessesSuccess } from '../actions/Results';
+import {
+  allowResultsRefetch,
+  fetchBusinessesSuccess,
+} from '../actions/Results';
 import { businesses } from './';
 import {
   initSort,
@@ -50,7 +53,7 @@ describe('(Reducer) Businesses FETCH', () => {
 		).toEqual(expected);
 	});
 
-	it('Set fetched flag to false on ALLOW_REFETCH', () => {
+	it('Set fetched flag to false on ALLOW_RESULTS_REFETCH', () => {
 		const init = {
 			results: [
 				{
@@ -100,7 +103,7 @@ describe('(Reducer) Businesses FETCH', () => {
 			}
 		};
 		expect(
-			businesses(init, allowRefetch())
+			businesses(init, allowResultsRefetch())
 		).toEqual(expected);
 	});
 });

@@ -23,7 +23,8 @@ describe('(Reducer) Location', () => {
 			{
 				latitude: loc.latitude,
 				longitude: loc.longitude,
-				fetching: false
+				fetching: false,
+				fetched: true
 			}
 		);
 	})
