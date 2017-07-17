@@ -5,6 +5,9 @@ import { setBusinessesFilters } from './Results';
 export const SETTINGS_REQUEST = 'SETTINGS_REQUEST';
 export const SET_USER_FILTERS = 'SET_USER_FILTERS';
 export const SETTINGS_ERROR = 'SETTINGS_ERROR';
+export const UPDATE_SETTINGS_REQUEST = 'UPDATE_SETTINGS_REQUEST';
+export const UPDATE_SETTINGS_SUCCESS = 'UPDATE_SETTINGS_SUCCESS';
+export const UPDATE_SETTINGS_ERROR = 'UPDATE_SETTINGS_ERROR';
 
 export function settingsRequest() {
 	return {
@@ -22,6 +25,26 @@ export function setUserFilters(user) {
 export function settingsError(error) {
 	return {
 		type: SETTINGS_ERROR,
+		error
+	};
+}
+
+export function updateSettingsRequest() {
+	return {
+		type: UPDATE_SETTINGS_REQUEST
+	};
+}
+
+export function updateSettingsSuccess(user) {
+	return {
+		type: UPDATE_SETTINGS_SUCCESS,
+		filters: user.default.filters
+	};
+}
+
+export function updateSettingsError(error) {
+	return {
+		type: UPDATE_SETTINGS_ERROR,
 		error
 	};
 }
@@ -55,5 +78,40 @@ export function getUserSettings() {
 		.catch(error => dispatch(settingsError(error)))
 		.then(() => dispatch(setBusinessesFilters(getState().user.account.default.filters)))
 		.catch(error => console.log('setBusinessesFilters ' + error));
+	}
+}
+
+export function updateUserSettings(filters) {
+	return (dispatch, getState) => {
+		dispatch(updateSettingsRequest());
+		let token = getTokenFromCookie('token');
+		console.log('token is: ' + token);
+
+		return fetch(`/filter-defaults`, {
+			method: "POST",
+			headers: {
+				'Accept': 'application/json',
+				'Content-Type': 'application/json',
+				'Authorization': `JWT ${token}`
+			},
+			body: JSON.stringify(filters)
+		})
+		.then(response => {
+			if (response.status < 200 || response.status >= 300) {
+				let error = new Error(response.statusText);
+				error.response = response;
+				// unauthorized
+				if (response.status === 401)
+					dispatch(redirect('/restricted'));
+				throw error;
+			}
+			return response;
+		}).then(response => response.json())
+		.then(json => {
+			console.log(json);
+			// dispatch(updateSettingsSuccess(json));
+			// dispatch(setBusinessesFilters(json.default.filters));
+		})
+		.catch(error => dispatch(updateSettingsError(error)))
 	}
 }

@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import { getUserSettings } from '../../actions/Settings';
+import { getUserSettings, updateUserSettings } from '../../actions/Settings';
 import Settings from '../../components/private/Settings';
 
 const mapStateToProps = (state) => {
@@ -25,7 +25,7 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
 			dispatchProps.dispatch(getUserSettings());
 		},
 		handleClick: () => {
-			console.log(stateProps.filters);
+			dispatchProps.dispatch(updateUserSettings(stateProps.filters));
 		}
 	}
 }
