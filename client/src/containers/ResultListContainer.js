@@ -2,7 +2,6 @@ import {  } from '../actions/Redirect';
 
 import { connect } from 'react-redux';
 
-import { allowResultsRefetch } from '../actions/Results';
 import ResultList from '../components/ResultList';
 
 const mapStateToProps = (state, ownProps) => {
@@ -13,17 +12,9 @@ const mapStateToProps = (state, ownProps) => {
 	};
 }
 
-const mapDispatchToProps = (dispatch) => {
-	return {
-		handleClick: () => {
-			dispatch(allowResultsRefetch());
-		}
-	};
-}
-
 const ResultListContainer = connect(
 	mapStateToProps,
-	mapDispatchToProps
+	null
 )(ResultList)
 
 export default ResultListContainer

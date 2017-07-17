@@ -49,6 +49,7 @@ export function fetchBusinesses(terms, location) {
 				// if (getState().businesses.sortinglt.filters)
 				dispatch(initSort());
 				dispatch(fetchBusinessesSuccess(json));
+				dispatch(allowResultsRefetch()); // allows user to go back to /foodTypes page
 			})
 			.catch(error => dispatch(fetchBusinessesError(error)));
 	}
