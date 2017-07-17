@@ -5,7 +5,7 @@ import React from 'react';
 
 const LocationFinder = ({ fetched, handleClick }) => (
 	<div>
-		{fetched !== false && fetched != null ? (
+		{fetched ? (
 			<Redirect to="/foodTypes"/>
 		) : (
 			<div>
