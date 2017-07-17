@@ -81,7 +81,7 @@ export function getUserSettings() {
 }
 
 export function updateUserSettings(filters) {
-	return (dispatch, getState) => {
+	return (dispatch) => {
 		dispatch(updateSettingsRequest());
 		let token = getTokenFromCookie('token');
 		console.log('token is: ' + token);
