@@ -6,7 +6,6 @@ import ResultList from '../components/ResultList';
 
 const mapStateToProps = (state, ownProps) => {
 	return {
-		location: state.user.location,
 		results: state.businesses.results,
 		sorting: state.businesses.sorting
 	};

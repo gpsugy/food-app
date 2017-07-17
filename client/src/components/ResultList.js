@@ -16,6 +16,8 @@ export default class ResultList extends Component {
 
 	renderResults(results, sorting) {
 		let businesses = [];
+		if (results === undefined)
+			return null;
 		// only render results within filtered prices and distance
 		for (let result of results) {
 			if (sorting.prices[result.price.length-1] !== null
@@ -28,29 +30,23 @@ export default class ResultList extends Component {
 	}
 
 	render() {
-		const { location, results, sorting, handleClick } = this.props;
+		const { results, sorting, handleClick } = this.props;
 		return (
 			<div>
-				{location === undefined || location.longitude === undefined || location.latitude === undefined ? (
-					<Redirect to="/"/>
-				) : (
-				<div>
-					<header>
-						<h2>Here are your personalized results!</h2>
-					</header>
-					<main>
-						<FilterBarContainer />
-						<ul>
-							{this.renderResults(results, sorting)}
-						</ul>
-					</main>
-					<footer>
-						<Link to='/foodTypes'>
-							<button type="button" onClick={handleClick}>Go Back</button>
-						</Link>
-					</footer>
-				</div>
-				)}
+				<header>
+					<h2>Here are your personalized results!</h2>
+				</header>
+				<main>
+					<FilterBarContainer />
+					<ul>
+						{this.renderResults(results, sorting)}
+					</ul>
+				</main>
+				<footer>
+					<Link to='/foodTypes'>
+						<button type="button" onClick={handleClick}>Go Back</button>
+					</Link>
+				</footer>
 			</div>
 		)
 	}
