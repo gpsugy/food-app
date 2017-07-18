@@ -154,6 +154,9 @@ export const account = (state = {}, action) => {
 		case UPDATE_SETTINGS_ERROR:
 			console.log(action.error);
 			return state;
+		case 'persist/REHYDRATE':
+			return (action.payload.user !== undefined
+				&& action.payload.user.account !== undefined) ? action.payload.user.account : state;
 		default:
 			return state;
 	}
