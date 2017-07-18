@@ -8,19 +8,23 @@ import ResultListContainer from '../containers/ResultListContainer';
 import SettingsContainer from '../containers/private/SettingsContainer';
 import SignupContainer from '../containers/forms/SignupContainer';
 import UnAuthorizedContainer from '../containers/errors/UnAuthorizedContainer';
+import Navbar from '../components/Navbar';
 
 const App = () => (
-  <main>
-    <Switch>
-      <Route exact path='/' component={LocationFinderContainer} />
-      <Route path='/foodTypes' component={FoodTypeListContainer} />
-      <Route path='/results' component={ResultListContainer} />
-      <Route path='/login' component={LoginContainer} />
-      <Route path='/signup' component={SignupContainer} />
-      <Route path='/settings' component={SettingsContainer} />
-      <Route path='/unauthorized' component={UnAuthorizedContainer} />
-    </Switch>
-  </main>
+  <div>
+    <Navbar />
+    <main>
+      <Switch>
+        <Route exact path='/' component={LocationFinderContainer} />
+        <Route path='/foodTypes' component={FoodTypeListContainer} />
+        <Route path='/results' component={ResultListContainer} />
+        <Route path='/login' component={LoginContainer} />
+        <Route path='/signup' component={SignupContainer} />
+        <Route path='/settings' component={SettingsContainer} />
+        <Route path='/unauthorized' component={UnAuthorizedContainer} />
+      </Switch>
+    </main>
+  </div>
 )
 
 export default App;
