@@ -1,12 +1,12 @@
-import { Link } from 'react-router-dom';
-import React, { Component } from 'react';
-
 import '../styles/Navbar.css';
 import '../styles/font-awesome.css';
 
+import { Link, Redirect } from 'react-router-dom';
+import React, { Component } from 'react';
+
 export default class Navbar extends Component {
 	render() {
-		const { handleLogout } = this.props;
+		const { handleLogout, email } = this.props;
 		return (
 			<nav>
 				<div className="user-container">
@@ -16,6 +16,8 @@ export default class Navbar extends Component {
 						<li onClick={handleLogout}>Log Out</li>
 					</ul>
 				</div>
+				{// user has logged out
+					email == null ? (<Redirect to="/" />) : null}
 			</nav>
 		)
 	}

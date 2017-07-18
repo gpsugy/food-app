@@ -3,11 +3,11 @@ import { connect } from 'react-redux';
 import { logout } from '../actions/Account';
 import Navbar from '../components/Navbar';
 
-// const mapStateToProps = (state, ownProps) => {
-// 	return {
-// 		sorting: state.businesses.sorting
-// 	};
-// }
+const mapStateToProps = (state, ownProps) => {
+	return {
+		email: state.user.account.email
+	};
+}
 
 const mapDispatchToProps = (dispatch) => {
 	return {
@@ -18,7 +18,7 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 const NavbarContainer = connect(
-	null,
+	mapStateToProps,
 	mapDispatchToProps
 )(Navbar)
 
