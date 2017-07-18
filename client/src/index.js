@@ -6,18 +6,23 @@ import { Provider } from 'react-redux';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import { store } from './store';
+import configureStore from './store';
 import App from './components/App';
 import registerServiceWorker from './registerServiceWorker';
 
-ReactDOM.render(
-	<Provider store={store}>
-		<BrowserRouter>
-			<App />
-		</BrowserRouter>
-	</Provider>
-	, document.getElementById('root'));
-registerServiceWorker();
+async function init() {
+	const store = await configureStore();
+	ReactDOM.render(
+		<Provider store={store}>
+			<BrowserRouter>
+				<App />
+			</BrowserRouter>
+		</Provider>
+		, document.getElementById('root'));
+	registerServiceWorker();
+}
+
+init();
 
 // Store State Model {
 // 	businesses: [
