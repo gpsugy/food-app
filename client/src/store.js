@@ -28,10 +28,13 @@ export default function configureStore() {
 				{ storage: storages.localStorage },
 				() => resolve(store)
 			);
+			// persistStore(
+			// 	store,
+			// 	{ storage: storages.localStorage },
+			// 	() => resolve(store)
+			// ).purge();
 		} catch (e) {
 			reject(e);
 		}
 	});
 }
-
-// persistStore(store).purge();
