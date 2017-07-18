@@ -15,3 +15,7 @@ export function getTokenFromCookie(name) {
 	if (parts.length === 2)
 		return parts.pop().split(";").shift();
 };
+
+export function destroyCookie(name) {
+	document.cookie = name + '=; Max-Age=0';
+};

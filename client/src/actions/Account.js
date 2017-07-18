@@ -4,6 +4,7 @@ export const SIGNUP_ERROR = 'SIGNUP_ERROR';
 export const LOGIN_REQUEST = 'LOGIN_REQUEST';
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 export const LOGIN_ERROR = 'LOGIN_ERROR';
+export const LOGOUT = 'LOGOUT';
 
 /* Signup */
 
@@ -49,6 +50,14 @@ export function loginError(error) {
 		type: LOGIN_ERROR,
 		error
 	};
+}
+
+/* logout */
+
+export function logout() {
+	return {
+		type: LOGOUT
+	}
 }
 
 /* API Calls */

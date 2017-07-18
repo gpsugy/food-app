@@ -1,11 +1,9 @@
 import { Link } from 'react-router-dom';
-import { Redirect } from 'react-router';
 import React, { Component } from 'react';
 
+import { convertMetersToMiles, convertDistanceFI_ToMiles } from '../utility/Metrics';
 import Business from './Business';
 import FilterBarContainer from '../containers/FilterBarContainer';
-
-import { convertMetersToMiles, convertDistanceFI_ToMiles } from '../utility/Metrics';
 
 export default class ResultList extends Component {
 	constructor(props) {

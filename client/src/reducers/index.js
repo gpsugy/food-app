@@ -33,6 +33,7 @@ import {
   LOGIN_ERROR,
   LOGIN_REQUEST,
   LOGIN_SUCCESS,
+  LOGOUT,
   SIGNUP_ERROR,
   SIGNUP_REQUEST,
   SIGNUP_SUCCESS,
@@ -46,8 +47,8 @@ import {
   UPDATE_SETTINGS_SUCCESS,
 } from '../actions/Settings';
 import { UPDATE_FOOD_TYPE } from '../actions/FoodType';
+import { destroyCookie, setTokenInCookie } from '../utility/Cookie';
 import { findIndexOf, removeFromArr, sortArr } from '../utility/arrayMethods';
-import { setTokenInCookie } from '../utility/Cookie';
 
 export const location = (state = {}, action) => {
 	switch (action.type) {
@@ -141,6 +142,12 @@ export const account = (state = {}, action) => {
 					filters: filters(state.default.filters, action)
 				}
 			}
+		case LOGOUT:
+			destroyCookie('token');
+			return {
+				...state,
+				email: null
+			};
 		case SIGNUP_ERROR:
 		case LOGIN_ERROR:
 		case SETTINGS_ERROR:
