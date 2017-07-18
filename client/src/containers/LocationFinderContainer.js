@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 
+import { clearRedirect } from '../actions/Redirect';
 import { fetchUserLocation } from '../actions';
 import LocationFinder from '../components/LocationFinder';
 
@@ -13,6 +14,9 @@ const mapDispatchToProps = (dispatch) => {
 	return {
 		handleClick: () => {
 			dispatch(fetchUserLocation());
+		},
+		onMount: () => {
+			dispatch(clearRedirect());
 		}
 	}
 }

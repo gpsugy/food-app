@@ -1,3 +1,5 @@
+import { redirect } from './Redirect';
+
 export const SIGNUP_REQUEST = 'SIGNUP_REQUEST';
 export const SIGNUP_SUCCESS = 'SIGNUP_SUCCESS';
 export const SIGNUP_ERROR = 'SIGNUP_ERROR';
@@ -59,6 +61,15 @@ export function logout() {
 		type: LOGOUT
 	}
 }
+
+
+// export function logoutAndRedirect() {
+// 	return (dispatch) => {
+// 		return dispatch(logout()).then(() => {
+// 			return dispatch(redirect('/'))
+// 		});
+// 	}
+// }
 
 /* API Calls */
 

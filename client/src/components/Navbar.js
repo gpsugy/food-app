@@ -26,7 +26,7 @@ export default class Navbar extends Component {
 	}
 
 	render() {
-		const { handleLogout, email } = this.props;
+		const { handleLogout, email, redirect } = this.props;
 		let isLoggedOut = (email === undefined || email == null);
 		return (
 			<nav>
@@ -36,7 +36,7 @@ export default class Navbar extends Component {
 						{this.renderMenu(isLoggedOut, handleLogout)}
 					</ul>
 				</div>
-				{isLoggedOut ? (<Redirect to="/" />) : null}
+				{redirect ? (<Redirect to={redirect} />) : null}
 			</nav>
 		)
 	}

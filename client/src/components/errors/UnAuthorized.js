@@ -2,9 +2,8 @@ import { Link } from 'react-router-dom';
 import React, { Component } from 'react';
 
 export default class UnAuthorized extends Component {
-	constructor(props) {
-		super(props);
-		props.onMount();
+	componentDidMount() {
+		this.props.onMount();
 	}
 
 	render() {

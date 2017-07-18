@@ -5,6 +5,9 @@ import { Redirect } from 'react-router'
 import React, { Component } from 'react';
 
 export default class LocationFinder extends Component {
+	componentDidMount() {
+		this.props.onMount();
+	}
 	render() {
 		const { fetched, handleClick } = this.props;
 		return (
