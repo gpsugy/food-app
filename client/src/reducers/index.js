@@ -118,7 +118,8 @@ export const account = (state = {}, action) => {
 			return {
 				...state,
 				isFetching: false,
-				email: action.email
+				email: action.email,
+				fullName: action.fullName
 			};
 		case UPDATE_SETTINGS_SUCCESS:
 			return {

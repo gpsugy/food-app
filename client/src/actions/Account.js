@@ -1,3 +1,5 @@
+import { redirect } from './Redirect';
+
 export const SIGNUP_REQUEST = 'SIGNUP_REQUEST';
 export const SIGNUP_SUCCESS = 'SIGNUP_SUCCESS';
 export const SIGNUP_ERROR = 'SIGNUP_ERROR';
@@ -18,7 +20,8 @@ export function signupSuccess(user) {
 	return {
 		type: SIGNUP_SUCCESS,
 		token: user.token,
-		email: user.email
+		email: user.email,
+		fullName: user.fullName
 	};
 }
 
@@ -41,7 +44,8 @@ export function loginSuccess(user) {
 	return {
 		type: LOGIN_SUCCESS,
 		token: user.token,
-		email: user.email
+		email: user.email,
+		fullName: user.fullName
 	};
 }
 
@@ -90,7 +94,10 @@ export function requestSignup(user) {
 				}
 				return response;
 			}).then(response => response.json())
-			.then(json => dispatch(signupSuccess(json)))
+			.then(json => {
+				dispatch(signupSuccess(json));
+				dispatch(redirect('/settings'));
+			})
 			.catch(error => dispatch(signupError(error)));
 	}
 }

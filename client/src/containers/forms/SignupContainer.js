@@ -6,18 +6,24 @@ import React from 'react';
 import { requestSignup } from '../../actions/Account';
 import Signup from '../../components/forms/Signup';
 
-let SignupContainer = ({ handleSubmit, jwt_token, values, email }) =>
+
+let renderSignup = (redirect, email, handleSubmit, values) => {
+	if (redirect !== undefined && redirect != null)
+		return <Redirect to={redirect} />;
+	else if (email !== undefined && email != null)
+		return <Redirect to='/already' />;
+	else
+		return <Signup onSubmit={(values) => handleSubmit(values)} />;
+}
+
+let SignupContainer = ({ handleSubmit, values, redirect, email }) =>
 	<div>
-		{jwt_token !== undefined && jwt_token !== null ? (
-			<Redirect to="/settings"/>
-		) : (
-			<Signup onSubmit={(values) => handleSubmit(values)} email={email} />
-		)}
+		{renderSignup(redirect, email, handleSubmit, values)}
 	</div>
 
 const mapStateToProps = (state) => {
 	return {
-		jwt_token: state.user.account.jwt_token,
+		redirect: state.redirect,
 		email: state.user.account.email
 	};
 }
