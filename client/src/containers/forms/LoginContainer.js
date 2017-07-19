@@ -8,8 +8,8 @@ import Login from '../../components/forms/Login';
 
 let LoginContainer = ({ handleSubmit, email, values }) =>
 	<div>
-		{email !== undefined && email !== null ? (
-			<Redirect to="/settings"/>
+		{email !== undefined && email != null ? (
+			<Redirect to="/"/>
 		) : (
 			<Login onSubmit={(values) => handleSubmit(values)} />
 		)}
