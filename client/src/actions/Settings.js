@@ -1,4 +1,5 @@
 import { getTokenFromCookie } from '../utility/Cookie';
+import { logout } from './Account';
 import { redirect } from './Redirect';
 import { setBusinessesFilters } from './Results';
 
@@ -67,8 +68,10 @@ export function getUserSettings() {
 				let error = new Error(response.statusText);
 				error.response = response;
 				// unauthorized
-				if (response.status === 401)
+				if (response.status === 401) {
+					dispatch(logout());
 					dispatch(redirect('/unauthorized'));
+				}
 				throw error;
 			}
 			return response;
@@ -100,8 +103,10 @@ export function updateUserSettings(filters) {
 				let error = new Error(response.statusText);
 				error.response = response;
 				// unauthorized
-				if (response.status === 401)
+				if (response.status === 401) {
+					dispatch(logout());
 					dispatch(redirect('/restricted'));
+				}
 				throw error;
 			}
 			return response;

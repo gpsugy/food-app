@@ -16,6 +16,7 @@ export default class Navbar extends Component {
 
 	renderMenu(isLoggedOut, handleLogout) {
 		let menuItems = [];
+		menuItems.push(<li key='home'><Link to="/">Home</Link></li>);
 		if (isLoggedOut) {
 			menuItems.push(<li key='login'><Link to="/login">Login</Link></li>);
 			menuItems.push(<li key='signup'><Link to="/signup">Signup</Link></li>);
