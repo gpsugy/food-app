@@ -2,40 +2,23 @@ import { Field, reduxForm } from 'redux-form';
 import { Link, Redirect } from 'react-router-dom';
 import React, { Component } from 'react';
 
+import renderField from './RenderField';
+import { required, minLength6, emailVal } from '../../utility/FormValidate';
+
 class Signup extends Component {
 	render() {
 		const { handleSubmit, email } = this.props;
 		let isLoggedOut = (email === undefined || email == null);
+
 		return (
 			<div>
 				{isLoggedOut ? (
 					<div>
 						<h1>Signup</h1>
 						<form onSubmit={handleSubmit}>
-							<div className="form-group">	
-								<label>
-									First Name: 
-									<Field component="input" type="text" name="firstName" />
-								</label>
-							</div>
-							<div className="form-group">	
-								<label>
-									Last Name: 
-									<Field component="input" type="text" name="lastName" />
-								</label>
-							</div>
-							<div className="form-group">	
-								<label>
-									Email: 
-									<Field component="input" type="text" name="email" />
-								</label>
-							</div>
-							<div className="form-group">
-								<label>
-									Password: 
-									<Field component="input" type="password" name="password" />
-								</label>
-							</div>
+							<Field component={renderField} label="Full name" type="text" name="firstName" validate={required}/>
+							<Field component={renderField} label="Email" type="text" name="email" validate={[ required, emailVal ]} />
+							<Field component={renderField} label="Create a password" type="password" name="password" validate={[ required, minLength6 ]}/>
 							<button type="submit" >Submit</button>
 						</form>
 						<p>Already have an account? <Link to="/login">Login</Link></p>
