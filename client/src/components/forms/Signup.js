@@ -14,11 +14,23 @@ class Signup extends Component {
 						<form onSubmit={handleSubmit}>
 							<div className="form-group">	
 								<label>
+									First Name: 
+									<Field component="input" type="text" name="firstName" />
+								</label>
+							</div>
+							<div className="form-group">	
+								<label>
+									Last Name: 
+									<Field component="input" type="text" name="lastName" />
+								</label>
+							</div>
+							<div className="form-group">	
+								<label>
 									Email: 
 									<Field component="input" type="text" name="email" />
 								</label>
 							</div>
-							<div>
+							<div className="form-group">
 								<label>
 									Password: 
 									<Field component="input" type="password" name="password" />
