@@ -60,6 +60,10 @@ nav div:hover ul {
 	background-color: #363636;
 }
 
+.menu-drop-down li:hover {
+	background-color: #444;
+}
+
 .menu-drop-down li:first-child {
 	border-radius: 3px 3px 0 0;
 	margin-top: 25px;
