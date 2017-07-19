@@ -16,7 +16,7 @@ class Signup extends Component {
 					<div>
 						<h1>Signup</h1>
 						<form onSubmit={handleSubmit}>
-							<Field component={renderField} label="Full name" type="text" name="firstName" validate={required}/>
+							<Field component={renderField} label="Full name" type="text" name="fullName" validate={required}/>
 							<Field component={renderField} label="Email" type="text" name="email" validate={[ required, emailVal ]} />
 							<Field component={renderField} label="Create a password" type="password" name="password" validate={[ required, minLength6 ]}/>
 							<button type="submit" >Submit</button>
