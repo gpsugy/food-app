@@ -10,17 +10,17 @@ nav {
 
 .user-container {
 	display: flex;
-	width: 80px;
+	width: 75px;
 	line-height: 1;
 	justify-content: center;
 	font: bold 16px 'Open Sans Condensed', sans-serif;
 }
 
 .user-icon {
-	color: #00FFB3;
-	text-decoration: none;
-	font-size: 24px;
 	align-self: center;
+	width: 100%;
+	height: 100%;
+	padding: 5px 0;
 }
 
 .menu-drop-down {
@@ -45,6 +45,7 @@ nav div:hover ul {
 
 .menu-drop-down li {
 	background-color: #313131;
+	color: white;
 	width: 100%;
 	padding: 12px 0;
 	text-align: center;

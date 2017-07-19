@@ -4,6 +4,7 @@ export const SIGNUP_ERROR = 'SIGNUP_ERROR';
 export const LOGIN_REQUEST = 'LOGIN_REQUEST';
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 export const LOGIN_ERROR = 'LOGIN_ERROR';
+export const LOGOUT = 'LOGOUT';
 
 /* Signup */
 
@@ -50,6 +51,23 @@ export function loginError(error) {
 		error
 	};
 }
+
+/* logout */
+
+export function logout() {
+	return {
+		type: LOGOUT
+	}
+}
+
+
+// export function logoutAndRedirect() {
+// 	return (dispatch) => {
+// 		return dispatch(logout()).then(() => {
+// 			return dispatch(redirect('/'))
+// 		});
+// 	}
+// }
 
 /* API Calls */
 

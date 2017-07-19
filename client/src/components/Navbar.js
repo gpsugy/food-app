@@ -1,20 +1,45 @@
-import { Link } from 'react-router-dom';
+import '../styles/css/Navbar.css';
+import '../styles/css/font-awesome.css';
+
+import { Link, Redirect } from 'react-router-dom';
 import React, { Component } from 'react';
 
-import '../styles/Navbar.css';
-import '../styles/font-awesome.css';
+import loginSmiley from '../styles/icons/logged-in-smiley.svg';
+import loggedOutSmiley from '../styles/icons/logged-out-smiley.svg';
 
 export default class Navbar extends Component {
+	constructor(props) {
+		super(props);
+
+		this.renderMenu = this.renderMenu.bind(this);
+	}
+
+	renderMenu(isLoggedOut, handleLogout) {
+		let menuItems = [];
+		if (isLoggedOut) {
+			menuItems.push(<li key='login'><Link to="/login">Login</Link></li>);
+			menuItems.push(<li key='signup'><Link to="/signup">Signup</Link></li>);
+		}
+		else {
+			menuItems.push(<li key='settings'><Link to="/settings">Settings</Link></li>);
+			menuItems.push(<li key='logout' onClick={handleLogout}>Log Out</li>);
+		}
+
+		return menuItems;
+	}
+
 	render() {
+		const { handleLogout, email, redirect } = this.props;
+		let isLoggedOut = (email === undefined || email == null);
 		return (
 			<nav>
 				<div className="user-container">
-					<i className="fa fa-user-circle fa-3x user-icon" aria-hidden="true"></i>
+					{isLoggedOut ? <img className="user-icon" src={loggedOutSmiley} alt="Sleepy face when logged out"/> : <img className="user-icon" src={loginSmiley} alt="Smiley face when logged in"/>}
 					<ul className="menu-drop-down">
-						<li><Link to="/settings">Settings</Link></li>
-						<li><Link to="/Log Out">Log Out</Link></li>
+						{this.renderMenu(isLoggedOut, handleLogout)}
 					</ul>
 				</div>
+				{redirect ? (<Redirect to={redirect} />) : null}
 			</nav>
 		)
 	}

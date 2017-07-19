@@ -68,7 +68,7 @@ export function getUserSettings() {
 				error.response = response;
 				// unauthorized
 				if (response.status === 401)
-					dispatch(redirect('/restricted'));
+					dispatch(redirect('/unauthorized'));
 				throw error;
 			}
 			return response;

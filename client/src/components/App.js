@@ -4,15 +4,15 @@ import React from 'react';
 import FoodTypeListContainer from '../containers/FoodTypeListContainer';
 import LocationFinderContainer from '../containers/LocationFinderContainer';
 import LoginContainer from '../containers/forms/LoginContainer';
+import NavbarContainer from '../containers/NavbarContainer';
 import ResultListContainer from '../containers/ResultListContainer';
 import SettingsContainer from '../containers/private/SettingsContainer';
 import SignupContainer from '../containers/forms/SignupContainer';
 import UnAuthorizedContainer from '../containers/errors/UnAuthorizedContainer';
-import Navbar from '../components/Navbar';
 
 const App = () => (
   <div>
-    <Navbar />
+    <NavbarContainer />
     <main>
       <Switch>
         <Route exact path='/' component={LocationFinderContainer} />

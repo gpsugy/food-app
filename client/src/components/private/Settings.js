@@ -15,7 +15,7 @@ export default class Settings extends Component {
 		const { fetchedDefaults, redirect, handleClick } = this.props;
 		return (
 			<div>
-				{redirect === undefined || redirect === null ? (
+				{redirect === undefined || redirect == null ? (
 					<div>
 					{fetchedDefaults &&
 						<div>
@@ -34,7 +34,7 @@ export default class Settings extends Component {
 					}
 					</div>
 				) : (
-					<Redirect to="/unauthorized"/>
+					<Redirect to={redirect}/>
 				)}
 			</div>
 		)

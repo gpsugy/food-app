@@ -1,4 +1,4 @@
-import '../styles/FilterBar.css';
+import '../styles/css/FilterBar.css';
 
 import React, { Component } from 'react';
 
