@@ -24,7 +24,8 @@ let userSchema = mongoose.Schema({
 			],
 			distance_fi: Number
 		}
-	}
+	},
+	fullName: String
 });
 
 userSchema.methods.generateHash = (password => {

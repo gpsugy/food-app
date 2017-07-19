@@ -18,7 +18,8 @@ export function signupSuccess(user) {
 	return {
 		type: SIGNUP_SUCCESS,
 		token: user.token,
-		email: user.email
+		email: user.email,
+		fullName: user.fullName
 	};
 }
 
@@ -41,7 +42,8 @@ export function loginSuccess(user) {
 	return {
 		type: LOGIN_SUCCESS,
 		token: user.token,
-		email: user.email
+		email: user.email,
+		fullName: user.fullName
 	};
 }
 
