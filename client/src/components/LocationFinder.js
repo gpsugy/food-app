@@ -9,7 +9,8 @@ export default class LocationFinder extends Component {
 		this.props.onMount();
 	}
 	render() {
-		const { fetched, handleClick } = this.props;
+		const { fetched, handleClick, email } = this.props;
+		let isLoggedOut = (email === undefined || email == null);
 		return (
 			<div>
 				{fetched ? (
@@ -19,7 +20,13 @@ export default class LocationFinder extends Component {
 						<h2>Hi! I am a Food Bot. I'm here to help you find what <em>you</em> want to eat!</h2>
 						<h2>First, I'll need to know where you are!</h2>
 						<button className="location-btn" type="button" onClick={handleClick}>Find My Location</button>
-						<Link to="/login" className="link">Log In</Link><Link to="/signup" className="link">Sign Up</Link>
+						{isLoggedOut ? (
+							<div>
+								<Link to="/login" className="link">Log In</Link>
+								<Link to="/signup" className="link">Sign Up</Link>
+							</div>
+							) : null
+						}
 					</div>
 				)}
 			</div>

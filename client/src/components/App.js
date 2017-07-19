@@ -9,6 +9,7 @@ import ResultListContainer from '../containers/ResultListContainer';
 import SettingsContainer from '../containers/private/SettingsContainer';
 import SignupContainer from '../containers/forms/SignupContainer';
 import UnAuthorizedContainer from '../containers/errors/UnAuthorizedContainer';
+import AlreadySignedup from '../components/errors/AlreadySignedup';
 
 const App = () => (
   <div>
@@ -22,6 +23,7 @@ const App = () => (
         <Route path='/signup' component={SignupContainer} />
         <Route path='/settings' component={SettingsContainer} />
         <Route path='/unauthorized' component={UnAuthorizedContainer} />
+        <Route path='/already' component={AlreadySignedup} />
       </Switch>
     </main>
   </div>
