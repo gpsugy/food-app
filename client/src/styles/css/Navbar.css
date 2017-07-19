@@ -10,7 +10,7 @@ nav {
 
 .user-container {
 	display: flex;
-	width: 80px;
+	width: 75px;
 	line-height: 1;
 	justify-content: center;
 	font: bold 16px 'Open Sans Condensed', sans-serif;
