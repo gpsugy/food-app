@@ -4,6 +4,8 @@ import '../styles/font-awesome.css';
 import { Link, Redirect } from 'react-router-dom';
 import React, { Component } from 'react';
 
+import Smiley from '../icons/Smiley';
+
 export default class Navbar extends Component {
 	constructor(props) {
 		super(props);
@@ -31,7 +33,7 @@ export default class Navbar extends Component {
 		return (
 			<nav>
 				<div className="user-container">
-					<i className="fa fa-user-circle fa-3x user-icon" aria-hidden="true"></i>
+					<Smiley />
 					<ul className="menu-drop-down">
 						{this.renderMenu(isLoggedOut, handleLogout)}
 					</ul>
