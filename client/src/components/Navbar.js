@@ -1,5 +1,5 @@
-import '../styles/Navbar.css';
-import '../styles/font-awesome.css';
+import '../styles/css/Navbar.css';
+import '../styles/css/font-awesome.css';
 
 import { Link, Redirect } from 'react-router-dom';
 import React, { Component } from 'react';

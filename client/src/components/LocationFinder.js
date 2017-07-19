@@ -1,4 +1,4 @@
-import '../styles/LocationFinder.css';
+import '../styles/css/LocationFinder.css';
 
 import { Link } from 'react-router-dom';
 import { Redirect } from 'react-router'

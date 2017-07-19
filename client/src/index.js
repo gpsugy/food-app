@@ -1,13 +1,13 @@
-import './styles/index.css';
-import './styles/normalize.css';
+import './styles/css/index.css';
+import './styles/css/normalize.css';
 
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import configureStore from './store';
 import App from './components/App';
+import configureStore from './store';
 import registerServiceWorker from './registerServiceWorker';
 
 async function init() {
