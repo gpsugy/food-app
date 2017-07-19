@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 
+import { clearRedirect } from '../../actions/Redirect';
 import { getUserSettings, updateUserSettings } from '../../actions/Settings';
 import Settings from '../../components/private/Settings';
 
@@ -25,6 +26,7 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
 		redirect: stateProps.redirect,
 		fullName: stateProps.fullName,
 		onMount: () => {
+			dispatchProps.dispatch(clearRedirect());
 			dispatchProps.dispatch(getUserSettings());
 		},
 		handleClick: () => {

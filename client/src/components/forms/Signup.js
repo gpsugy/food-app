@@ -7,26 +7,19 @@ import { required, minLength6, emailVal } from '../../utility/FormValidate';
 
 class Signup extends Component {
 	render() {
-		const { handleSubmit, email } = this.props;
-		let isLoggedOut = (email === undefined || email == null);
+		const { handleSubmit } = this.props;
 
 		return (
 			<div>
-				{isLoggedOut ? (
-					<div>
-						<h1>Signup</h1>
-						<form onSubmit={handleSubmit}>
-							<Field component={renderField} label="Full name" type="text" name="fullName" validate={required}/>
-							<Field component={renderField} label="Email" type="text" name="email" validate={[ required, emailVal ]} />
-							<Field component={renderField} label="Create a password" type="password" name="password" validate={[ required, minLength6 ]}/>
-							<button type="submit" >Submit</button>
-						</form>
-						<p>Already have an account? <Link to="/login">Login</Link></p>
-						<Link to="/">Home</Link>
-					</div>
-				) : (
-					<Redirect to="/already"/>
-				)}
+				<h1>Signup</h1>
+				<form onSubmit={handleSubmit}>
+					<Field component={renderField} label="Full name" type="text" name="fullName" validate={required}/>
+					<Field component={renderField} label="Email" type="text" name="email" validate={[ required, emailVal ]} />
+					<Field component={renderField} label="Create a password" type="password" name="password" validate={[ required, minLength6 ]}/>
+					<button type="submit" >Submit</button>
+				</form>
+				<p>Already have an account? <Link to="/login">Login</Link></p>
+				<Link to="/">Home</Link>
 			</div>
 		)
 	}
