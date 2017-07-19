@@ -37,7 +37,7 @@ export default function passportConfig(passport) {
         console.log('JWT Authorization Check... payload received', payload);
         // find a user whose email is the same as the forms email
         // we are checking to see if the user trying to login already exists
-        User.findOne({ _id :  payload }, (err, user) => {
+        User.findOne({ _id :  payload.id }, (err, user) => {
             // if there are any errors, return the error before anything else
             if (err) {
                 console.log('db error');
