@@ -39,13 +39,13 @@ export default class FilterBar extends Component {
 			return null;
 
 		(sorting.prices[0] != null)
-			? priceFilters.push(<li key='1' onClick={() => clickPrice(1)} className="filter-btn price-selected">$</li>) : priceFilters.push(<li key='1' className="filter-btn" onClick={() => clickPrice(1)}>$</li>);
+			? priceFilters.push(<li key='1' onClick={() => clickPrice(1)} className="filter-btn price-selected first">$</li>) : priceFilters.push(<li key='1' className="filter-btn first" onClick={() => clickPrice(1)}>$</li>);
 		(sorting.prices[1] != null)
 			? priceFilters.push(<li key='2' onClick={() => clickPrice(2)} className="filter-btn price-selected">$$</li>) : priceFilters.push(<li key='2' className="filter-btn" onClick={() => clickPrice(2)}>$$</li>);
 		(sorting.prices[2] != null)
 			? priceFilters.push(<li key='3' onClick={() => clickPrice(3)} className="filter-btn price-selected">$$$</li>) : priceFilters.push(<li key='3' className="filter-btn" onClick={() => clickPrice(3)}>$$$</li>);
 		(sorting.prices[3] != null)
-			? priceFilters.push(<li key='4' onClick={() => clickPrice(4)} className="filter-btn price-selected">$$$$</li>) : priceFilters.push(<li key='4' className="filter-btn" onClick={() => clickPrice(4)}>$$$$</li>);
+			? priceFilters.push(<li key='4' onClick={() => clickPrice(4)} className="filter-btn price-selected last">$$$$</li>) : priceFilters.push(<li key='4' className="filter-btn last" onClick={() => clickPrice(4)}>$$$$</li>);
 
 
 		return priceFilters;
