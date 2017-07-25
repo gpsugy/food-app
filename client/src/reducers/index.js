@@ -39,6 +39,7 @@ import {
   SIGNUP_SUCCESS,
 } from '../actions/Account';
 import {
+  REFRESH_UPDATED,
   SETTINGS_ERROR,
   SETTINGS_REQUEST,
   SET_USER_FILTERS,
@@ -156,6 +157,12 @@ export const account = (state = {}, action) => {
 		case UPDATE_SETTINGS_ERROR:
 			console.log(action.error);
 			return state;
+		case REFRESH_UPDATED:
+			console.log('refresh updated');
+			return {
+				...state,
+				updated: false
+			};
 		case 'persist/REHYDRATE':
 			return (action.payload.user !== undefined
 				&& action.payload.user.account !== undefined) ? action.payload.user.account : state;

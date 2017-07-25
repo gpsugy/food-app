@@ -33,7 +33,7 @@ export default class FoodTypeList extends Component {
 						<h2>What types of food are you in the mood for?</h2>
 						<h3>Select at least one of the following:</h3>
 					</header>
-					<main>
+					<main className="food-type-list-container">
 						<ul className="food-types">
 							{this.renderFoodTypes()}
 						</ul>

@@ -15,6 +15,7 @@ export default class FilterBar extends Component {
 	constructor(props) {
 		super(props);
 
+		props.onMount();
 		this.renderArrow = this.renderArrow.bind(this);
 		this.renderDistanceFilter = this.renderDistanceFilter.bind(this);
 	}

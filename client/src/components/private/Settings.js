@@ -37,7 +37,7 @@ export default class Settings extends Component {
 								<h1>Settings</h1>
 								<h2 className="greeting">Hi {this.getFirstName(fullName)}, here are your settings! Update them as you please!</h2>
 							</header>
-							<main>
+							<main className="settings-container">
 								<div>
 									<h2 className="category">Default Filters</h2>
 								</div>

@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 
+import { refreshUpdated } from '../../actions/Settings';
 import {
   userToggleDistanceFilter,
   userToggleRatingSort,
@@ -16,14 +17,19 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch) => {
 	return {
 		clickRating: () => {
+			dispatch(refreshUpdated());
 			dispatch(userToggleRatingSort());
 		},
 		clickPrice: (price) => {
+			dispatch(refreshUpdated());
 			dispatch(userUpdatePrices(price));
 		},
 		clickDistance: () => {
-			// console.log('clicked distance');
+			dispatch(refreshUpdated());
 			dispatch(userToggleDistanceFilter());
+		},
+		onMount: () => {
+			dispatch(refreshUpdated());
 		}
 	};
 }

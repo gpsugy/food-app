@@ -26,8 +26,9 @@ const mapDispatchToProps = (dispatch) => {
 		clickDistance: () => {
 			// console.log('clicked distance');
 			dispatch(toggleDistanceFilter());
-		}
-	};
+		},
+		onMount: () => {} // needs to be defined or else breaks
+		};
 }
 
 const FilterBarContainer = connect(

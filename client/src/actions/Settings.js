@@ -9,6 +9,7 @@ export const SETTINGS_ERROR = 'SETTINGS_ERROR';
 export const UPDATE_SETTINGS_REQUEST = 'UPDATE_SETTINGS_REQUEST';
 export const UPDATE_SETTINGS_SUCCESS = 'UPDATE_SETTINGS_SUCCESS';
 export const UPDATE_SETTINGS_ERROR = 'UPDATE_SETTINGS_ERROR';
+export const REFRESH_UPDATED = 'REFRESH_UPDATED';
 
 export function settingsRequest() {
 	return {
@@ -46,6 +47,12 @@ export function updateSettingsError(error) {
 	return {
 		type: UPDATE_SETTINGS_ERROR,
 		error
+	};
+}
+
+export function refreshUpdated() {
+	return {
+		type: REFRESH_UPDATED
 	};
 }
 
