@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+/*@import url('https://fonts.googleapis.com/css?family=Comfortaa');*/
+
 html {
 	box-sizing: border-box;
 }
@@ -8,7 +11,22 @@ html {
 body {
 	margin-bottom: 300px;
 	padding: 0;
-	font-family: sans-serif;
+	font-family: 'Nunito', sans-serif;
+	/*font-family: 'Comfortaa';*/
+}
+
+.body-wrapper {
+	width: 100%;
+	margin: 0 auto;
+	text-align: center;
+}
+
+body, button[type='button'], button[type='submit'], input {
+	font-family: 'Nunito', sans-serif;
+}
+
+button[type='button'], button[type='submit'] {
+	margin: 0 auto;
 }
 
 ul {

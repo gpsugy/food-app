@@ -1,9 +1,9 @@
 import { Field, reduxForm } from 'redux-form';
-import { Link, Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import React, { Component } from 'react';
 
-import renderField from './RenderField';
 import { required, minLength6, emailVal } from '../../utility/FormValidate';
+import renderField from './RenderField';
 
 class Signup extends Component {
 	render() {
