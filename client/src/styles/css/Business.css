@@ -1,0 +1,33 @@
+.biz {
+	display: flex;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.img-box {
+	flex-grow: 1;
+}
+
+img {
+	border-radius: 5px;
+}
+
+.biz-main-info {
+	flex-grow: 2;
+	text-align: left;
+}
+
+.biz-name {
+	margin-top: 4px;
+	margin-bottom: 25px;
+}
+
+.biz-rating-info {
+	margin-bottom: 15px;
+}
+
+.distance-traits {
+	flex-grow: 1;
+	text-align: right;
+	padding-top: 4px;
+}
