@@ -12,6 +12,7 @@ body {
 	margin-bottom: 300px;
 	padding: 0;
 	font-family: 'Nunito', sans-serif;
+	color: #555555;
 	/*font-family: 'Comfortaa';*/
 }
 
@@ -27,6 +28,19 @@ body, button[type='button'], button[type='submit'], input {
 
 button[type='button'], button[type='submit'] {
 	margin: 0 auto;
+	background-color: #FF3700;
+	color: white;
+	border-radius: 5px;
+	border: none;
+	font-size: 20px;
+	padding: 10px 20px;
+	margin-bottom: 15px;
+	font-weight: bold;
+}
+
+.link {
+	text-decoration: none;
+	color: #14CC2D;
 }
 
 ul {

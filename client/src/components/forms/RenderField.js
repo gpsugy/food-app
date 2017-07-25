@@ -1,4 +1,5 @@
 import React from 'react';
+import '../../styles/css/forms/RenderField.css';
 
 const renderField = ({ input, label, type, meta: { touched, error, warning } }) => (
 	<div className="form-group">
