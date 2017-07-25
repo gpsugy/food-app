@@ -12,8 +12,8 @@ class Login extends Component {
 			<div>
 				<h1>Login</h1>
 				<form onSubmit={handleSubmit}>
-					<Field component={renderField} label="Email" type="text" name="email" validate={[ required, emailVal ]}/>
-					<Field component={renderField} label="Password" type="password" name="password" validate={required}/>
+					<Field component={renderField} label="Email" placeholder="john.smith@gmail.com" type="text" name="email" validate={[ required, emailVal ]}/>
+					<Field component={renderField} label="Password" placeholder="Enter your password" type="password" name="password" validate={required}/>
 					<button type="submit" >Login</button>
 				</form>
 				<p>Need an account? <Link to="/signup">Signup</Link></p>
