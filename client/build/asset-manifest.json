@@ -1,6 +1,13 @@
 {
-  "main.css": "static/css/main.76c42c11.css",
-  "main.css.map": "static/css/main.76c42c11.css.map",
-  "main.js": "static/js/main.703de155.js",
-  "main.js.map": "static/js/main.703de155.js.map"
+  "main.css": "static/css/main.d62d2701.css",
+  "main.css.map": "static/css/main.d62d2701.css.map",
+  "main.js": "static/js/main.f4f54989.js",
+  "main.js.map": "static/js/main.f4f54989.js.map",
+  "static/media/fontawesome-webfont.eot?v=4.7.0": "static/media/fontawesome-webfont.674f50d2.eot",
+  "static/media/fontawesome-webfont.svg?v=4.7.0": "static/media/fontawesome-webfont.912ec66d.svg",
+  "static/media/fontawesome-webfont.ttf?v=4.7.0": "static/media/fontawesome-webfont.b06871f2.ttf",
+  "static/media/fontawesome-webfont.woff2?v=4.7.0": "static/media/fontawesome-webfont.af7ae505.woff2",
+  "static/media/fontawesome-webfont.woff?v=4.7.0": "static/media/fontawesome-webfont.fee66e71.woff",
+  "static/media/logged-in-smiley.svg": "static/media/logged-in-smiley.3bb14815.svg",
+  "static/media/logged-out-smiley.svg": "static/media/logged-out-smiley.a08c854e.svg"
 }
