@@ -5,6 +5,8 @@ import React, { Component } from 'react';
 import { emailVal, required } from '../../utility/FormValidate';
 import renderField from './RenderField';
 
+import '../../styles/css/forms/Login.css';
+
 class Login extends Component {
 	render() {
 		const { handleSubmit } = this.props;
@@ -16,7 +18,7 @@ class Login extends Component {
 					<Field component={renderField} label="Password" placeholder="Enter your password" type="password" name="password" validate={required}/>
 					<button type="submit" >Login</button>
 				</form>
-				<p>Need an account? <Link to="/signup">Signup</Link></p>
+				<p>Need an account? <Link to="/signup" className="signup-link">Signup</Link></p>
 				<Link to="/">Home</Link>
 			</div>
 		)
