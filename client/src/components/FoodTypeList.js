@@ -1,3 +1,5 @@
+import '../styles/css/FoodTypeList.css';
+
 import { Redirect } from 'react-router'
 import React, { Component } from 'react';
 

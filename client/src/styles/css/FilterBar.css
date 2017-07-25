@@ -1,5 +1,5 @@
 /* All Filters */
-
+	
 .filter-list > li {
 	margin-right: 40px;
 }
@@ -20,6 +20,7 @@
 
 .rating-btn {
 	padding: 8px 15px;
+	border-radius: 5px;
 }
 
 .space-lg {
@@ -34,9 +35,25 @@
 }
 
 .price-filters li {
-	padding: 5px 10px;
+	padding: 8px 10px;
 }
 
 .price-selected {
 	background-color: gray;
+}
+
+.price-filters .first {
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
+}
+
+.price-filters .last {
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+}
+
+/* Distance Btn */
+.distance-btn {
+	border-radius: 5px;
+	padding: 8px 20px;
 }

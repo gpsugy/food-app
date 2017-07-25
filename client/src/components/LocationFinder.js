@@ -22,8 +22,8 @@ export default class LocationFinder extends Component {
 						<button className="location-btn" type="button" onClick={handleClick}>Find My Location</button>
 						{isLoggedOut ? (
 							<div>
-								<Link to="/login" className="link">Log In</Link>
-								<Link to="/signup" className="link">Sign Up</Link>
+								<Link to="/login" className="login-link">Log In</Link>
+								<Link to="/signup">Sign Up</Link>
 							</div>
 							) : null
 						}

@@ -1,3 +1,5 @@
+import '../styles/css/ResultList.css';
+
 import { Link } from 'react-router-dom';
 import React, { Component } from 'react';
 
@@ -36,7 +38,7 @@ export default class ResultList extends Component {
 				</header>
 				<main>
 					<FilterBarContainer />
-					<ul>
+					<ul className="result-list">
 						{this.renderResults(results, sorting)}
 					</ul>
 				</main>

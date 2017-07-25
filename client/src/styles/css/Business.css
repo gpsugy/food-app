@@ -1,0 +1,33 @@
+.biz {
+	display: flex;
+    max-width: 1000px;
+    margin: 0 auto;
+    margin-bottom: 30px;
+    width: 90%;
+}
+
+.img-box {
+	padding-right: 40px;
+}
+
+img {
+	border-radius: 5px;
+}
+
+.biz-main-info {
+	text-align: left;
+}
+
+.biz-name {
+	margin-top: 4px;
+	margin-bottom: 25px;
+}
+
+.biz-rating-info {
+	margin-bottom: 15px;
+}
+
+.distance-traits {
+	padding-top: 4px;
+	margin-left: auto;
+}
