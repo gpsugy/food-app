@@ -15,8 +15,18 @@ body {
 	/*font-family: 'Comfortaa';*/
 }
 
+.body-wrapper {
+	width: 100%;
+	margin: 0 auto;
+	text-align: center;
+}
+
 body, button[type='button'], button[type='submit'], input {
 	font-family: 'Nunito', sans-serif;
+}
+
+button[type='button'], button[type='submit'] {
+	margin: 0 auto;
 }
 
 ul {

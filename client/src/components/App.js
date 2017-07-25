@@ -15,26 +15,28 @@ import UnAuthorizedContainer from '../containers/errors/UnAuthorizedContainer';
 const App = () => (
   <div>
     <NavbarContainer />
-    <Route render={({ location, history, match }) => (
-        <RouteTransition
-          pathname={location.pathname}
-          atEnter={{ opacity: 0 }}
-          atLeave={{ opacity: 1 }}
-          atActive={{ opacity: 1 }}
-        >
-          <Switch key={location.key} location={location}>
-            <Route exact path='/' component={LocationFinderContainer} />
-            <Route path='/foodTypes' component={FoodTypeListContainer} />
-            <Route path='/results' component={ResultListContainer} />
-            <Route path='/login' component={LoginContainer} />
-            <Route path='/signup' component={SignupContainer} />
-            <Route path='/settings' component={SettingsContainer} />
-            <Route path='/unauthorized' component={UnAuthorizedContainer} />
-            <Route path='/already' component={AlreadySignedup} />
-          </Switch>
-        </RouteTransition>
-      )}
+    <div className="body-wrapper">
+      <Route render={({ location, history, match }) => (
+          <RouteTransition
+            pathname={location.pathname}
+            atEnter={{ opacity: 0 }}
+            atLeave={{ opacity: 1 }}
+            atActive={{ opacity: 1 }}
+          >
+            <Switch key={location.key} location={location}>
+              <Route exact path='/' component={LocationFinderContainer} />
+              <Route path='/foodTypes' component={FoodTypeListContainer} />
+              <Route path='/results' component={ResultListContainer} />
+              <Route path='/login' component={LoginContainer} />
+              <Route path='/signup' component={SignupContainer} />
+              <Route path='/settings' component={SettingsContainer} />
+              <Route path='/unauthorized' component={UnAuthorizedContainer} />
+              <Route path='/already' component={AlreadySignedup} />
+            </Switch>
+          </RouteTransition>
+        )}
     />
+    </div>
   </div>
 )
 
