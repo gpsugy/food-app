@@ -38,7 +38,7 @@ export function allowLocationRefetch() {
 export function fetchUserLocation() {
 	return (dispatch) => {
 		var options = {
-			enableHighAccuracy: false,
+			enableHighAccuracy: true,
 			timeout: 15000,
 			maximumAge: 0
 		};
