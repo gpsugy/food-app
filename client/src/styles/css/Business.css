@@ -2,10 +2,12 @@
 	display: flex;
     max-width: 1000px;
     margin: 0 auto;
+    margin-bottom: 30px;
+    width: 90%;
 }
 
 .img-box {
-	flex-grow: 1;
+	padding-right: 40px;
 }
 
 img {
@@ -13,7 +15,6 @@ img {
 }
 
 .biz-main-info {
-	flex-grow: 2;
 	text-align: left;
 }
 
@@ -27,7 +28,6 @@ img {
 }
 
 .distance-traits {
-	flex-grow: 1;
-	text-align: right;
 	padding-top: 4px;
+	margin-left: auto;
 }
