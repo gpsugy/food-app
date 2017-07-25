@@ -1,3 +1,5 @@
+import '../../styles/css/private/Settings.css';
+
 import { Redirect } from 'react-router-dom';
 import React, { Component } from 'react';
 
@@ -24,7 +26,7 @@ export default class Settings extends Component {
 	}
 
 	render() {
-		const { fetchedDefaults, redirect, handleClick, fullName } = this.props;
+		const { fetchedDefaults, redirect, handleClick, fullName, updated } = this.props;
 		return (
 			<div>
 				{redirect === undefined || redirect == null ? (
@@ -33,14 +35,15 @@ export default class Settings extends Component {
 						<div>
 							<header>
 								<h1>Settings</h1>
-								<h2>Hi {this.getFirstName(fullName)}, here are your settings! Update them as you please!</h2>
+								<h2 className="greeting">Hi {this.getFirstName(fullName)}, here are your settings! Update them as you please!</h2>
 							</header>
 							<main>
 								<div>
-									<h3>Default Filters</h3>
+									<h2 className="category">Default Filters</h2>
 								</div>
 								<FilterDefaultsContainer />
 								<button type="button" onClick={handleClick}>Update Settings</button>
+								{updated ? <h3 className="success-msg">Your default settings have been updated!</h3> : null}
 							</main>
 						</div>
 					}

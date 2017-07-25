@@ -1,0 +1,19 @@
+.success-msg {
+	color: #14CC2D;
+}
+
+.greeting {
+	margin-bottom: 50px;
+    color: #848484;
+}
+
+main {
+	max-width: 700px;
+	width: 90%;
+}
+
+.filter-list {
+	margin-bottom: 35px;
+	padding: 0;
+	margin-left: 45px;
+}

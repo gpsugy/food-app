@@ -73,7 +73,8 @@ describe('(Reduxer) User Settings SORTING object changes', () => {
 					distance_fi: 1
 				}
 			},
-			isFetching: true
+			isFetching: true,
+			updated: true
 		};
 
 		let filters = {
@@ -89,7 +90,8 @@ describe('(Reduxer) User Settings SORTING object changes', () => {
 					distance_fi: 2
 				}
 			},
-			isFetching: false
+			isFetching: false,
+			updated: true
 		};
 		expect(
 			account(state, setUserFilters(filters))
@@ -113,7 +115,8 @@ describe('(Reduxer) Update Settings', () => {
 			isFetching: true
 		};
 		let expected = {
-			isFetching: false
+			isFetching: false,
+			updated: true
 		};
 		expect(
 			account(state, updateSettingsSuccess())

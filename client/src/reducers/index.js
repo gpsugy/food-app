@@ -124,7 +124,8 @@ export const account = (state = {}, action) => {
 		case UPDATE_SETTINGS_SUCCESS:
 			return {
 				...state,
-				isFetching: false
+				isFetching: false,
+				updated: true
 			};
 		case SET_USER_FILTERS:
 			return {

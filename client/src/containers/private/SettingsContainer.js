@@ -16,7 +16,8 @@ const mapStateToProps = (state) => {
 		fetchedDefaults: fetchedDefaults,
 		redirect: state.redirect,
 		filters: filters,
-		fullName: state.user.account.fullName
+		fullName: state.user.account.fullName,
+		updated: state.user.account.updated
 	};
 }
 
@@ -25,6 +26,7 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
 		fetchedDefaults: stateProps.fetchedDefaults,
 		redirect: stateProps.redirect,
 		fullName: stateProps.fullName,
+		updated: stateProps.updated,
 		onMount: () => {
 			dispatchProps.dispatch(clearRedirect());
 			dispatchProps.dispatch(getUserSettings());
