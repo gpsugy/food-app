@@ -1,3 +1,7 @@
+.form-group {
+    margin-bottom: 8px;
+}
+
 .form-group label {
     font-size: 20px;
     margin-bottom: 15px;
@@ -19,6 +23,14 @@
     color: #b2b2b2;
 }
 
+.form-group input.invalidInput[type="text"],
+.form-group input.invalidInput[type="password"],
+.invalidInput textarea,
+.invalidInput select {
+    background-color: #fff7f4;
+    border: 0.2px solid #e0e0e0;
+}
+
 .form-group input[type="text"],
 .form-group input[type="password"],
 .form-group textarea,
@@ -32,7 +44,7 @@
     padding: 7px;
     width: 100%;
     box-sizing: border-box; 
-    background-color: #eaeaea;
+    background-color: #ededed;
     color:#8a97a0;
     box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
     margin-bottom: 15px;
