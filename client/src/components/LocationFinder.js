@@ -1,4 +1,5 @@
 import '../styles/css/LocationFinder.css';
+import Spinner from './Spinner';
 
 import { Link } from 'react-router-dom';
 import { Redirect } from 'react-router'
@@ -20,6 +21,7 @@ export default class LocationFinder extends Component {
 						<h2>Hi! I am a Food Bot. I'm here to help you find what <em>you</em> want to eat!</h2>
 						<h2>First, I'll need to know where you are!</h2>
 						<button className="location-btn" type="button" onClick={handleClick}>Find My Location</button>
+						<Spinner />
 						{isLoggedOut ? (
 							<div>
 								<Link to="/login" className="login-link">Log In</Link>
