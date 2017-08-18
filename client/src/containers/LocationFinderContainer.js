@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 
-import { fetchUserLocation, initBkgdState } from '../actions';
+import { fetchUserLocation } from '../actions/Location';
+import { initBkgdState } from '../actions';
 import LocationFinder from '../components/LocationFinder';
 
 const mapStateToProps = (state, ownProps) => {
