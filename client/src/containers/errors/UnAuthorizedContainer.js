@@ -1,11 +1,11 @@
 import { connect } from 'react-redux';
 
-import { clearRedirect } from '../../actions/Redirect';
+import { initBkgdState } from '../../actions';
 import UnAuthorized from '../../components/errors/UnAuthorized';
 
 const mapDispatchToProps = (dispatch) => ({
 	onMount: () => {
-		dispatch(clearRedirect());
+		dispatch(initBkgdState());
 	}
 });
 

@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 
-import { clearRedirect } from '../../actions/Redirect';
 import { getUserSettings, updateUserSettings } from '../../actions/Settings';
+import { initBkgdState } from '../../actions';
 import Settings from '../../components/private/Settings';
 
 const mapStateToProps = (state) => {
@@ -28,7 +28,7 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
 		fullName: stateProps.fullName,
 		updated: stateProps.updated,
 		onMount: () => {
-			dispatchProps.dispatch(clearRedirect());
+			dispatchProps.dispatch(initBkgdState());
 			dispatchProps.dispatch(getUserSettings());
 		},
 		handleClick: () => {
