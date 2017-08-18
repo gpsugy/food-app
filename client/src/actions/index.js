@@ -1,9 +1,5 @@
 import { clearRedirect } from './Redirect';
 
-export * from './Location'
-export * from './FoodType'
-export * from './Results'
-
 export const INIT_FETCHING = 'INIT_FETCHING';
 
 // action creators

@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 
 import { findIndexOf } from '../utility/arrayMethods';
-import { updateFoodTypes } from '../actions';
+import { updateFoodTypes } from '../actions/FoodType';
 import FoodType from '../components/FoodType';
 
 const mapStateToProps = (state, ownProps) => {

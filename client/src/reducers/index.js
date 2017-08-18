@@ -1,7 +1,12 @@
 import { combineReducers } from 'redux';
 import { reducer as formReducer } from 'redux-form';
 
-import { ALLOW_LOCATION_REFETCH } from '../actions/Location';
+import {
+  ALLOW_LOCATION_REFETCH,
+  FETCH_LOCATION_ERROR,
+  FETCH_LOCATION_REQUEST,
+  FETCH_LOCATION_SUCCESS,
+} from '../actions/Location';
 import {
   ALLOW_RESULTS_REFETCH,
   FETCH_BUSINESSES_ERROR,
@@ -14,12 +19,7 @@ import {
   DISTANCE_FILTER_TYPES,
   RATING_SORT_TYPES,
 } from '../utility/FilterTypes';
-import {
-  FETCH_LOCATION_ERROR,
-  FETCH_LOCATION_REQUEST,
-  FETCH_LOCATION_SUCCESS,
-  INIT_FETCHING,
-} from '../actions';
+import { INIT_FETCHING } from '../actions';
 import {
   INIT_SORT,
   SORT_BUSINESSES,
