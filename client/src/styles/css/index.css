@@ -28,7 +28,7 @@ body, button[type='button'], button[type='submit'], input {
 }
 
 button[type='button'], button[type='submit'] {
-	margin: 15px auto;
+	margin: 0 auto;
 	background-color: #FF3700;
 	color: white;
 	border-radius: 5px;

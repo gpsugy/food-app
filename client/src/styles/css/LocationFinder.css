@@ -1,15 +1,10 @@
-.location-btn {
-	display: block;
-	margin-bottom: 10px;
-}
-
 .login-link {
 	margin-right: 25px;
 }
 
 .account-links-container {
 	position: absolute;
-	top: 250px;
+	top: 260px;
 	margin: auto;
 	left: 0;
 	right: 0;
