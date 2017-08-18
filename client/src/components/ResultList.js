@@ -42,7 +42,7 @@ export default class ResultList extends Component {
 						{this.renderResults(results, sorting)}
 					</ul>
 				</main>
-				<footer>
+				<footer className="result-list-footer">
 					<Link to='/foodTypes'>
 						<button type="button" onClick={handleClick}>Go Back</button>
 					</Link>
