@@ -20,7 +20,7 @@ export default class ResultList extends Component {
 			return null;
 		// only render results within filtered prices and distance
 		for (let result of results) {
-			if (sorting.prices[result.price.length-1] !== null
+			if (sorting.prices[result.price.length-1] != null
 				&& convertMetersToMiles(result.distance, 2) <= convertDistanceFI_ToMiles(sorting.distance_fi)) {
 					businesses.push(<Business key={result.id} name={result.name} url={result.url} rating={result.rating} review_count={result.review_count} price={result.price} categories={result.categories} distance={result.distance} image_url={result.image_url} />);
 			}
@@ -42,7 +42,7 @@ export default class ResultList extends Component {
 						{this.renderResults(results, sorting)}
 					</ul>
 				</main>
-				<footer>
+				<footer className="result-list-footer">
 					<Link to='/foodTypes'>
 						<button type="button" onClick={handleClick}>Go Back</button>
 					</Link>

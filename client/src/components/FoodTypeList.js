@@ -4,6 +4,7 @@ import { Redirect } from 'react-router'
 import React, { Component } from 'react';
 
 import { FOOD_TYPES } from '../utility/FoodTypes';
+import AsyncButton from './AsyncButton';
 import FoodTypeContainer from '../containers/FoodTypeContainer';
 
 export default class FoodTypeList extends Component {
@@ -22,7 +23,7 @@ export default class FoodTypeList extends Component {
 	}
 
 	render() {
-		const { fetched, handleClick } = this.props;
+		const { fetched, fetching, handleClick } = this.props;
 		return (
 			<div>
 				{(fetched) ? (
@@ -39,7 +40,7 @@ export default class FoodTypeList extends Component {
 						</ul>
 					</main>
 					<footer>
-						<button type="button" onClick={handleClick}>Show Me Where I Can Eat!</button>
+						<AsyncButton handleClick={handleClick} fetching={fetching} fetched={fetched} btnText="Show Me Where I Can Eat!"/>
 					</footer>
 				</div>
 				)}
