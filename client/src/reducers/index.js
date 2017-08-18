@@ -72,6 +72,7 @@ export const location = (state = {}, action) => {
 			return {
 				...state,
 				fetched: refetch(state.fetched, action),
+				fetching: false
 			};
 		case 'persist/REHYDRATE':
 			return (action.payload.user !== undefined
@@ -241,17 +242,25 @@ export const businesses = (state = {}, action) => {
 			return {
 				...state, 
 				results: action.results,
-				fetched: true
+				fetched: true,
+				fetching: false
 			};
 		case FETCH_BUSINESSES_ERROR:
 			console.log(action.error);
-			return state;
+			return {
+				...state,
+				fetching: false
+			};
 		case FETCH_BUSINESSES_REQUEST:
-			return state;
+			return {
+				...state,
+				fetching: true
+			}
 		case ALLOW_RESULTS_REFETCH:
 			return {
 				...state,
 				fetched: refetch(state.fetched, action),
+				fetching: false
 			};
 		case SORT_BUSINESSES:
 			return {

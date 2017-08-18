@@ -46,7 +46,8 @@ describe('(Reducer) Businesses FETCH', () => {
 					image_url: 'https://s3-media1.fl.yelpcdn.com/bphoto/TTf4I5_GLhElpRUH-mXzxw/o.jpg'
 				}
 			],
-			fetched: true
+			fetched: true,
+			fetching: false
 		};
 		expect(
 			businesses({}, fetchBusinessesSuccess(results))
@@ -72,6 +73,7 @@ describe('(Reducer) Businesses FETCH', () => {
 				}
 			],
 			fetched: true,
+			fetching: true,
 			sorting: {
 				rating_si: 2,
 				prices: [1, 3],
@@ -96,6 +98,7 @@ describe('(Reducer) Businesses FETCH', () => {
 				}
 			],
 			fetched: false,
+			fetching: false,
 			sorting: {
 				rating_si: 2,
 				prices: [1, 3],
