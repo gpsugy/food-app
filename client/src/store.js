@@ -23,16 +23,16 @@ export default function configureStore() {
 				)
 			);
 
-			// persistStore(
-			// 	store,
-			// 	{ storage: storages.localStorage },
-			// 	() => resolve(store)
-			// );
 			persistStore(
 				store,
 				{ storage: storages.localStorage },
 				() => resolve(store)
-			).purge();
+			);
+			// persistStore(
+			// 	store,
+			// 	{ storage: storages.localStorage },
+			// 	() => resolve(store)
+			// ).purge();
 		} catch (e) {
 			reject(e);
 		}
