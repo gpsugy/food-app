@@ -6,3 +6,11 @@
 .login-link {
 	margin-right: 25px;
 }
+
+.account-links-container {
+	position: absolute;
+	top: 250px;
+	margin: auto;
+	left: 0;
+	right: 0;
+}
