@@ -7,6 +7,7 @@ import LocationFinder from '../components/LocationFinder';
 const mapStateToProps = (state, ownProps) => {
 	return {
 		fetched: state.user.location.fetched,
+		fetching: state.user.location.fetching,
 		email: state.user.account.email
 	}
 }
