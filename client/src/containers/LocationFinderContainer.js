@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 
-import { clearRedirect } from '../actions/Redirect';
-import { fetchUserLocation } from '../actions';
+import { fetchUserLocation } from '../actions/Location';
+import { initBkgdState } from '../actions';
 import LocationFinder from '../components/LocationFinder';
 
 const mapStateToProps = (state, ownProps) => {
@@ -18,7 +18,7 @@ const mapDispatchToProps = (dispatch) => {
 			dispatch(fetchUserLocation());
 		},
 		onMount: () => {
-			dispatch(clearRedirect());
+			dispatch(initBkgdState());
 		}
 	}
 }

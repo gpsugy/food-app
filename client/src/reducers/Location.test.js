@@ -5,7 +5,7 @@ import {
   fetchLocationError,
   fetchLocationRequest,
   fetchLocationSuccess,
-} from '../actions';
+} from '../actions/Location';
 import { location } from './index';
 
 const middlewares = [ thunk ];

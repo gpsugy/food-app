@@ -1,7 +1,12 @@
 import { combineReducers } from 'redux';
 import { reducer as formReducer } from 'redux-form';
 
-import { ALLOW_LOCATION_REFETCH } from '../actions/Location';
+import {
+  ALLOW_LOCATION_REFETCH,
+  FETCH_LOCATION_ERROR,
+  FETCH_LOCATION_REQUEST,
+  FETCH_LOCATION_SUCCESS,
+} from '../actions/Location';
 import {
   ALLOW_RESULTS_REFETCH,
   FETCH_BUSINESSES_ERROR,
@@ -14,11 +19,7 @@ import {
   DISTANCE_FILTER_TYPES,
   RATING_SORT_TYPES,
 } from '../utility/FilterTypes';
-import {
-  FETCH_LOCATION_ERROR,
-  FETCH_LOCATION_REQUEST,
-  FETCH_LOCATION_SUCCESS,
-} from '../actions';
+import { INIT_FETCHING } from '../actions';
 import {
   INIT_SORT,
   SORT_BUSINESSES,
@@ -72,6 +73,12 @@ export const location = (state = {}, action) => {
 			return {
 				...state,
 				fetched: refetch(state.fetched, action),
+				fetching: false
+			};
+		// needs to be used onMount of component for spinner to be removed on page refresh
+		case INIT_FETCHING:
+			return {
+				...state,
 				fetching: false
 			};
 		case 'persist/REHYDRATE':
@@ -136,7 +143,13 @@ export const account = (state = {}, action) => {
 				default: {
 					filters: (state.default === undefined) ? filters({}, action) : filters(state.default.filters, action)
 				}
-			}
+			};
+		// needs to be used onMount of component for spinner to be removed on page refresh
+		case INIT_FETCHING:
+			return {
+				...state,
+				isFetching: false
+			};
 		case USER_TOGGLE_RATING_SORT:
 		case USER_UPDATE_PRICES:
 		case USER_TOGGLE_DISTANCE_FILTER:
@@ -262,6 +275,12 @@ export const businesses = (state = {}, action) => {
 				fetched: refetch(state.fetched, action),
 				fetching: false
 			};
+		// needs to be used onMount of component for spinner to be removed on page refresh
+		case INIT_FETCHING:
+			return {
+				...state,
+				fetching: false
+			};
 		case SORT_BUSINESSES:
 			return {
 				...state,
@@ -318,7 +337,4 @@ export const appReducer = combineReducers({
 	redirect: redirect,
 	form: formReducer
 })
-
-// Sort by rating. Choose category of price. Always sort by distance.
-
 
