@@ -3,6 +3,17 @@
 	width: 45px;
 }
 
+@media only screen and (min-width: 320px)  {
+	.fade-container, .spinner-container {
+		margin-top: 28%;
+	}
+}
+
+@media only screen and (min-width: 641px)  {
+	.fade-container, .spinner-container {
+		margin-top: 4%;
+	}
+}
 
 .spinner-container {
 	position: absolute;
@@ -12,7 +23,6 @@
 }
 
 .fade-container {
-	/*margin-top: 30px;*/
 	position: relative;
 }
 
