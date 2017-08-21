@@ -71,9 +71,10 @@ nav {
 	transition: max-height 0.4s linear;
 }
 
-nav div:hover ul {
+.user-container:hover ul {
 	max-height: 200px;
 	cursor: pointer;
+	z-index: 1;
 }
 
 .menu-drop-down li {

@@ -38,6 +38,16 @@ body {
 	}
 }
 
+@media only screen and (min-width: 320px) {
+	.body-wrapper {
+		width: 90%;
+	}
+
+	h2 {
+		font-size: 30px;
+	}
+}
+
 body, button[type='button'], button[type='submit'], input {
 	font-family: 'Nunito', sans-serif;
 }
