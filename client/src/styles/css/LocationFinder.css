@@ -11,7 +11,7 @@
 
 @media only screen and (min-width: 320px)  {
 	.account-links-container {
-		margin-top: 100px;
+		top: 400px;
 	}
 
 	.account-links-container a {
@@ -21,7 +21,7 @@
 
 @media only screen and (min-width: 641px)  {
 	.account-links-container {
-		margin-top: 30px;
+		top: 220px;
 	}
 
 	.account-links-container a {
