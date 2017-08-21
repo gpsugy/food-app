@@ -1,16 +1,26 @@
 nav {
 	display: flex;
 	width: 100%;
-	height: 70px;
 	background-color: #FFFFFF;
 	justify-content: flex-end;
 	border-bottom: 1px solid #CCCCCC;
 	/*box-shadow: 0 0 10px rgba(100, 100, 100, 0.2) inset,1px 1px 1px #CCC;*/
 }
 
+@media only screen and (min-width: 320px) {
+	nav {
+		height: 90px;
+	}
+}
+
+@media only screen and (min-width: 641px) {
+	nav {
+		height: 70px;
+	}
+}
+
 .user-container {
 	display: flex;
-	width: 75px;
 	line-height: 1;
 	justify-content: center;
 	font: bold 16px 'Source Sans Pro', sans-serif;
@@ -18,9 +28,32 @@ nav {
 
 .user-icon {
 	align-self: center;
-	width: 100%;
-	height: 100%;
-	padding: 5px 0;
+}
+
+@media only screen and (min-width: 320px) {
+	.user-container {
+		height: 100%;
+		width: 82px;
+		margin-right: 7px;
+	}
+
+	.user-icon {
+		height: 90%;
+		width: auto;
+		padding: 4px;
+	}
+}
+
+@media only screen and (min-width: 641px) {
+	.user-container {
+		width: 75px;
+	}
+
+	.user-icon {
+		width: 100%;
+		height: 100%;
+		padding: 5px;
+	}
 }
 
 .menu-drop-down {

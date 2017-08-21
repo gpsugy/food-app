@@ -21,8 +21,8 @@ export default class LocationFinder extends Component {
 					<Redirect to="/foodTypes"/>
 				) : (
 					<div>
-						<h2>Hi! I am a Food Bot. I'm here to help you find what <em>you</em> want to eat!</h2>
-						<h2>First, I'll need to know where you are!</h2>
+						<h2>Hi, I am a Food Bot!</h2>
+						<h2>Let's get started!</h2>
 						<AsyncButton handleClick={handleClick} fetching={fetching} fetched={fetched} btnText="Find My Location"/>
 						{isLoggedOut ? (
 							<div className="account-links-container">
